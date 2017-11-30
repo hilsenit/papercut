@@ -12,10 +12,12 @@
 
     <nav class="container">
       <div class="nav-half">
-        <h1 class="small-headline">Papercut satelit projekt</h1>
+        <h1 class="nav-link">
+          <%= link_to "Papercut satelit projekt", root_path() %>
+        </h1>
       </div>
       <div class="nav-half">
-        <a href="#" data-toggle="menu" class="nav-link left">Menu</a>
+        <a href="#" data-toggle="menu" class="nav-link">Menu</a>
         <%= link_to "Søg", soeg_path(), class: "nav-link right" %>
       </div><!-- nav-half -->
     </nav>
@@ -32,21 +34,3 @@
     </div>
   </body>
 </html>
-<script type"text/javascript">
-
-changeHeight = function(menu_wrapper_selector) {
-  var menu_wrapper = document.querySelector(menu_wrapper_selector);
-  if ( menu_wrapper.classList.contains('menu-wrapper-open') ) {
-    menu_wrapper.classList.remove('menu-wrapper-open'); 
-  } else {
-    menu_wrapper.classList.add('menu-wrapper-open'); 
-  }
-}
-
-window.onload = function() {
-  document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
-    changeHeight('[data-slide="open"]');
-  });
-}
-
-</script>

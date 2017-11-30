@@ -14,4 +14,20 @@
 //= require_tree .
 
 
-// Menu slidedown, after window is loadet
+// LAYOUT JS
+toggleHeight = function(menu_wrapper_selector) {
+  var menu_wrapper = document.querySelector(menu_wrapper_selector);
+  if ( menu_wrapper.classList.contains('menu-wrapper-open') ) {
+    menu_wrapper.classList.remove('menu-wrapper-open'); 
+  } else {
+    menu_wrapper.classList.add('menu-wrapper-open'); 
+  }
+}
+
+window.onload = function() {
+  document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
+    toggleHeight('[data-slide="open"]');
+  });
+}
+
+// LAYOUT JS

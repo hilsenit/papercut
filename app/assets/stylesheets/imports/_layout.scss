@@ -6,17 +6,26 @@ nav {
   @include flex;
 }
 .nav-half {
+  margin-top: 10px;
   width: 50%;
   h1 {
-    font-family:  "CircularStd-Medium";
+    text-transform: none;
   }
-  .small-headline {
-    font-size: 1rem;
+  .nav-link {
+    display: inline-block;
+    font-family:  "CircularStd-Book";
     color: $the-orange;
+    font-size: 1.2rem;
+    margin-top: 12.8px;
+    margin-bottom: 12.8px;
   }
+  .right {
+    float: right;
+  }
+
 }
 .menu-wrapper-open {
-  height: 400px!important;
+  height: 300px!important;
 }
 .menu-wrapper {
   overflow: hidden;
@@ -24,8 +33,8 @@ nav {
   height: 0;
   position: absolute; 
   max-width: 600px;
-  top: 40px;
-  right: 20px;
+  top: 30px;
+  right: 0px;
   @include flex;
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
@@ -36,6 +45,9 @@ nav {
     @include flex;
     align-items: center;
     justify-content: center;
+    &:hover {
+      text-decoration: underline;
+    }
   }
   .white-orange {
     background-color: white;

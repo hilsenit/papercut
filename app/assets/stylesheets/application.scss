@@ -18,6 +18,12 @@
     position: relative;
 }
 
+h1 {
+  text-align: center;
+  font-family: "CircularStd-Medium";
+  font-size: 20px;
+  text-transform: uppercase;
+}
 html {
   height: 100%;
   width: 100%;
@@ -26,6 +32,7 @@ html {
   a {
     font-family: "CircularStd-Book";
     text-decoration: none;
+    color: $the-orange;
   }
 }
 
