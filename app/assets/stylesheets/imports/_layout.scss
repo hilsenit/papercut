@@ -2,9 +2,9 @@
 @import "imports/colors";
 
 nav {
+  @include flex;
   width: 100%;
   padding: 0 30px;
-  @include flex;
 }
 .nav-half {
   margin-top: 6px;
@@ -23,6 +23,9 @@ nav {
   .right {
     float: right;
   }
+  .active {
+    text-decoration: underline;
+  }
 }
 .right-half {
   padding: 0 30px;
@@ -31,21 +34,22 @@ nav {
   height: 300px!important;
 }
 .menu-wrapper {
-  overflow: hidden;
   @include transition(height .4s linear);
+  @include flex;
+  z-index: 999999;
+  overflow: hidden;
   height: 0;
   position: absolute; 
   max-width: 600px;
   top: 30px;
   right: 0px;
-  @include flex;
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
   .menu-box {
+    @include flex;
     width: 130px;
     height: 120px;
     margin: 9px;
-    @include flex;
     align-items: center;
     justify-content: center;
     &:hover {
