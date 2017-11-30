@@ -25,6 +25,7 @@
     width: 80%; 
     margin: 0 auto;
     margin-top: 70px;
+
     .search-input {
       width: 100%;
       font-family: "CircularStd-Book";
@@ -35,6 +36,10 @@
       padding: 5px;
       padding-left: 15px;
       border: 1px solid $border-color;
+      &:after {
+        content: "hey";
+        display: inline-block;
+      }
     }
   }
 }

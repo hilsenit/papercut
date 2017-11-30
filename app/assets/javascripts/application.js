@@ -22,21 +22,27 @@ toggleHeight = function(menu_wrapper_selector) {
   } else {
     menu_wrapper.classList.add('menu-wrapper-open'); 
   }
-}
+};
 
+openOrHide = function() {
+  var search_page = document.querySelector('[data-search="page"]');
+  if (search_page.classList.contains('hide-it')) {
+    search_page.classList.remove('hide-it');
+    document.querySelector('[data-search="input"]').focus();
+  } else {
+    search_page.classList.add('hide-it');
+  }
+};
 window.onload = function() {
   document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
     toggleHeight('[data-slide="open"]');
   });
   // Search page
-  var search_page = document.querySelector('[data-search="page"]');
-  document.querySelector('[data-search="close"]').addEventListener('click', function(){
-    search_page.classList.add('hide-it');
+  document.querySelectorAll('[data-search="openOrHide"]').forEach(function(item) {
+    item.addEventListener('click', function() {
+      openOrHide();
+    });
   });
-  document.querySelector('[data-search="button"]').addEventListener('click', function(){
-    search_page.classList.remove('hide-it');
-    document.querySelector('[data-search="input"]').focus();
-  });
-}
+};
 
 // LAYOUT JS
