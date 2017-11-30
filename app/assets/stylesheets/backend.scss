@@ -1,0 +1,23 @@
+@import "imports/backend_grid";
+@import "imports/colors";
+@import "imports/mixins";
+
+.bg-button {
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: blue;
+  color: white;
+  margin: 5px 20px;
+  padding: 2px;
+}
+.delete {
+  background-color: red;
+}
+.bg-cat-wrapper {
+  padding: 10 20px;
+  font-size: 1.5em;
+}
+.right {
+  display: inline-block; 
+  float: right;
+}

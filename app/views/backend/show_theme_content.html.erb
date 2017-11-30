@@ -1,0 +1,21 @@
+<hr>
+&larr; <%= link_to "Tilbage til oversigt", backend_path() %>
+<h2>Content for '<%= @theme.title %>'<%= link_to "Opret nyt content", new_theme_work_path(), class: "bg-button right" %></h2>
+<ul>
+<div class="ba-work-wrapper">
+  <hr>
+    <ul>
+  <% @works.each_with_index do |work, i| %>
+    <li class="bq-each-work">
+      Nr: <%= i + 1 %>  <h3><%= work.title %></h3>
+      <p>Last edited: <%= time_ago_in_words(work.updated_at) %> ago</p>
+      <div>
+        <%= link_to "Rediger", edit_theme_work_path(work.theme.id, work.id), class: "bg-button" %> 
+        <%= link_to "Slet", theme_work_path(work.theme.id, work.id), method: :delete, class: "bg-button delete", data: {confirm: "Er du sikker på, at du vil slette '#{work.title}'. Dette kan IKKE gøres om!"} %>
+      </div>
+    </li>
+    <hr>
+  <% end %>
+</div>
+
+

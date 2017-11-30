@@ -1,3 +1,15 @@
-<%= form_for :themes do |f| %>
-  <!-- ALOT OF OTHER STUFF -->
+&larr; <%= link_to "Tilbage til temaer", backend_path() %>
+<h2 class="text-center">Opret nyt tema</h2>
+<%= form_for @theme do |f| %>
+
+  <h3> <%= f.label :title %> </h3>
+<%= f.text_field :title, autofocus: true %>
+<hr>
+<h3> <%= f.label :description %> </h3>
+<%= f.text_area :description %>
+
+<hr>
+
+<%= f.submit "Opret tema", class: "bg-button" %>
 <% end %>
+

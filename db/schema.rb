@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20171130173742) do
     t.string "title"
     t.text "description"
     t.text "short_description"
-    t.integer "category"
+    t.integer "category", default: 0
     t.bigint "theme_id"
-    t.string "type"
+    t.string "type_of_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["theme_id"], name: "index_works_on_theme_id"

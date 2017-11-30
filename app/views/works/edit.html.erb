@@ -1,0 +1,3 @@
+&larr; <%= link_to "Tilbage til tema: '#{@theme.title}' oversigt", ba_show_works_path(@theme.id)  %>
+<h1 class="text-center">Du redigerer '<%= @work.title %>'</h1>
+<%= render partial: 'shared/forms/work_form' %>

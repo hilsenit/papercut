@@ -7,11 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Theme.destroy_all
+Work.destroy_all
 
 Theme.create!([
   title: "Hvorfor snakker vi ikke om lort",
   description: "Lang tekst om hvorfor vi ikke gør det.",
   made_by: "This one"
 ])
+Work.create!(
+  title: "Et lille værk, som skal ses på et tidspunkt",
+  description: "jeg mangler mit plugin, der kan generere tekjst",
+  type_of_content: "somethign",
+  theme_id: Theme.all.first.id
+)
 
-p "#{Theme.all.count} created"
+p "#{Theme.all.count} theme created"
+p "#{Work.all.count} work created"

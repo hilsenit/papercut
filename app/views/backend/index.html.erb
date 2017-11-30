@@ -1,13 +1,13 @@
 <div class="ba-theme-wrapper">
-  <h2>Temaer:</h2>
+  <h2>Temaer:<%= link_to "Opret nyt tema", new_theme_path(), class: "bg-button right" %></h2>
   <hr>
     <ul>
   <% @themes.each_with_index do |theme, i| %>
     <li class="bq-each-theme">
-      Nr: <%= i + 1 %>  <h3><%= theme.title %></h3>
+      Nr: <%= i + 1 %>  <h3><%= theme.title %><div class="right small">Content count: <%= theme.works.size %></h3>
       <p>Last edited: <%= time_ago_in_words(theme.updated_at) %> ago</p>
-      <div> <%= link_to "Rediger Tema", edit_theme_path(theme.id) %> </div>
-      <div> <%= link_to "Se Content", ba_show_works_path(theme.id) %> </div>
+      <div> <%= link_to "Rediger tema", edit_theme_path(theme.id), class: "bg-button" %> </div>
+      <div> <%= link_to "Se og opret Content", ba_show_works_path(theme.id), class: "bg-button" %> </div>
     </li>
     <hr>
   <% end %>
