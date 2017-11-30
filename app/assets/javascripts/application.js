@@ -15,10 +15,13 @@
 
 toggleHeight = function(menu_wrapper_selector) {
   var menu_wrapper = document.querySelector(menu_wrapper_selector);
+  var menu_button = document.querySelector('[data-toggle="menu"]');
   if ( menu_wrapper.classList.contains('menu-wrapper-open') ) {
     menu_wrapper.classList.remove('menu-wrapper-open'); 
+    menu_button.classList.remove('active');
   } else {
     menu_wrapper.classList.add('menu-wrapper-open'); 
+    menu_button.classList.add('active');
   }
 };
 
