@@ -1,0 +1,42 @@
+@import "imports/mixins";
+@import "imports/colors";
+
+nav {
+  width: 100%;
+  @include flex;
+}
+.nav-half {
+  width: 50%;
+  h1 {
+    font-family:  "CircularStd-Medium";
+  }
+  .small-headline {
+    font-size: 1rem;
+    color: $the-orange;
+  }
+}
+.menu-wrapper {
+  position: absolute; 
+  max-width: 600px;
+  top: 40px;
+  right: 20px;
+  @include flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  .menu-box {
+    width: 130px;
+    height: 120px;
+    margin: 9px;
+    @include flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .white-orange {
+    background-color: white;
+    color: $the-orange;
+  }
+  .black-blue {
+    background-color: black;
+    color: $dark-blue;
+  }
+}

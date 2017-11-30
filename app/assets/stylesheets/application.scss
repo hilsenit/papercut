@@ -1,26 +1,36 @@
 /*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
+ *= require normalize-rails
  *= require_tree .
  *= require_self
  */
-$primary-bg: #e5e4db;
-$the-orange: #fc4b27;
-$news-line: #c4e936;
-$dark-blue: #2f3d99;
 
+/* MEDIA SCREEN WITH BREAK IS 800 PX ! */
+@import "imports/fonts";
+@import "imports/colors"; // primary-bg, the-orange, news-line-bg, dark-blue
+@import "imports/layout";
+@import "imports/backend_grid";
 
-html, body {
+.container {
+    width: 100%;
+    height: 100%;
+    max-width: 1192px;
+    margin: 0 auto;
+    position: relative;
+}
 
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  a {
+    font-family: "CircularStd-Book";
+    text-decoration: none;
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 html {

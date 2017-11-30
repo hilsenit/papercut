@@ -9,10 +9,26 @@
   </head>
 
   <body>
-    <%= link_to "Tema", themes_path() %>
-    <%= link_to "Om", om_path() %>
-    <%= link_to "Bidrag", bidrag_path() %>
 
-    <%= yield %>
+    <nav class="container">
+      <div class="nav-half">
+        <h1 class="small-headline">Papercut satelit projekt</h1>
+      </div>
+      <div class="nav-half">
+        <a href="#" data-toggle="menu" class="nav-link left">Menu</a>
+        <%= link_to "Søg", soeg_path(), class: "nav-link right" %>
+      </div><!-- nav-half -->
+    </nav>
+    <div class="container">
+      <div class="menu-wrapper">
+          <%= link_to "Tema", themes_path(), class: "menu-box white-orange" %>
+          <%= link_to "Læs", laes_path(), class: "menu-box white-orange" %>
+          <%= link_to "Se", se_path(), class: "menu-box white-orange" %>
+          <%= link_to "Hør", hoer_path(), class: "menu-box white-orange" %>
+          <%= link_to "Om", om_path(), class: "menu-box black-blue" %>
+          <%= link_to "Bidrag", bidrag_path(), class: "menu-box black-blue" %>
+      </div><!-- menu-wrapper -->
+      <%= yield %>
+    </div>
   </body>
 </html>
