@@ -9,27 +9,11 @@
   </head>
 
   <body>
-
-    <nav class="container">
-      <div class="nav-half">
-        <h1 class="nav-link">
-          <%= link_to "Papercut satelit projekt", root_path() %>
-        </h1>
-      </div>
-      <div class="nav-half">
-        <a href="#" data-toggle="menu" class="nav-link">Menu</a>
-        <%= link_to "Søg", soeg_path(), class: "nav-link right" %>
-      </div><!-- nav-half -->
-    </nav>
+    <%= render partial: 'shared/top_navbar' %>
     <div class="container">
-      <div class="menu-wrapper" data-slide="open">
-        <%= link_to "Tema", themes_path(), class: "menu-box white-orange" %>
-        <%= link_to "Læs", laes_path(), class: "menu-box white-orange" %>
-        <%= link_to "Se", se_path(), class: "menu-box white-orange" %>
-        <%= link_to "Hør", hoer_path(), class: "menu-box white-orange" %>
-        <%= link_to "Om", om_path(), class: "menu-box black-blue" %>
-        <%= link_to "Bidrag", bidrag_path(), class: "menu-box black-blue" %>
-      </div><!-- menu-wrapper -->
+    <%= render partial: 'shared/menu' %>
+    </div>
+    <%= render partial: 'search/search_page' %>
       <%= yield %>
     </div>
   </body>

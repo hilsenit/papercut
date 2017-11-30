@@ -9,8 +9,5 @@ class PagesController < ApplicationController
   def bidrag
   end
 
-  def soeg
-  end
-
 end
 

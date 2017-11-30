@@ -9,7 +9,17 @@
 @import "imports/colors"; // primary-bg, the-orange, news-line-bg, dark-blue
 @import "imports/layout";
 @import "imports/backend_grid";
+@import "imports/search_page";
 
+/* removing outer focus flow from input fields */
+textarea, input, button { outline: none; }
+
+.hide-it {
+  display: none;
+}
+.border-right {
+  border-right: 1px solid $border-color;
+}
 .container {
     width: 100%;
     height: 100%;

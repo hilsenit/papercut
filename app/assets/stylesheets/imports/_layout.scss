@@ -3,10 +3,11 @@
 
 nav {
   width: 100%;
+  padding: 0 30px;
   @include flex;
 }
 .nav-half {
-  margin-top: 10px;
+  margin-top: 6px;
   width: 50%;
   h1 {
     text-transform: none;
@@ -22,7 +23,9 @@ nav {
   .right {
     float: right;
   }
-
+}
+.right-half {
+  padding: 0 30px;
 }
 .menu-wrapper-open {
   height: 300px!important;

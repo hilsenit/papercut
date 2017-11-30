@@ -1,0 +1,40 @@
+@import "imports/mixins";
+@import "imports/colors";
+@import "imports/fonts";
+
+.search-wrapper {
+  @include calc(width, '100% - 60px');
+  @include calc(height, '100% - 120px');
+  position: fixed;
+  top: 60px;
+  left: 30px; 
+  background-color: black;
+  p, h1, h2, h3, h4, h5, h6 {
+    color: $dark-blue;
+  }
+  .close-page {
+    position: absolute;
+    right: 14px;
+    color: $dark-blue;
+    cursor: pointer; 
+    font-size: 40px;
+    float: right;
+  }
+  .input-wrapper {
+    position: relative;
+    width: 80%; 
+    margin: 0 auto;
+    margin-top: 70px;
+    .search-input {
+      width: 100%;
+      font-family: "CircularStd-Book";
+      background-color: black;
+      color: $dark-blue;
+      height: 65px;
+      font-size: 50px;
+      padding: 5px;
+      padding-left: 15px;
+      border: 1px solid $border-color;
+    }
+  }
+}

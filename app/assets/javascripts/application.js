@@ -28,6 +28,15 @@ window.onload = function() {
   document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
     toggleHeight('[data-slide="open"]');
   });
+  // Search page
+  var search_page = document.querySelector('[data-search="page"]');
+  document.querySelector('[data-search="close"]').addEventListener('click', function(){
+    search_page.classList.add('hide-it');
+  });
+  document.querySelector('[data-search="button"]').addEventListener('click', function(){
+    search_page.classList.remove('hide-it');
+    document.querySelector('[data-search="input"]').focus();
+  });
 }
 
 // LAYOUT JS
