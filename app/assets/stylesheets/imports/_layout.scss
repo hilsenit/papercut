@@ -31,7 +31,7 @@ nav {
   padding: 0 30px;
 }
 .menu-wrapper-open {
-  height: 300px!important;
+  height: 350px!important;
 }
 .menu-wrapper {
   @include transition(height .4s linear);
@@ -63,5 +63,25 @@ nav {
   .black-blue {
     background-color: black;
     color: $dark-blue;
+  }
+  .so-me-menu {
+    width: 100%;
+    .cirkel {
+      @include border-radius(100%);
+      color: #e4e4da;
+      background-color: $the-orange;
+      display: inline-block;
+      font-size: 12px;
+      height: 65px;
+      line-height: 67px;
+      margin: 0 3px;
+      text-align: center;
+      overflow: hidden;
+      width: 62px;
+      &:hover {
+        text-decoration: underline;
+      }
+
+    }
   }
 }
