@@ -20,15 +20,33 @@
       </div><!-- nav-half -->
     </nav>
     <div class="container">
-      <div class="menu-wrapper">
-          <%= link_to "Tema", themes_path(), class: "menu-box white-orange" %>
-          <%= link_to "Læs", laes_path(), class: "menu-box white-orange" %>
-          <%= link_to "Se", se_path(), class: "menu-box white-orange" %>
-          <%= link_to "Hør", hoer_path(), class: "menu-box white-orange" %>
-          <%= link_to "Om", om_path(), class: "menu-box black-blue" %>
-          <%= link_to "Bidrag", bidrag_path(), class: "menu-box black-blue" %>
+      <div class="menu-wrapper" data-slide="open">
+        <%= link_to "Tema", themes_path(), class: "menu-box white-orange" %>
+        <%= link_to "Læs", laes_path(), class: "menu-box white-orange" %>
+        <%= link_to "Se", se_path(), class: "menu-box white-orange" %>
+        <%= link_to "Hør", hoer_path(), class: "menu-box white-orange" %>
+        <%= link_to "Om", om_path(), class: "menu-box black-blue" %>
+        <%= link_to "Bidrag", bidrag_path(), class: "menu-box black-blue" %>
       </div><!-- menu-wrapper -->
       <%= yield %>
     </div>
   </body>
 </html>
+<script type"text/javascript">
+
+changeHeight = function(menu_wrapper_selector) {
+  var menu_wrapper = document.querySelector(menu_wrapper_selector);
+  if ( menu_wrapper.classList.contains('menu-wrapper-open') ) {
+    menu_wrapper.classList.remove('menu-wrapper-open'); 
+  } else {
+    menu_wrapper.classList.add('menu-wrapper-open'); 
+  }
+}
+
+window.onload = function() {
+  document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
+    changeHeight('[data-slide="open"]');
+  });
+}
+
+</script>

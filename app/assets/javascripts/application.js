@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
-//= require turbolinks
 //= require_tree .
+
+
+// Menu slidedown, after window is loadet

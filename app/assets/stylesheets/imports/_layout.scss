@@ -15,7 +15,13 @@ nav {
     color: $the-orange;
   }
 }
+.menu-wrapper-open {
+  height: 400px!important;
+}
 .menu-wrapper {
+  overflow: hidden;
+  @include transition(height .4s linear);
+  height: 0;
   position: absolute; 
   max-width: 600px;
   top: 40px;
