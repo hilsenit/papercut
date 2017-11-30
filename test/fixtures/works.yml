@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  short_description: MyText
+  category: 1
+  belongs_to: 
+  type: 
+  tags: 
+
+two:
+  title: MyString
+  description: MyText
+  short_description: MyText
+  category: 1
+  belongs_to: 
+  type: 
+  tags: 

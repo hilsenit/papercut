@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130105130) do
+ActiveRecord::Schema.define(version: 20171130173742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20171130105130) do
     t.text "made_by"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "works", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.text "short_description"
+    t.integer "category"
+    t.bigint "theme_id"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["theme_id"], name: "index_works_on_theme_id"
   end
 
 end

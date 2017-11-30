@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
-  root 'pages#index'
+  get 'backend' => 'backend#index', as: :backend
+  get 'backend/:theme_id' => 'backend#show_theme_content', as: :ba_show_works
+  resources :works
+  resources :themes
   get 'om' =>  'pages#om'
   get 'bidrag' => 'pages#bidrag'
-  resources :themes
   get 'tema/laes' => 'themes#laes', as: :laes
   get 'tema/se' => 'themes#se', as: :se
   get 'tema/hoer' => 'themes#hoer', as: :hoer
+  root 'pages#index'
 end

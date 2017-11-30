@@ -1,0 +1,14 @@
+<div class="ba-theme-wrapper">
+  <h2>Temaer:</h2>
+  <hr>
+    <ul>
+  <% @themes.each_with_index do |theme, i| %>
+    <li class="bq-each-theme">
+      <%= i %> | <br>
+      <%= theme.title %>
+      <%= link_to "Rediger Tema", edit_theme_path(theme.id) %>
+      <%= link_to "Se Conent", ba_show_works_path(theme.id) %>
+    </li>
+  <% end %>
+</div>
+

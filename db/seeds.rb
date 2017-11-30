@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Theme.destroy_all
+
+Theme.create!([
+  title: "Hvorfor snakker vi ikke om lort",
+  description: "Lang tekst om hvorfor vi ikke gør det.",
+  made_by: "This one"
+])
+
+p "#{Theme.all.count} created"
