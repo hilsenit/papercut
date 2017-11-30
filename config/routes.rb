@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   end
   get 'om' =>  'pages#om'
   get 'bidrag' => 'pages#bidrag'
-  get 'tema/laes' => 'themes#laes', as: :laes
-  get 'tema/se' => 'themes#se', as: :se
-  get 'tema/hoer' => 'themes#hoer', as: :hoer
+  get 'tema/laes' => 'works#laes', as: :laes
+  get 'tema/se' => 'works#se', as: :se
+  get 'tema/hoer' => 'works#hoer', as: :hoer
   root 'pages#index'
 end

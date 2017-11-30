@@ -1,11 +1,13 @@
 class WorksController < ApplicationController
 
   def index
-
+    @theme = Theme.find(params[:theme_id])
+    @works = @theme.works
   end
 
   def show
-
+    @theme = Theme.find(params[:theme_id])
+    @work = Work.find(params[:id])
   end
 
   def new
@@ -51,8 +53,19 @@ class WorksController < ApplicationController
     end
   end
 
+  def laes
+    @works = Work.laes
+  end
+
+  def se
+    @works = Work.se
+  end
+
+  def hoer
+    @works = Work.hoer
+  end
   private
   def work_params
-    params.require(:work).permit(:title, :description, :short_description, :category, :theme_id, :type)
+    params.require(:work).permit(:title, :description, :short_description, :category, :theme_id, :type_of_content)
   end
 end
