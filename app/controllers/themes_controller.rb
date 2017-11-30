@@ -24,15 +24,6 @@ class ThemesController < ApplicationController
 
   end
 
-  def show_theme_content
-    tema = Theme.find(params[:theme_id])
-    @works = tema.works
-    if @works.empty?
-      flash[:notice] = "Temaet har ikke noget content endnu. Opret nogle, før du kan fortsætte."
-      redirect_to backend_path()
-    end
-  end
-
   def laes
     # All works with 'læs' as category
   end

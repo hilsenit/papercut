@@ -4,11 +4,12 @@
     <ul>
   <% @themes.each_with_index do |theme, i| %>
     <li class="bq-each-theme">
-      <%= i %> | <br>
-      <%= theme.title %>
-      <%= link_to "Rediger Tema", edit_theme_path(theme.id) %>
-      <%= link_to "Se Conent", ba_show_works_path(theme.id) %>
+      Nr: <%= i + 1 %>  <h3><%= theme.title %></h3>
+      <p>Last edited: <%= time_ago_in_words(theme.updated_at) %> ago</p>
+      <div> <%= link_to "Rediger Tema", edit_theme_path(theme.id) %> </div>
+      <div> <%= link_to "Se Content", ba_show_works_path(theme.id) %> </div>
     </li>
+    <hr>
   <% end %>
 </div>
 

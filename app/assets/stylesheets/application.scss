@@ -13,7 +13,18 @@
 
 /* removing outer focus flow from input fields */
 textarea, input, button { outline: none; }
-
+.text-center {
+  text-align: center;
+}
+.alert {
+  background-color: red;
+  color: white;
+  font-size: 2em;
+}
+.notice {
+  @extend .alert;
+  background-color: green;
+}
 .hide-it {
   display: none;
 }
@@ -33,6 +44,9 @@ h1 {
   font-family: "CircularStd-Medium";
   font-size: 20px;
   text-transform: uppercase;
+}
+body {
+  z-index: 1; // For the search window
 }
 html {
   height: 100%;
