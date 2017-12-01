@@ -55,3 +55,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'normalize-rails'
+gem 'figaro'
+# Images
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
+gem 'aws-sdk', '~> 2'
+gem 'mini_magick'

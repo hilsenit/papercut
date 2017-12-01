@@ -1,4 +1,5 @@
-<%= link_to "&larr;".html_safe + " Tilbage til alle temaer", themes_path() %> 
+<%= link_to "&larr;".html_safe + " Tilbage til alle temaer", themes_path() %> <br>
+<%= link_to "&larr;".html_safe + " Tilbage til '#{@theme.title}'", theme_works_path(@theme.id) %>
 <h2 class="text-center"><%= @work.title %></h2>
 <p>
   <%= @work.description %>

@@ -21,35 +21,31 @@ class WorksController < ApplicationController
   end
 
   def create
-    work = Work.new(work_params)
-    if work.save
-      flash[:notice] = "'#{work.title}' er blevet oprettet"
-      redirect_to ba_show_works_path(work.theme.id)
+    @work = Work.new(work_params)
+    if @work.save
+      redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er blevet oprettet")
     else
-      flash.now[:alert] = "Content kunne desværre ikke gemmes. Prøv igen, eller skriv til kontakt@hilsen.it"
-      render :new
+      flash.now[:notice] = return_messages("alert", @work.errors.full_messages)
+      redirect_to new_theme_work_path(@work.theme.id)
     end
   end
 
   def update
-    work = Work.find(params[:id])
-    if work.update_attributes(work_params)
-      flash[:notice] = "'#{work.title}' er opdateret"
-      redirect_to ba_show_works_path(work.theme.id)
+    @work = Work.find(params[:id])
+    if @work.update_attributes(work_params)
+      redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er opdateret")
     else
-      flash[:alert] = "'#{work.title}' kunne desværre ikke opdateres. Prøv igen. Eller kontakt kontakt@hilsen.it"
-      redirect_to edit_theme_work_path(work.theme.id, work.id)
+      flash.now[:notice] = return_messages("alert", @work.errors.full_messages)
+      redirect_to edit_theme_work_path(@work.theme.id, @work.id)
     end
   end
 
   def destroy
-    work = Work.find(params[:id])
-    if work.destroy
-      flash[:notice] = "'#{work.title}' er blevet slettet"
-      redirect_to backend_path()
+    @work = Work.find(params[:id])
+    if @work.destroy
+      redirect_to backend_path(), notice: return_messages("notice", "'#{@work.title}' er blevet slettet")
     else
-      flash[:alert] = "'#{work.title}' kunne desværre ikke slettes. Prøv igen. Hvis dette ikke virker, så skriv til kontakt@hilsen.it"
-      redirect_to ba_show_works_path(work.theme.id)
+      redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("alert", @work.errors.full_messages)
     end
   end
 
@@ -65,6 +61,7 @@ class WorksController < ApplicationController
     @works = Work.hoer
   end
   private
+
   def work_params
     params.require(:work).permit(:title, :description, :short_description, :category, :theme_id, :type_of_content)
   end

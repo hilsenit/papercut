@@ -17,15 +17,15 @@ class ThemesController < ApplicationController
   end
 
   def create
-    theme = Theme.new(theme_params)
-    if theme.save
-      flash[:notice] = "Dit nye tema '#{theme.title}' er blevet oprettet."
-      redirect_to backend_path()
+    @theme = Theme.new(theme_params)
+    if @theme.save
+      redirect_to backend_path(), notice: return_messages("notice", "Dit nye tema '#{@theme.title}' er blevet oprettet.")
     else
-      flash.now[:alert] = "Det lykkedes ikke at oprette dit tema. Prøv igen, eller skriv til kontakt@hilsen.it"
+      flash.now[:notice] = return_messages("alert", @theme.errors.full_messages)
       render :new
     end
   end
+
   def update
 
   end

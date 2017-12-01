@@ -24,5 +24,5 @@
 # Ignore application configuration FIGARO
 /config/application.yml
 
-# Ignore encrypted secrets key file.
-config/secrets.yml.key
+# Ignore application configuration
+/config/application.yml

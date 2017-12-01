@@ -1,15 +1,21 @@
+
 &larr; <%= link_to "Tilbage til temaer", backend_path() %>
 <h2 class="text-center">Opret nyt tema</h2>
 <%= form_for @theme do |f| %>
 
+
+  <%= image_tag @theme.cover_image.thumb.url, class: "bg_thumb_show" if @theme.cover_image? %>
+  <%= f.label :cover_image, "Upload nyt billede" %>
+  <%= f.file_field :cover_image %>
+
   <h3> <%= f.label :title %> </h3>
-<%= f.text_field :title, autofocus: true %>
-<hr>
-<h3> <%= f.label :description %> </h3>
-<%= f.text_area :description %>
+  <%= f.text_field :title, autofocus: true %>
+  <hr>
+  <h3> <%= f.label :description %> </h3>
+  <%= f.text_area :description %>
 
-<hr>
+  <hr>
 
-<%= f.submit "Opret tema", class: "bg-button" %>
+  <%= f.submit "Opret tema", class: "bg-button" %>
 <% end %>
 
