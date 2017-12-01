@@ -1,3 +1,47 @@
-// Place all the styles related to the Works controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "imports/mixins";
+@import "imports/colors";
+
+.works-wrapper {
+  padding-top: 20px;
+  .works {
+    @include column-count(2);
+    @include column-gap(0px); // Er nødvendig for at der ikke er noget 'gab' Mac Demarco
+    width: 100%;
+    .work {
+      position: relative;
+      border: 1px solid $border-color;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      break-inside: avoid-column;
+      color: black;
+      display: inline-block;
+      padding: 74px 34px;
+      page-break-inside: avoid;
+      width: 100%;
+      h2 {
+        padding: 30px 0px;
+        text-transform: uppercase;
+      }
+      img {
+        @include calc(width, '100% - 40px');
+        @include calc(max-height, '100% - 40px');
+        @include transition(opacity .4s ease-out);
+        left: 20px;
+        opacity: 1;
+        top: 20px;
+        position: absolute;
+        &:hover {
+          opacity: 0;
+        }
+        
+      }
+    }
+    @media screen and (max-width: 800px) { // for .works
+      @include column-count(1);
+      .work {
+        padding: 10px 20px;
+      }
+    }
+  }
+}
+

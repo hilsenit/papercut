@@ -1,10 +1,17 @@
-<div class="half">
-  <h1>Alle temaer</h1>
-</div>
-<% @themes.each do |theme| %>
-  <%= link_to theme_works_path(theme.id) do %>
-    <%= image_tag theme.cover_image.thumb.url if theme.cover_image.present? %>
-    <h3> <%= theme.title %> </h3>
+<div class="works-wrapper">
+  <section class="works">
+  <% @themes.each do |theme| %>
+    <%= link_to theme_works_path(theme.id), class: "work" do %>
+      <%= image_tag theme.cover_image, class: "hovering-image" if theme.cover_image.present? %>
+      <p class="written-by">
+        <%= theme.made_by %>
+      </p>
+      <h2 class="text-center"><%= theme.title %></h2>
+      <p class="theme-description">
+        <%= theme.description %>
+      </p>
+      
+    <% end %>
   <% end %>
-<% end %>
-
+  </section>
+</div> 

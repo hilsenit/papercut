@@ -1,3 +1,4 @@
 <hr>
 &larr; <%= link_to "Tilbage til oversigt", backend_path() %>
 <h2 class="text-center">Du redigerer temaet: '<%= @theme.title %>'</h2>
+<%= render partial: 'shared/forms/theme', locals: {title_text: "Opdater tema"} %>

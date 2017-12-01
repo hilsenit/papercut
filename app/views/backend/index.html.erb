@@ -6,8 +6,9 @@
     <li class="bq-each-theme">
       Nr: <%= i + 1 %>  <h3><%= theme.title %><div class="right small">Content count: <%= theme.works.size %></h3>
       <p>Last edited: <%= time_ago_in_words(theme.updated_at) %> ago</p>
-      <div> <%= link_to "Rediger tema", edit_theme_path(theme.id), class: "bg-button" %> </div>
       <div> <%= link_to "Se og opret Content", ba_show_works_path(theme.id), class: "bg-button" %> </div>
+      <div> <%= link_to "Rediger tema", edit_theme_path(theme.id), class: "bg-button" %> </div>
+      <div> <%= link_to "Slet Tema", theme_path(theme.id), method: :delete, class: "bg-button bg-alert", data: {confirm: "ER DU SIKKER PÅ, AT DU VIL GØRE DET HER? Dette sletter også alt content under dette tema. Det er IKKE muligt at gøre om."} %> </div>
     </li>
     <hr>
   <% end %>

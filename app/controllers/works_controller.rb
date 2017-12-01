@@ -26,7 +26,8 @@ class WorksController < ApplicationController
       redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er blevet oprettet")
     else
       flash.now[:notice] = return_messages("alert", @work.errors.full_messages)
-      redirect_to new_theme_work_path(@work.theme.id)
+      @theme = Theme.find(@work.theme.id)
+      render :new
     end
   end
 

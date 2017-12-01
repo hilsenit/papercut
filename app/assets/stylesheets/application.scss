@@ -19,6 +19,9 @@ textarea, input, button { outline: none; }
 .small {
   font-size: 0.8em;
 }
+.bg-alert {
+  background-color: red;
+}
 .alert {
   background-color: red;
   color: white;
@@ -37,9 +40,13 @@ textarea, input, button { outline: none; }
 .container {
     width: 100%;
     height: 100%;
-    max-width: 1192px;
+    max-width: 1252px;
     margin: 0 auto;
     position: relative;
+}
+.container-content {
+  @extend .container;
+  max-width: 1300px;
 }
 
 h1 {

@@ -4,7 +4,7 @@
 nav {
   @include flex;
   width: 100%;
-  padding: 0 30px;
+  padding: 0 20px;
 }
 .nav-half {
   margin-top: 6px;
@@ -28,7 +28,7 @@ nav {
   }
 }
 .right-half {
-  padding: 0 30px;
+    padding-left: 45px;
 }
 .menu-wrapper-open {
   height: 350px!important;

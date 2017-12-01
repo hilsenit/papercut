@@ -7,7 +7,8 @@
     <ul>
   <% @works.each_with_index do |work, i| %>
     <li class="bq-each-work">
-      Nr: <%= i + 1 %>  <h3><%= work.title %></h3>
+      <div class="small">Nr: <%= i + 1 %> | Kategori: <%= show_category_string_helper work.category %> </div>  
+      <h3><%= work.title %></h3>
       <p>Last edited: <%= time_ago_in_words(work.updated_at) %> ago</p>
       <div>
         <%= link_to "Rediger", edit_theme_work_path(work.theme.id, work.id), class: "bg-button" %> 
@@ -17,5 +18,4 @@
     <hr>
   <% end %>
 </div>
-
 
