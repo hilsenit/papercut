@@ -1,4 +1,7 @@
 Rails.application.configure do
+  # Added by me
+  config.read_encrypted_secrets = true
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
