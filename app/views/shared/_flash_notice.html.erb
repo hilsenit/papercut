@@ -1,6 +1,5 @@
-<% if flash[:notice] %>
-  <div class="notice text-center"><%= flash[:notice] %></div>
-<% end %>
-<% if flash[:alert] %>
-  <div class="alert text-center"><%= flash[:alert] %></div>
+<% messages.each do |obj| %>
+  <% obj.each do |key, value| %>
+    <div class="<%= key %> text-center"><%= value %></div>
+  <% end%>
 <% end %>
