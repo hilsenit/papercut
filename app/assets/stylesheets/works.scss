@@ -15,20 +15,18 @@
       break-inside: avoid-column;
       color: black;
       display: inline-block;
-      padding: 74px 34px;
+      padding: 34px 34px;
       page-break-inside: avoid;
       width: 100%;
       h2 {
-        padding: 30px 0px;
         text-transform: uppercase;
       }
       img {
         @include calc(width, '100% - 100px');
-        @include calc(max-height, '100% - 100px');
         @include transition(opacity .4s ease-out);
         left: 50px;
         opacity: 1;
-        top: 50px;
+        top: 100px;
         position: absolute;
         &:hover {
           opacity: 0;
