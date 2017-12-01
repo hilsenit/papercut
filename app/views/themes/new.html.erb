@@ -5,6 +5,7 @@
 
 
   <%= image_tag @theme.cover_image.thumb.url, class: "bg_thumb_show" if @theme.cover_image? %>
+  <hr>
   <%= f.label :cover_image, "Upload nyt billede" %>
   <%= f.file_field :cover_image %>
 
