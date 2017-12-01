@@ -54,7 +54,9 @@ window.onload = function() {
   var images = document.querySelectorAll('[data-size="image"]');
     images.forEach(function(image) {
       div_id = image.dataset.div;
-      div = document.querySelector('[data-id="' + div_id + '"]');
-      div.style.height = (image.height + 140) + 'px';
+      var div = document.querySelector('[data-id="' + div_id + '"]');
+      console.log('div ' + div.height);
+      console.log('image ' + image.height);
+        div.style.height = (image.height + 140) + 'px';
     });
 };
