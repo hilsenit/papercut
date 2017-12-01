@@ -13,6 +13,7 @@
 //= require rails-ujs
 //= require_tree .
 
+// Toggle on menu
 toggleHeight = function(menu_wrapper_selector) {
   var menu_wrapper = document.querySelector(menu_wrapper_selector);
   var menu_button = document.querySelector('[data-toggle="menu"]');
@@ -25,6 +26,7 @@ toggleHeight = function(menu_wrapper_selector) {
   }
 };
 
+// Open or hide search window
 openOrHide = function() {
   var search_page = document.querySelector('[data-search="page"]');
   var button = document.getElementById("searchButton");
@@ -48,4 +50,11 @@ window.onload = function() {
       openOrHide();
     });
   });
+  // Theme overview div adapts to image size
+  var images = document.querySelectorAll('[data-size="image"]');
+    images.forEach(function(image) {
+      div_id = image.dataset.div;
+      div = document.querySelector('[data-id="' + div_id + '"]');
+      div.style.height = (image.height + 140) + 'px';
+    });
 };

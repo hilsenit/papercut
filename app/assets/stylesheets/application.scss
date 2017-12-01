@@ -11,6 +11,11 @@
 @import "imports/backend_grid";
 @import "imports/search_page";
 
+.backend-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
 /* removing outer focus flow from input fields */
 textarea, input, button { outline: none; }
 .text-center {

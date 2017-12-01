@@ -13,12 +13,4 @@
   </section>
 </div> 
 <script type="text/javascript">
-  window.onload = function() {
-    images = document.querySelectorAll('[data-size="image"]');
-    images.forEach(function(image) {
-    div_id = image.dataset.div;
-    div = document.querySelector('[data-id="' + div_id + '"]');
-    div.style.height = (image.height + 140) + 'px';
-  });
-  };
 </script>

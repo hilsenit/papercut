@@ -5,7 +5,7 @@
   padding-top: 20px;
   .works {
     @include column-count(2);
-    @include column-gap(0px); // Er nødvendig for at der ikke er noget 'gab' Mac Demarco
+    @include column-gap(0px); // Er nødvendig for at der ikke er noget 'gab' Mac Demarco!
     width: 100%;
     .work {
       position: relative;
@@ -31,7 +31,6 @@
         &:hover {
           opacity: 0;
         }
-        
       }
     }
     @media screen and (max-width: 800px) { // for .works

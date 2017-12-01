@@ -9,6 +9,7 @@
   </head>
 
   <body>
+    <%= link_to "Backend!", backend_path(), class: "bg-button backend-button" %>
     <%= render partial: 'shared/flash_notice',
       locals: {messages: flash[:notice]} unless flash[:notice].nil? %>
     <%= render partial: 'shared/top_navbar' %>
