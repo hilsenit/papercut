@@ -2,6 +2,9 @@
 <h2 class="text-center">Opret nyt tema</h2>
 <%= form_for @theme do |f| %>
 
+  <%= f.label :cover_image, "Upload billede" %>
+  <%= f.file_field :cover_image %>
+
   <h3> <%= f.label :title %> </h3>
 <%= f.text_field :title, autofocus: true %>
 <hr>
