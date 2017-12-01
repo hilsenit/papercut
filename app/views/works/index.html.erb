@@ -1,2 +1,2 @@
 <h2 class="text-center">Content for '<%= @theme.title %>'</h2>
-<%= render partial: 'works/works_list', locals: {works: @works} %>
+<%= render partial: 'works/works_list', locals: {works: @works} if @works.any? %>
