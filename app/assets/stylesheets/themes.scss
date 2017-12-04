@@ -13,12 +13,10 @@
     .theme {
       @include transition(opacity .4s linear); // .theme-show
       opacity: 0; // For transition 
-      border: 1px solid $border-color;
-      border-top-color: transparent;
-      border-left-color: transparent;
       break-inside: avoid-column;
       color: black;
       display: inline-block;
+      height: auto;
       margin-bottom: 50px;
       min-height: 100%;
       padding: 34px 34px;

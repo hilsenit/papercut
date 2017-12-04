@@ -54,10 +54,10 @@ window.onload = function() {
   var images = document.querySelectorAll('[data-size="image"]');
     images.forEach(function(image) {
       div_id = image.dataset.div;
-      var div = document.querySelector('[data-id="' + div_id + '"]');
-      console.log('div ' + div.height);
-      console.log('image ' + image.height);
-        div.style.height = (image.height + 140) + 'px';
-        div.classList.add("theme-show");
+      var box = document.getElementById('box' + div_id);
+      if (box.clientHeight < image.height + 100) {
+        box.style.height = (image.height + 140) + 'px';
+      }
+        box.classList.add("theme-show");
     });
 };

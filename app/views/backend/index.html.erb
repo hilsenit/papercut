@@ -1,5 +1,9 @@
 <div class="ba-theme-wrapper">
-  <h2>Temaer:<%= link_to "Opret nyt tema", new_theme_path(), class: "bg-button right" %></h2>
+  <h2>
+    Temaer:
+    <%= link_to "Opret nyhed", new_news_path(), class: "bg-button right" %>
+    <%= link_to "Opret nyt tema", new_theme_path(), class: "bg-button right" %>
+  </h2>
   <hr>
     <ul>
   <% @themes.each_with_index do |theme, i| %>
