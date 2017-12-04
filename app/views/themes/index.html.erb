@@ -1,7 +1,7 @@
-<div class="works-wrapper">
-  <section class="works">
+<div class="themes-wrapper">
+  <section class="themes">
   <% @themes.each_with_index do |theme, i| %>
-    <%= link_to theme_works_path(theme.id), class: "work", data: {id: i} do %>
+    <%= link_to theme_works_path(theme.id), class: "theme", data: {id: i} do %>
       <%= image_tag theme.cover_image, class: "hovering-image", data: {size: "image", div: i} if theme.cover_image.present? %>
       <h2 class="text-center"><%= theme.title %></h2>
       <p class="theme-description">
@@ -12,5 +12,3 @@
   <% end %>
   </section>
 </div> 
-<script type="text/javascript">
-</script>

@@ -58,5 +58,6 @@ window.onload = function() {
       console.log('div ' + div.height);
       console.log('image ' + image.height);
         div.style.height = (image.height + 140) + 'px';
+        div.classList.add("theme-show");
     });
 };

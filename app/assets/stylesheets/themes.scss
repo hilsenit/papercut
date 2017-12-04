@@ -1,0 +1,52 @@
+@import "imports/mixins";
+@import "imports/colors";
+
+.themes-wrapper {
+  padding-top: 20px;
+  .themes {
+    @include column-count(2);
+    @include column-gap(0px); // Er nødvendig for at der ikke er noget 'gab' Mac Demarco!
+    width: 100%;
+    .theme-show {
+      opacity: 1!important;
+    }
+    .theme {
+      @include transition(opacity .4s linear); // .theme-show
+      opacity: 0; // For transition 
+      border: 1px solid $border-color;
+      border-top-color: transparent;
+      border-left-color: transparent;
+      break-inside: avoid-column;
+      color: black;
+      display: inline-block;
+      margin-bottom: 50px;
+      min-height: 100%;
+      padding: 34px 34px;
+      page-break-inside: avoid;
+      position: relative;
+      width: 100%;
+      h2 {
+        text-transform: uppercase;
+      }
+      img {
+        @include calc(width, '100% - 100px');
+        @include transition(opacity .4s ease-out);
+        left: 50px;
+        opacity: 1;
+        position: absolute;
+        top: 100px;
+        &:hover {
+          opacity: 0;
+        }
+      }
+    }
+    @media screen and (max-width: 800px) { // for .themes
+      @include column-count(1);
+      .work {
+        padding: 10px 20px;
+      }
+    }
+  }
+}
+
+
