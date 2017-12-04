@@ -20,7 +20,7 @@
     <div class="container-content">
       <%= yield %>
     </div>
-    <%= render partial: 'shared/news_line', locals: {news: @news_on_timeline } %>
+    <%= render partial: 'shared/newsline', locals: {news: params[:news_line] } unless params[:news_line].nil? %>
   </body>
 </html>
 

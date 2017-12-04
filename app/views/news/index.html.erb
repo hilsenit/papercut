@@ -6,6 +6,7 @@
 <ul>
 <% @news.each do |n| %>
   <%= link_to "Rediger nyhed", edit_news_path(n.id), class: "bg-button" %>
+  <%= link_to "Slet nyhed", news_path(n.id), method: :delete, data: { confirm: "ER du sikker på, at du vil slette denne nyhed" }, class: "bg-button bg-alert" %>
   <li>
     <strong><%= n.title %></strong><br>
     Dato: <%= n.date if n.date.present? %><br>

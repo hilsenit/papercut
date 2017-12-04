@@ -1,0 +1,4 @@
+<%= link_to "&larr;".html_safe + "tilbage til BACKEND!", backend_path() %><br>
+<%= link_to "&larr;".html_safe + "tilbage til nyheder!", news_index_path() %>
+<h2 class="text-center">Opret nyhed</h2>
+<%= render partial: 'shared/forms/news', locals: {news: @news } %>

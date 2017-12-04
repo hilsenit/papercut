@@ -14,7 +14,7 @@
 .backend-button {
   position: fixed;
   right: 0;
-  bottom: 0;
+  bottom: 40px;
 }
 /* removing outer focus flow from input fields */
 textarea, input, button { outline: none; }

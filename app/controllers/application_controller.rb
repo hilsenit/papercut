@@ -1,9 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :load_news
 
-  def load_news
-    @news_on_timeline = News.all
+  before_action :load_newsline
+
+  def load_newsline
+    @newsline = News.all
+    params[:news_line] = @newsline
   end
 
   private

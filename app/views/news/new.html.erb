@@ -1,27 +1,4 @@
 <%= link_to "&larr;".html_safe + "tilbage til BACKEND!", backend_path() %><br>
 <%= link_to "&larr;".html_safe + "tilbage til nyheder!", news_index_path() %>
 <h2 class="text-center">Opret nyhed</h2>
-
-<%= form_for @news do |f| %>
-  <div class="form-field">
-    <%= f.label :title, "Nyhed" %>
-    <%= f.text_field :title %>
-  </div>
-  <div class="form-field">
-    <%= f.label :type_of_thing, "Hvilken type er det (valgfrit). Bliver vist før teksten. F.eks. 'artikel', 'podcast'." %>
-    <%= f.text_field :type_of_thing %>
-  </div>
-  <div class="form-field">
-    <%= f.label :date, "Indtast datoen. Den bliver vist sådan her: DD.MM.YY" %>
-    <%= f.date_field :date %>
-  </div>
-  <div class="form-field">
-    <%= f.label :work_id, "Vælg hvilket content, som nyheden skal linke til.(skal nok være et søgefelt en dag)" %>
-    <%= f.collection_select(:work_id, @works, :id, :title) %>
-  </div>
-  
-  <div class="form-btn">
-    <%= f.submit %>
-  </div>
-<% end %>
-
+<%= render partial: 'shared/forms/news', locals: {news: @news } %>

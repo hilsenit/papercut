@@ -1,3 +1,28 @@
-// Place all the styles related to the News controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'imports/colors';
+@import 'imports/fonts';
+@import 'imports/mixins';
+
+.newsline {
+  background-color: $news_line;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  .newsline-wrapper {
+    position: relative;
+    display: inline-block;
+    width: auto;
+    height: 100%;
+  }
+  a {
+    color: black;
+    span {
+      font-size: 23px;
+      text-transform: uppercase;
+      margin: 4px 0 2px 0;
+      padding: 0 10px;
+      font-family: inherit; 
+    }
+  }
+}
+
