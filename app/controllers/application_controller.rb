@@ -1,5 +1,10 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  before_action :load_news
+
+  def load_news
+    @news_on_timeline = News.all
+  end
 
   private
 

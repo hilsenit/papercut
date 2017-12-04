@@ -14,13 +14,13 @@
       locals: {messages: flash[:notice]} unless flash[:notice].nil? %>
     <%= render partial: 'shared/top_navbar' %>
     <div class="container">
-    <%= render partial: 'shared/menu' %>
+      <%= render partial: 'shared/menu' %>
     </div>
     <%= render partial: 'search/search_page' %>
     <div class="container-content">
       <%= yield %>
     </div>
-    </div>
+    <%= render partial: 'shared/news_line', locals: {news: @news_on_timeline } %>
   </body>
 </html>
 

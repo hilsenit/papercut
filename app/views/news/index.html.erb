@@ -1,0 +1,17 @@
+<%= link_to "&larr;".html_safe + "tilbage til BACKEND!", backend_path() %>
+<h2 class="text-center">
+  Oversigt over alle nyheder
+  <%= link_to "Opret nyhed", new_news_path(), class: "bg-button right" %>
+</h2>
+<ul>
+<% @news.each do |n| %>
+  <%= link_to "Rediger nyhed", edit_news_path(n.id), class: "bg-button" %>
+  <li>
+    <strong><%= n.title %></strong><br>
+    Dato: <%= n.date if n.date.present? %><br>
+    linker til '<%= n.work.title %>'<br>
+  </li>
+  <hr>
+<% end %>
+</ul>
+

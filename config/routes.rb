@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :news
   get 'backend' => 'backend#index', as: :backend
   get 'backend/:theme_id' => 'backend#show_theme_content', as: :ba_show_works
   resources :themes do
