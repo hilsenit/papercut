@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get 'tema/laes' => 'works#laes', as: :laes
   get 'tema/se' => 'works#se', as: :se
   get 'tema/hoer' => 'works#hoer', as: :hoer
-  root 'pages#index'
+  root 'pages#frontpage'
 end

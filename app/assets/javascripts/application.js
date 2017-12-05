@@ -69,8 +69,9 @@ window.onload = function() {
   });
 
 // Newsline
-newsline_obj = document.querySelector('[data-newsline="moving"]');
-animateLeft(newsline_obj, -Math.abs(newsline_obj.clientWidth), screen.width + 100);
+  newsline_obj = document.querySelector('[data-newsline="moving"]');
+  if (newsline_obj) {animateLeft(newsline_obj, -Math.abs(newsline_obj.clientWidth), screen.width + 100);}
+  
 
 // Theme overview div adapts to image size
   var images = document.querySelectorAll('[data-size="image"]');
