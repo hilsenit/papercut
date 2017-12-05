@@ -1,14 +1,24 @@
 <%= form_for @theme do |f| %>
   <%= image_tag @theme.cover_image.thumb.url, class: "bg_thumb_show" if @theme.cover_image? %>
   <hr>
-  <%= f.label :cover_image, "Upload nyt billede" %>
-  <%= f.file_field :cover_image %>
+  <div class="form-field">
+    <%= f.label :cover_image, "Upload nyt billede" %>
+    <%= f.file_field :cover_image %>
+  </div>
 
-  <h3> <%= f.label :title %> </h3>
-  <%= f.text_field :title, autofocus: true %>
+  <div class="form-field">
+    <h3> <%= f.label :title %> </h3>
+    <%= f.text_field :title, autofocus: true %>
+  </div>
   <hr>
-  <h3> <%= f.label :description %> </h3>
-  <%= f.text_area :description %>
+  <div class="form-field">
+    <h3><%= f.label :made_by, "Hvem har lavet det? (Står med orange tekst under titlen)" %></h3>
+    <%= f.text_field :made_by %>
+  </div>
+  <div class="form-field">
+    <h3> <%= f.label :description %> </h3>
+    <%= f.text_area :description %>
+  </div>
   <hr>
   <%= f.submit title_text, class: "bg-button" %>
 <% end %>

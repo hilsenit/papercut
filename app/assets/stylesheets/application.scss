@@ -11,6 +11,27 @@
 @import "imports/backend_grid";
 @import "imports/search_page";
 
+.odyssey-logo {
+  position: absolute;
+  left: -35px;
+  top: 13px;
+  height: 40px;
+  width: 40px;
+  background-image: url(image-path("odyssey-logo"));
+  background-repeat: no-repeat;
+}
+
+.made-by {
+  padding-left: 50px;
+  color: $the-orange;
+  font-family: "CircularStd-Book";
+}
+
+.made-by {
+  padding-left: 50px;
+  color: $the-orange;
+  font-family: "CircularStd-Book";
+}
 .backend-button {
   position: fixed;
   right: 0;

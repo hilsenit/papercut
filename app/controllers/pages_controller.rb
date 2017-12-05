@@ -3,14 +3,16 @@ class PagesController < ApplicationController
 
 
   def frontpage
-    @theme = Theme.first
+    @theme = Theme.first # Newest
     load_newsline
   end
 
   def om
+
   end
 
   def bidrag
+
   end
 
   private
