@@ -1,0 +1,7 @@
+<% if @works.any? %>
+  <% @works.each do |work| %>
+    <h2><%= work.title %></h2>
+  <% end %>
+<% else %>
+  <h2 class="text-center">No content under this</h2>
+<% end %>

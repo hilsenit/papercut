@@ -1,8 +1,8 @@
 <div class="menu-wrapper" data-slide="open">
   <%= link_to "Tema", themes_path(), class: "menu-box white-orange" %>
-  <%= link_to "Læs", laes_path(), class: "menu-box white-orange" %>
-  <%= link_to "Se", se_path(), class: "menu-box white-orange" %>
-  <%= link_to "Hør", hoer_path(), class: "menu-box white-orange" %>
+  <%= link_to "Læs", works_category_path("laes"), class: "menu-box white-orange" %>
+  <%= link_to "Se", works_category_path("se"), class: "menu-box white-orange" %>
+  <%= link_to "Hør", works_category_path("hoer"), class: "menu-box white-orange" %>
   <%= link_to "Om", om_path(), class: "menu-box black-blue" %>
   <%= link_to "Bidrag", bidrag_path(), class: "menu-box black-blue" %>
   <div class="so-me-menu">

@@ -7,8 +7,6 @@ Rails.application.routes.draw do
   end
   get 'om' =>  'pages#om'
   get 'bidrag' => 'pages#bidrag'
-  get 'tema/laes' => 'works#laes', as: :laes
-  get 'tema/se' => 'works#se', as: :se
-  get 'tema/hoer' => 'works#hoer', as: :hoer
+  get 'tema/:work_category' => 'works#show_category', as: :works_category
   root 'pages#frontpage'
 end

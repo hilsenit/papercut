@@ -44,7 +44,6 @@ openOrHide = function() {
 // Newsline
 animateLeft = function(obj, from, to){
    if(from >= to){
-     obj.style.left = 0;
      animateLeft(obj, (Math.abs(obj.clientWidth) * -1), to);
    }
    else {
@@ -70,7 +69,10 @@ window.onload = function() {
 
 // Newsline
   newsline_obj = document.querySelector('[data-newsline="moving"]');
-  if (newsline_obj) {animateLeft(newsline_obj, -Math.abs(newsline_obj.clientWidth), screen.width + 100);}
+  if (newsline_obj) {
+    width = newsline_obj.clientWidth;
+    animateLeft(newsline_obj, -Math.abs(width), screen.width + width);
+  }
   
 
 // Theme overview div adapts to image size

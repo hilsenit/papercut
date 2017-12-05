@@ -9,7 +9,7 @@
   <%= link_to "Slet nyhed", news_path(n.id), method: :delete, data: { confirm: "ER du sikker på, at du vil slette denne nyhed" }, class: "bg-button bg-alert" %>
   <li>
     <strong><%= n.title %></strong><br>
-    Dato: <%= n.date if n.date.present? %><br>
+    Dato: <%= n.date.strftime("%d.%m.%y") if n.date.present? %><br>
     linker til '<%= n.work.title %>'<br>
   </li>
   <hr>

@@ -1,6 +1,0 @@
-<% works.each do |work| %>
-  <%= link_to theme_work_path(work.theme.id, work.id) do %>
-    <%= work.title %><br>
-    <div class="small"> || <%= work.type_of_content %> </div>
-  <% end %>
-<% end %>

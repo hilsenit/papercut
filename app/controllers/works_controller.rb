@@ -10,6 +10,14 @@ class WorksController < ApplicationController
     @work = Work.find(params[:id])
   end
 
+  def show_category
+    @works = case params[:work_category]
+      when "laes"; Work.laes
+      when "hoer"; Work.hoer
+      when "se"; Work.se
+    end
+  end
+
   def new
     @theme = Theme.find(params[:theme_id])
     @work = Work.new
@@ -50,17 +58,6 @@ class WorksController < ApplicationController
     end
   end
 
-  def laes
-    @works = Work.laes
-  end
-
-  def se
-    @works = Work.se
-  end
-
-  def hoer
-    @works = Work.hoer
-  end
   private
 
   def work_params

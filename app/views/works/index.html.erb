@@ -1,2 +1,7 @@
 <h2 class="text-center">Content for '<%= @theme.title %>'</h2>
-<%= render partial: 'works/works_list', locals: {works: @works} if @works.any? %>
+<% @works.each do |work| %>
+  <%= link_to theme_work_path(work.theme.id, work.id) do %>
+    <%= work.title %><br>
+    <div class="small"> || <%= work.type_of_content %> </div>
+  <% end %>
+<% end %>
