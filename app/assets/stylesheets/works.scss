@@ -11,7 +11,7 @@ $overview-column-width: percentage(200/$window-width);
 
 .info-main-wrapper {
   @include flex;
-  flex-wrap: wrap;
+  @include flex-wrap(wrap);
   .main-column {
     padding-bottom: 100px;
     height: 100vh;
