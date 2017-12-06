@@ -1,13 +1,19 @@
-@import "imports/backend_grid";
 @import "imports/colors";
 @import "imports/mixins";
 
+input:not([type="radio"]) {
+  width: 100%;
+  outline: none;
+  height: 30px;
+}
+
 .bg-button {
+  cursor: pointer;
   display: inline-block;
   text-transform: uppercase;
   background-color: blue;
   color: white;
-  margin: 5px 20px;
+  margin: 10px 10px;
   padding: 2px;
 }
 .delete {
@@ -20,4 +26,46 @@
 .right {
   display: inline-block; 
   float: right;
+}
+
+.one .half, .one-third, .one-fourth, .two-thirds {
+  width: 100%; // On mobile screen
+}
+
+.backend-form {
+  padding-bottom: 100px;
+}
+.backend-button {
+  position: fixed;
+  right: 0;
+  bottom: 40px;
+}
+.form-field {
+  background-color: lighten($primary-bg, 10%);
+  padding: 20px 15px;
+  width: 100%;
+  [type="radio"] {
+    width: auto;
+    padding: 10px;
+  }
+}
+@media only screen and (min-width: 800px) {
+  .one {
+    width: 100%;
+  }
+  .half {
+    width: calc(100% / 2);
+  }
+  .one-third {
+    width: calc(100% / 3);
+  }
+  .one-fourth {
+    width: calc(100% / 4);
+  }
+  .two-thirds {
+    width: calc(100% / 3 * 2);
+  }
+  .column {
+    float: left;
+  }
 }

@@ -1,6 +1,7 @@
 <%= tinymce_assets %>
 <%= tinymce %>
 
+<div class="backend-form">
 <%= form_for [@theme, @work] do |f| %>
   <%= f.hidden_field :theme_id, value: @theme.id %>
   <h3>Vælg kategori:</h3>
@@ -15,6 +16,7 @@
 
   <hr>
   <div class="form-field">
+    <%= image_tag @work.cover_image.thumb.url, class: "bg_thumb_show" if @work.cover_image? %><br>
     <%= f.label :cover_image, "Vælg billeder:" %><br>
     <%= f.file_field :cover_image %>
   </div>
@@ -41,7 +43,7 @@
 
   <div class="form-field">
     <h3> <%= f.label :desciption, "Tekst", class: "bg-label" %> </h3>
-    <%= f.text_area :description, class: "tinymce" %>
+    <%= f.text_area :description, class: "tinymce", rows: 40, cols: 20 %>
   </div>
 
   <hr>

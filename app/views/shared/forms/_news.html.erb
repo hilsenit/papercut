@@ -16,8 +16,8 @@
     <%= f.collection_select(:work_id, @works, :id, :title) %>
   </div>
   
-  <div class="form-btn">
-    <%= f.submit %>
+  <div class="form-field">
+    <%= f.submit "Opdater nyhed", class: "bg-button" %>
   </div>
 <% end %>
 

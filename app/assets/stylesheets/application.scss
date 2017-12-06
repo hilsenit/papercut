@@ -8,14 +8,29 @@
 @import "imports/fonts";
 @import "imports/colors"; // primary-bg, the-orange, news-line-bg, dark-blue
 @import "imports/layout";
-@import "imports/backend_grid";
 @import "imports/search_page";
 @import "imports/background_vectors";
 
 p {
   font-family: "CircularStd-Book";
 }
+.tinymce {
+  margin: 0 auto;
+  width: 840px;
+}
 
+.mce-container {
+  margin: 0 auto!important;
+}
+.no-margin-x {
+  margin-left: 0!important;
+  margin-right: 0!important;
+}
+
+.no-margin-y {
+  margin-top: 0!important;
+  margin-bottom: 0!important;
+}
 
  .category {
     width: 100%;
@@ -60,11 +75,6 @@ p {
   font-family: "CircularStd-Book";
 }
 
-.backend-button {
-  position: fixed;
-  right: 0;
-  bottom: 40px;
-}
 /* removing outer focus flow from input fields */
 textarea, input, button { outline: none; }
 .text-center {

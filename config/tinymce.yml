@@ -4,3 +4,5 @@ toolbar:
 plugins:
   - image
   - link
+width: 700
+height: 800
