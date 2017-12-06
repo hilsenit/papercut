@@ -2,11 +2,22 @@
 @import 'imports/mixins';
 @import 'imports/fonts';
 
+$window-width: 1300;
+$info-column-width: percentage(115/$window-width);
+$main-column-width: percentage(735/$window-width);
+$info-main-wrapper-width: percentage(850/$window-width);
+$overview-column-width: percentage(200/$window-width);
+
+
 .info-main-wrapper {
-  display: flex;
-  width: 865px;
+  @include flex;
+  flex-wrap: wrap;
   .main-column {
-    width: calc(865px - 115px);
+    padding-bottom: 100px;
+    height: 100vh;
+    width: $main-column-width;
+    overflow-y: visible;
+    margin-left: $info-column-width;
     h2 {
       text-transform: uppercase;
       margin-top: 30px;
@@ -17,32 +28,99 @@
       margin: 1px auto;
     }
     p {
-      padding: 2px 12%;
+      padding: 2px 13%;
       text-align: justify;
     }
   }
-  .info-list {
-    width: 115px;
-    padding-left: 0;
-    list-style: none;
-    li {
-      color: $info-font;
-      font-family: "CircularStd-book";
-      margin-bottom: 23px;
-    }
-    .share-buttons {
-      @include border-radius(100%);
-      width: 30px;
-      height: 30px;
-      margin-top: 4px;
-      display: block;
-      color: white;
-      font-family: "CircularStd-Medium";
-      font-size: 12px;
-      line-height: 30px;
-      text-align: center;
-      background-color: $the-orange;
+  .info-column {
+    position: fixed;
+    top: 60px;
+    width: $info-column-width;
+    padding-right: 30px;
+    .info-list {
+      padding-left: 0;
+      padding-top: 60px;
+      list-style: none;
+      li {
+        color: $info-font;
+        font-family: "CircularStd-book";
+        margin-bottom: 23px;
+      }
+      .share-buttons {
+        @include border-radius(100%);
+        width: 30px;
+        height: 30px;
+        margin-top: 4px;
+        display: block;
+        color: white;
+        font-family: "CircularStd-Medium";
+        font-size: 12px;
+        line-height: 30px;
+        text-align: center;
+        background-color: $the-orange;
+      }
     }
   }
 }
 
+  .overview-column {
+    position: fixed;
+    top: 0px;
+    left: $info-main-wrapper-width;
+    width: $overview-column-width;
+    min-width: 245px; //image
+    .overview-box {
+      cursor: pointer;
+      overflow: hidden;
+      padding-top: 10px;
+      margin: 0 auto;
+      width: 245px;
+    }
+    .overview-header {
+      margin-bottom: 60px;
+      font-family: "CircularStd-Medium";
+      font-size: 20px;
+    }
+    .overview-title {
+      font-family: "CircularStd-Medium";
+      font-size: 15px;
+      text-transform: uppercase;
+      margin-top: 11px; 
+      margin-bottom: 11px;
+    }
+    .overview-info {
+      color: $gray-overview;
+      font-size: 14px;
+      font-family: "CircularStd-Book";
+      width: 50%;
+      float: left;
+      margin-top: 0; 
+      margin-bottom: 0;
+    }
+    .overview-image {
+      height: 145px;
+      width: 245px;
+    }
+  }//overview-column
+
+.kilder, .goer {
+  position: fixed;
+  width: 58px;
+  top: 90px;
+  font-size: 16px;
+  font-family: "CircularStd-Book";
+  height: calc(100% - 90px);
+  text-align: center;
+}
+.goer {
+  right: 58px;
+  background-color: white;
+  color: black;
+  z-index: 99;
+}
+.kilder {
+  right: 0px;
+  background-color: black;
+  color: white;
+  z-index: 9999;
+}

@@ -12,6 +12,9 @@
 @import "imports/search_page";
 @import "imports/background_vectors";
 
+p {
+  font-family: "CircularStd-Book";
+}
 .made-by {
   padding-left: 50px;
   color: $the-orange;

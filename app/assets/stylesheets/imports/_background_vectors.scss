@@ -1,5 +1,5 @@
 .firework {
-  position: fixed;
+  position: absolute;
   width: 317px;
   height: 424px;
   top: 117px;
@@ -8,7 +8,7 @@
   background-image: url(image-path("firework"));
 }
 .star {
-  position: fixed;
+  position: absolute;
   width: 138px;
   height: 228px;
   left: 182px;
