@@ -1,7 +1,16 @@
+@import 'imports/colors';
 .one .half, .one-third, .one-fourth, .two-thirds {
   width: 100%; // On mobile screen
 }
 
+.form-field {
+  background-color: lighten($primary-bg, 10%);
+  padding: 20px 15px;
+  width: 100%;
+  [type="radio"] {
+    padding: 10px;
+  }
+}
 @media only screen and (min-width: 800px) {
   .one {
     width: 100%;

@@ -1,29 +1,45 @@
 <%= form_for [@theme, @work] do |f| %>
   <%= f.hidden_field :theme_id, value: @theme.id %>
   <h3>Vælg kategori:</h3>
-  <span class="bg-cat-wrapper">
+  <div class="form-field">
     <%= f.label :category, "Læs" %>
     <%= f.radio_button :category, :laes, checked: true %>
-  </span>
-  <span class="bg-cat-wrapper">
     <%= f.label :category,"Se" %>
     <%= f.radio_button :category, :se %>
-  </span>
-  <span class="bg-cat-wrapper">
     <%= f.label :category,"Hør" %>
     <%= f.radio_button :category, :hoer %>
-  </span>
-  <hr>
-  <h3> <%= f.label :type_of_content, "Type:" %> </h3>
-  <%= f.text_field :type_of_content %>
-
-  <h3> <%= f.label :title, "Titel", class: "bg-label" %> </h3>
-  <%= f.text_field :title %>
+  </div>
 
   <hr>
-  <h3> <%= f.label :desciption, "Tekst", class: "bg-label" %> </h3>
-  <%= f.text_area :description %>
+  <div class="form-field">
+    <% if @theme.cover_image %>
+      <%= image_tag @theme.cover_image.thumb.url %>
+    <% end %><br>
+    <%= f.label :cover_image, "Vælg billeder:" %><br>
+    <%= f.file_field :cover_image %>
+  </div>
+
+  <div class="form-field">
+    <h3> <%= f.label :type_of_content, "Type:" %> </h3>
+    <%= f.text_field :type_of_content %>
+  </div>
+
+  <div class="form-field">
+    <h3> <%= f.label :title, "Titel", class: "bg-label" %> </h3>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="form-field">
+    <h3> <%= f.label :desciption, "Tekst", class: "bg-label" %> </h3>
+    <%= f.text_area :description, id: "tiny" %>
+  </div>
 
   <hr>
   <%= f.submit "Opdater", class: "bg-button" %>
 <% end %>
+  <script type="text/javascript">
+    tinymce.init({
+      selector: "#tiny",
+      plugins: ["paste", "link"]
+    })
+  </script>
