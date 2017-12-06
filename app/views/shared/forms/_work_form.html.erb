@@ -1,3 +1,6 @@
+<%= tinymce_assets %>
+<%= tinymce %>
+
 <%= form_for [@theme, @work] do |f| %>
   <%= f.hidden_field :theme_id, value: @theme.id %>
   <h3>Vælg kategori:</h3>
@@ -38,7 +41,7 @@
 
   <div class="form-field">
     <h3> <%= f.label :desciption, "Tekst", class: "bg-label" %> </h3>
-    <%= f.text_area :description, id: "tiny" %>
+    <%= f.text_area :description, class: "tinymce" %>
   </div>
 
   <hr>
