@@ -1,7 +1,14 @@
 <% if @works.any? %>
-  <% @works.each do |work| %>
-    <h2><%= work.title %></h2>
-  <% end %>
+    <div class="category">
+    <% @works.each do |work| %>
+      <%= link_to theme_works_path(work.theme.id), class: "overview-box" do %>
+        <div class="overview-image" style="background-image: url(<%= work.cover_image.thumb.url %>);"></div>
+        <h4 class="overview-title"><%= work.title %></h4>
+        <h5 class="overview-info"><%= work.type_of_content %></h5>
+        <h5 class="overview-info"><%= work.created_at.strftime("%d.%m.%y") %></h5>
+      <% end %>
+    <% end %>
+    </div>
 <% else %>
   <h2 class="text-center">No content under this yet!</h2>
 <% end %>

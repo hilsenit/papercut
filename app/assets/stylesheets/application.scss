@@ -15,6 +15,45 @@
 p {
   font-family: "CircularStd-Book";
 }
+
+
+ .category {
+    width: 100%;
+    .overview-box {
+      float: left;
+      cursor: pointer;
+      overflow: hidden;
+      padding-top: 10px;
+      margin: 0 20px;
+      
+      width: 245px;
+    }
+    .overview-header {
+      margin-bottom: 60px;
+      font-family: "CircularStd-Medium";
+      font-size: 20px;
+    }
+    .overview-title {
+      font-family: "CircularStd-Medium";
+      font-size: 15px;
+      text-transform: uppercase;
+      margin-top: 11px; 
+      margin-bottom: 11px;
+    }
+    .overview-info {
+      color: $gray-overview;
+      font-size: 14px;
+      font-family: "CircularStd-Book";
+      width: 50%;
+      float: left;
+      margin-top: 0; 
+      margin-bottom: 0;
+    }
+    .overview-image {
+      height: 145px;
+      width: 245px;
+    }
+  }//overview-colu
 .made-by {
   padding-left: 50px;
   color: $the-orange;
