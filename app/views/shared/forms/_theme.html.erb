@@ -3,8 +3,8 @@
 
 <div class="backend-form">
   <%= form_for @theme do |f| %>
-  <%= image_tag @theme.cover_image.thumb.url, class: "bg_thumb_show" if @theme.cover_image? %>
-    <hr>
+
+    <%= image_tag @theme.cover_image.thumb.url, class: "bg_thumb_show" if @theme.cover_image? %>
     <div class="form-field">
       <%= f.label :cover_image, "Upload nyt billede" %>
       <%= f.file_field :cover_image %>

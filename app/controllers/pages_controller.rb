@@ -19,7 +19,7 @@ class PagesController < ApplicationController
 
   def load_newsline
     @newsline = News.all
-    params[:news_line] = @newsline
+    params[:news_line] = @newsline.shuffle
   end
 
 end
