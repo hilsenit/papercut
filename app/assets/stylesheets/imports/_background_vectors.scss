@@ -1,0 +1,28 @@
+.firework {
+  position: fixed;
+  width: 317px;
+  height: 424px;
+  top: 117px;
+  right: 174px;
+  background-repeat: no-repeat;
+  background-image: url(image-path("firework"));
+}
+.star {
+  position: fixed;
+  width: 138px;
+  height: 228px;
+  left: 182px;
+  bottom: 72px;
+  background-repeat: no-repeat;
+  background-image: url(image-path("star"));
+}
+
+.odyssey-logo {
+  position: absolute;
+  left: -35px;
+  top: 13px;
+  height: 40px;
+  width: 40px;
+  background-image: url(image-path("odyssey-logo"));
+  background-repeat: no-repeat;
+}

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'backend' => 'backend#index', as: :backend
   get 'backend/:theme_id' => 'backend#show_theme_content', as: :ba_show_works
   resources :themes do
-    resources :works
+    resources :works, except: :show
   end
   get 'om' =>  'pages#om'
   get 'bidrag' => 'pages#bidrag'

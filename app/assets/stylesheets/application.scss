@@ -10,35 +10,7 @@
 @import "imports/layout";
 @import "imports/backend_grid";
 @import "imports/search_page";
-
-.firework {
-  position: absolute;
-  width: 317px;
-  height: 424px;
-  top: 117px;
-  right: 74px;
-  background-repeat: no-repeat;
-  background-image: url(image-path("firework"));
-}
-.start {
-  position: absolute;
-  width: 138px;
-  height: 228px;
-  left: 72px;
-  bottom: 72px;
-  background-repeat: no-repeat;
-  background-image: url(image-path("star"));
-}
-
-.odyssey-logo {
-  position: absolute;
-  left: -35px;
-  top: 13px;
-  height: 40px;
-  width: 40px;
-  background-image: url(image-path("odyssey-logo"));
-  background-repeat: no-repeat;
-}
+@import "imports/background_vectors";
 
 .made-by {
   padding-left: 50px;
@@ -46,11 +18,6 @@
   font-family: "CircularStd-Book";
 }
 
-.made-by {
-  padding-left: 50px;
-  color: $the-orange;
-  font-family: "CircularStd-Book";
-}
 .backend-button {
   position: fixed;
   right: 0;

@@ -5,11 +5,6 @@ class WorksController < ApplicationController
     @works = @theme.works
   end
 
-  def show
-    @theme = Theme.find(params[:theme_id])
-    @work = Work.find(params[:id])
-  end
-
   def show_category
     @works = case params[:work_category]
       when "laes"; Work.laes
@@ -42,7 +37,7 @@ class WorksController < ApplicationController
   def update
     @work = Work.find(params[:id])
     if @work.update_attributes(work_params)
-      redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er opdateret")
+      redirect_to theme_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er opdateret")
     else
       flash.now[:notice] = return_messages("alert", @work.errors.full_messages)
       redirect_to edit_theme_work_path(@work.theme.id, @work.id)
@@ -61,6 +56,6 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :description, :short_description, :category, :theme_id, :type_of_content, :cover_image)
+    params.require(:work).permit(:title, :description, :short_description, :category, :theme_id, :type_of_content, :cover_image, :created_by, :photo_by)
   end
 end

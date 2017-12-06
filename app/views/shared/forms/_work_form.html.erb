@@ -12,9 +12,6 @@
 
   <hr>
   <div class="form-field">
-    <% if @theme.cover_image %>
-      <%= image_tag @theme.cover_image.thumb.url %>
-    <% end %><br>
     <%= f.label :cover_image, "Vælg billeder:" %><br>
     <%= f.file_field :cover_image %>
   </div>
@@ -27,6 +24,16 @@
   <div class="form-field">
     <h3> <%= f.label :title, "Titel", class: "bg-label" %> </h3>
     <%= f.text_field :title %>
+  </div>
+
+  <div class="form-field">
+    <h3> <%= f.label :created_by, "Lavet af:", class: "bg-label" %> </h3>
+    <%= f.text_field :created_by %>
+  </div>
+
+  <div class="form-field">
+    <h3> <%= f.label :photo_by, "Fotograferet af:", class: "bg-label" %> </h3>
+    <%= f.text_field :photo_by %>
   </div>
 
   <div class="form-field">

@@ -1,7 +1,52 @@
-<h2 class="text-center">Content for '<%= @theme.title %>'</h2>
 <% @works.each do |work| %>
-  <%= link_to theme_work_path(work.theme.id, work.id) do %>
-    <%= work.title %><br>
-    <div class="small"> || <%= work.type_of_content %> </div>
-  <% end %>
+<div class="info-main-wrapper">
+<div class="info-column">
+  <ul class="info-list">
+    <li>
+      <%= link_to "Rediger '#{work.title}'", edit_theme_work_path(@theme.id, work.id), class: "bg-button " %>
+    <li>
+      Tema <br>
+      <%= work.theme.title %>
+    </li>
+    <li>
+      Dato<br>
+      <%= work.created_at.strftime("%d.%m.%y") %>
+    </li>
+    <% unless work.type_of_content.nil? %>
+      <li>
+        Type<br>
+        <%= work.type_of_content %>
+      </li>
+    <% end %>
+    <% unless work.created_by.nil? %>
+      <li>
+        Tekst af<br>
+        <%= work.created_by %>
+      </li>
+    <% end %>
+    <% unless work.photo_by.nil? %>
+      <li>
+        Foto af<br>
+        <%= work.photo_by %>
+      </li>
+    <% end %>
+    <li>
+      Tags<br>
+      Kommer snart
+    </li>
+    <li>Del:</li>
+    <a href="#" class="share-buttons">FB</a>
+    <a href="#" class="share-buttons">IG</a>
+  </ul>
+</div><!-- .info-list -->
+<div class="main-column">
+  <%= image_tag work.cover_image.thumb.url, id: "slideUpImage" if work.cover_image.present? %>
+  <h2 class="text-center"><%= work.title %></h2>
+  <p class="main-text">
+    <%= work.description %>
+  </p>
+</div><!-- .main-column -->
+</div><!-- .info-main-wrapper -->
 <% end %>
+<div class="overview-column">
+</div>
