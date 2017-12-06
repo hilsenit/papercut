@@ -1,7 +1,7 @@
 <div class="newsline">
     <div class="newsline-wrapper" data-newsline="moving">
       <% news.each do |news| %>
-        <%= link_to theme_work_path(news.work.theme.id, news.work.id) do %>
+        <%= link_to theme_works_path(news.work.theme.id) do %>
           <span> <%= news.date.strftime("%d.%m.%y")%></span>
           <span> <%= news.type_of_thing %>   </span>
           <span> <%= news.title %> </span>
