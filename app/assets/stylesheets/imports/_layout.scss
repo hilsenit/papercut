@@ -34,7 +34,7 @@ nav {
   height: 350px!important;
 }
 .menu-wrapper {
-  @include transition(height .4s linear);
+  @include transition(height 0s linear);
   @include flex;
   z-index: 999999;
   overflow: hidden;
