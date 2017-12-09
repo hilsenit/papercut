@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { HttpClientModule } from '@angular/common/http';
 import { ContentComponent } from './content.component';
 
 @NgModule({
@@ -8,7 +8,8 @@ import { ContentComponent } from './content.component';
    ContentComponent 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [ContentComponent]

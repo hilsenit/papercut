@@ -61,4 +61,7 @@ gem 'carrierwave', '~> 1.0'
 gem 'fog-aws'
 gem 'aws-sdk', '~> 2'
 gem 'mini_magick'
+# Text 
 gem 'tinymce-rails'
+# Yeah
+gem 'angular-rails-templates'

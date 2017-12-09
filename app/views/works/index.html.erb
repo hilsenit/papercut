@@ -1,75 +1,76 @@
 <%# Angular %>
+<span data-theme-id="true" theme-id="<%= @theme.id %>" hidden></span>
 <content>Loading...</content>
 <%= javascript_pack_tag 'hello_angular' %>
 
-<div class="backend-form">
-  <% @works.each do |work| %>
-    <div class="info-main-wrapper">
-      <div class="info-column">
-        <ul class="info-list">
-          <li>
-            Tema <br>
-            <%= work.theme.title %>
-          </li>
-          <li>
-            Dato<br>
-            <%= work.created_at.strftime("%d.%m.%y") %>
-          </li>
-          <% unless work.type_of_content.nil? %>
-            <li>
-              Type<br>
-              <%= work.type_of_content %>
-            </li>
-          <% end %>
-          <% unless work.created_by.nil? %>
-            <li>
-              Tekst af<br>
-              <%= work.created_by %>
-            </li>
-          <% end %>
-          <% unless work.photo_by.nil? %>
-            <li>
-              Foto af<br>
-              <%= work.photo_by %>
-            </li>
-          <% end %>
-          <li>
-            Tags<br>
-            Kommer snart
-          </li>
-          <li>Del:
-            <a href="#" class="share-buttons">FB</a>
-            <a href="#" class="share-buttons">IG</a>
-          </li>
+<%# <div class="backend-form"> %>
+<%#   <% @works.each do |work| %1> %>
+<%#     <div class="info-main-wrapper"> %>
+<%#       <div class="info-column"> %>
+<%#         <ul class="info-list"> %>
+<%#           <li> %>
+<%#             Tema <br> %>
+<%#             <%= work.theme.title %1> %>
+<%#           </li> %>
+<%#           <li> %>
+<%#             Dato<br> %>
+<%#             <%= work.created_at.strftime("%d.%m.%y") %1> %>
+<%#           </li> %>
+<%#           <% unless work.type_of_content.nil? %1> %>
+<%#             <li> %>
+<%#               Type<br> %>
+<%#               <%= work.type_of_content %1> %>
+<%#             </li> %>
+<%#           <% end %1> %>
+<%#           <% unless work.created_by.nil? %1> %>
+<%#             <li> %>
+<%#               Tekst af<br> %>
+<%#               <%= work.created_by %1> %>
+<%#             </li> %>
+<%#           <% end %1> %>
+<%#           <% unless work.photo_by.nil? %1> %>
+<%#             <li> %>
+<%#               Foto af<br> %>
+<%#               <%= work.photo_by %1> %>
+<%#             </li> %>
+<%#           <% end %1> %>
+<%#           <li> %>
+<%#             Tags<br> %>
+<%#             Kommer snart %>
+<%#           </li> %>
+<%#           <li>Del: %>
+<%#             <a href="#" class="share-buttons">FB</a> %>
+<%#             <a href="#" class="share-buttons">IG</a> %>
+<%#           </li> %>
 
 
 
-          <li>
-            <%= link_to "Rediger '#{work.title}'", edit_theme_work_path(@theme.id, work.id), class: "bg-button " %>
-            <li>
-        </ul>
-      </div><!-- .info-list -->
-      <div class="main-column">
-        <%= image_tag work.cover_image.thumb.url, id: "slideUpImage" if work.cover_image.present? %>
-        <h2 class="text-center"><%= work.title %></h2>
-        <p class="main-text">
-          <%= work.description.html_safe %>
-        </p>
-      </div><!-- .main-column -->
+<%#           <li> %>
+<%#             <%= link_to "Rediger '#{work.title}'", edit_theme_work_path(@theme.id, work.id), class: "bg-button " %1> %>
+<%#             <li> %>
+<%#         </ul> %>
+<%#       </div><!-- .info-list --> %>
+<%#       <div class="main-column"> %>
+<%#         <%= image_tag work.cover_image.thumb.url, id: "slideUpImage" if work.cover_image.present? %1> %>
+<%#         <h2 class="text-center"><%= work.title %1></h2> %>
+<%#         <p class="main-text"> %>
+<%#           <%= work.description.html_safe %1> %>
+<%#         </p> %>
+<%#       </div><!-- .main-column --> %>
 
-    <% end %>
-    </div><!-- .info-main-wrapper -->
-    <div class="overview-column">
-      <h3 class="overview-header">Alt i tema</h3>
-      <% @works.each do |work_overview| %>
-        <div class="overview-box">
-          <div class="overview-image" style="background-image: url(<%= work_overview.cover_image.thumb.url %>);"></div>
-          <h4 class="overview-title"><%= work_overview.title %></h4>
-          <h5 class="overview-info"><%= work_overview.type_of_content %></h5>
-          <h5 class="overview-info"><%= work_overview.created_at.strftime("%d.%m.%y") %></h5>
-        </div>
-      <% end %>
+<%#     <% end %1> %>
+<%#     </div><!-- .info-main-wrapper --> %>
+<%#     <div class="overview-column"> %>
+<%#       <h3 class="overview-header">Alt i tema</h3> %>
+<%#       <% @works.each do |work_overview| %1> %>
+<%#         <div class="overview-box"> %>
+<%#           <div class="overview-image" style="background-image: url(<%= work_overview.cover_image.thumb.url %1>);"></div> %>
+<%#           <h4 class="overview-title"><%= work_overview.title %1></h4> %>
+<%#           <h5 class="overview-info"><%= work_overview.type_of_content %1></h5> %>
+<%#           <h5 class="overview-info"><%= work_overview.created_at.strftime("%d.%m.%y") %1></h5> %>
+<%#         </div> %>
+<%#       <% end %1> %>
 
-  <div class="kilder"><h3>Kilder</h3></div>
-  <div class="goer"><h3>Gør</h3></div>
-</div>
+<%#   <div class="kilder"><h3>Kilder</h3></div> %>
+<%#   <div class="goer"><h3>Gør</h3></div> %>
+<%# </div> %>

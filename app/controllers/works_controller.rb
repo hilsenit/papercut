@@ -3,6 +3,10 @@ class WorksController < ApplicationController
   def index
     @theme = Theme.find(params[:theme_id])
     @works = @theme.works
+    respond_to do |format|
+      format.html
+      format.json { render json: { works: @works } }
+    end
   end
 
   def show_category
