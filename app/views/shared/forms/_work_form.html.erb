@@ -47,6 +47,13 @@
   </div>
 
   <hr>
+    <h3>Kilder</h3>
+  <div class="form-field">
+    <%= f.fields_for :sources do |source| %>
+      <%= render 'source_fields', f: source %>
+    <% end %>
+    <%= link_to_add_association 'Tilføj kilde', f, :sources, class: "add-source" %>
+  </div>
   <%= f.submit "Opdater", class: "bg-button" %>
 <% end %>
   <script type="text/javascript">

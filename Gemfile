@@ -65,3 +65,5 @@ gem 'mini_magick'
 gem 'tinymce-rails'
 # Yeah
 gem 'angular-rails-templates'
+gem 'cocoon'
+gem 'jquery-rails'

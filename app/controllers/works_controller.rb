@@ -60,6 +60,15 @@ class WorksController < ApplicationController
   private
 
   def work_params
-    params.require(:work).permit(:title, :description, :short_description, :category, :theme_id, :type_of_content, :cover_image, :created_by, :photo_by)
+    params.require(:work).permit(:title,
+                                 :theme_id,
+                                 :description,
+                                 :short_description,
+                                 :category,
+                                 :type_of_content,
+                                 :cover_image,
+                                 :created_by,
+                                 :photo_by,
+                                 sources_attributes: [:id, :title, :link, :image, :description])
   end
 end

@@ -5,6 +5,9 @@ class Work < ApplicationRecord
 
   belongs_to :theme
   has_many :news, dependent: :destroy
+  has_many :sources, inverse_of: :work
+
+  accepts_nested_attributes_for :sources, reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :title
 end
