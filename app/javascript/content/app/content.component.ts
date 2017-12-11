@@ -8,26 +8,26 @@ import {Observable} from "rxjs";
   template: `
   <div class="info-main-wrapper">
     <div class="info-column">
-      <ul class="info-list" *ngFor="let work of works">
-        <li data-theme-title="true" *ngIf="theme.title">
+      <ul class="info-list">
+        <li data-theme-title="true">
           Tema <br>
           {{ theme.title }}
         </li>
         <li>
           Dato<br>
-          {{ work.created_at | date: 'dd.mm.yy'}}
+          {{ current_work.created_at | date: 'dd.mm.yy'}}
         </li>
-        <li *ngIf="work.type_of_content">
+        <li *ngIf="current_work.type_of_content">
           Type<br>
-          {{ work.type_of_content }}
+          {{ current_work.type_of_content }}
         </li>
-        <li *ngIf="work.created_by">
+        <li *ngIf="current_work.created_by">
           Tekst af<br>
-          {{ work.created_by }}
+          {{ current_work.created_by }}
         </li>
-        <li *ngIf="work.photo_by">
+        <li *ngIf="current_work.photo_by">
           Foto af<br>
-          {{ work.photo_by }}
+          {{ current_work.photo_by }}
         </li>
         <li>
           Tags<br>
@@ -39,12 +39,18 @@ import {Observable} from "rxjs";
         </li>
       </ul><!-- .info-list -->
     </div><!-- .info-column -->
+    <div class="main-column">
+      <img *ngIf="current_work.cover_image.url" [src]="current_work.cover_image.thumb.url" id="slideUpImage">
+      <h2 class="text-center">{{ current_work.title }}</h2>
+      <p class="main-text" [innerHTML]="current_work.description"></p>
+    </div><!-- .main-column -->
   </div>
   `
 })
 export class ContentComponent implements OnInit {
   works: {}[] = [];
-  theme: {} = null;
+  current_work: {};
+  theme: {};
   path: string;
   constructor(private http: HttpClient) {}
   
@@ -59,6 +65,7 @@ export class ContentComponent implements OnInit {
     .subscribe(
       data => { 
         this.works = data.works,
+        this.current_work = data.works[0],
         this.theme = data.theme
       }
     )
