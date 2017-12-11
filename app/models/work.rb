@@ -1,4 +1,5 @@
 class Work < ApplicationRecord
+  attr_accessor :theme_title
   mount_uploader :cover_image, WorkCoverUploader
   enum category: [:laes, :se, :hoer]
 

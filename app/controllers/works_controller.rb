@@ -5,7 +5,7 @@ class WorksController < ApplicationController
     @works = @theme.works
     respond_to do |format|
       format.html
-      format.json { render json: { works: @works } }
+      format.json { render json: { works: @works, theme: @theme } }
     end
   end
 
