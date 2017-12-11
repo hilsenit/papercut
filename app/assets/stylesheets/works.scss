@@ -6,7 +6,7 @@ $window-width: 1300;
 $info-column-width: percentage(115/$window-width);
 $main-column-width: percentage(735/$window-width);
 $info-main-wrapper-width: percentage(850/$window-width);
-$overview-column-width: percentage(200/$window-width);
+$overview-column-width: percentage(450/$window-width);
 
 
 .info-main-wrapper {
@@ -28,7 +28,7 @@ $overview-column-width: percentage(200/$window-width);
       margin: 1px auto;
     }
     p {
-      padding: 2px 13%;
+      padding: 2px 9%;
       text-align: justify;
     }
   }
@@ -64,31 +64,40 @@ $overview-column-width: percentage(200/$window-width);
 }
 
 .overview-column {
+  background-color: $work-overview-background;
+  height: 100%;
+  left: $info-main-wrapper-width;
+  min-width: 245px; //image
+  overflow-y: scroll;
+  padding-bottom: 100px;
   position: fixed;
   top: 0px;
-  left: $info-main-wrapper-width;
   width: $overview-column-width;
-  min-width: 245px; //image
+
   .overview-box {
     cursor: pointer;
     overflow: hidden;
     padding-top: 10px;
-    margin: 0 auto;
-    width: 245px;
+    padding-left: 60px;
+    width: 310px;
+    z-index: 999;
   }
   .overview-header {
     margin-bottom: 60px;
     font-family: "CircularStd-Medium";
     font-size: 20px;
+    padding-left: 60px;
   }
   .overview-title {
     font-family: "CircularStd-Medium";
     font-size: 15px;
     text-transform: uppercase;
     margin-top: 11px; 
-    margin-bottom: 11px;
+    margin-bottom: 1px;
+    background-color: $primary-bg;
   }
   .overview-info {
+    background-color: $primary-bg;
     color: $gray-overview;
     font-size: 14px;
     font-family: "CircularStd-Book";
@@ -133,7 +142,7 @@ $goer_right: 116px;
   }
 }
 .info-box-opened {
-  left: 30%!important;
+  left: 40%!important;
 }
 #closeInfoBoxes {
   position: fixed;
@@ -146,7 +155,7 @@ $goer_right: 116px;
 }
 .goer {
   @include transition(left .2s linear);
-  @include calc(width, '70% + #{$goer_right}');
+  @include calc(width, '60% + #{$goer_right}');
   left: 100%;
   margin-left: -$goer_right;
   background-color: white;
@@ -158,7 +167,7 @@ $goer_right: 116px;
 }
 .kilder {
   @include transition(left .2s linear);
-  @include calc(width, '70% + #{$kilder_right}');
+  @include calc(width, '60% + #{$kilder_right}');
   left: 100%;
   margin-left: -$kilder_right;
   background-color: black;

@@ -79,6 +79,20 @@ export class ContentComponent implements OnInit {
   path: string;
   constructor(private http: HttpClient) {}
   
+
+  ngOnInit(): void {
+    interface WorkResponse {
+      works: {}[];
+      theme: {};
+    }
+    var theme_id = document.querySelector('[data-theme-id]').getAttribute('theme-id');
+    this.path = '/themes/' + theme_id + '/works.json';
+    this.http.get<WorkResponse>(this.path)
+    .subscribe(
+      data => { this.works = data.works, this.current_work = data.works[0], this.theme = data.theme }
+    )
+  }
+
   openInfoBox = function(info_id, both = false) {
     var box = document.getElementById(info_id);
     if (both) { // Kilder clicked, slide out both windows
@@ -95,7 +109,6 @@ export class ContentComponent implements OnInit {
     this.classToInfoBoxes('remove');
     this.kilder_opened = false;
     this.goer_opened = false;
-
   }
 
   classToInfoBoxes = function(remove_or_add) {
@@ -107,19 +120,6 @@ export class ContentComponent implements OnInit {
         box.classList.add('info-box-opened');
       }
     });
-  }
-
-  ngOnInit(): void {
-    interface WorkResponse {
-      works: {}[];
-      theme: {};
-    }
-    var theme_id = document.querySelector('[data-theme-id]').getAttribute('theme-id');
-    this.path = '/themes/' + theme_id + '/works.json';
-    this.http.get<WorkResponse>(this.path)
-    .subscribe(
-      data => { this.works = data.works, this.current_work = data.works[0], this.theme = data.theme }
-    )
   }
 
   setImageUrl = function(image_url, id) {
