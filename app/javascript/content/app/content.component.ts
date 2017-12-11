@@ -59,8 +59,19 @@ import {Observable} from "rxjs";
   </div><!-- overview-column -->
   <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
     <h3>Kilder</h3>
-    <div class="kilde_box">
-    </div>
+    <div class="kilde-box" *ngFor="let source of sources; let i_s = index">
+      <div *ngIf="source.image" class="source-image">
+        <div class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
+      </div>
+      <div class="source-content">
+        <h5 class="text-center">{{ i_s + 1 }}</h5>
+        <h4 class="text-center">{{ source.title }}</h4>
+        <p class="source-description">
+          {{source.description}}
+          <a class="source-link" [attr.href]="source.link" target="_blank">{{source.link}}</a>
+        </p>
+      </div>
+    </div><!-- kilde-box -->
   </div>
   <div class="info-right-boxes goer" id="goer" data-info="boxes" (click)="openInfoBox('goer')">
     <h3>Gør</h3>
@@ -72,6 +83,7 @@ import {Observable} from "rxjs";
 })
 export class ContentComponent implements OnInit {
   works: {}[] = [];
+  sources: {}[] = [];
   current_work: {};
   theme: {};
   kilder_opened: boolean = false;
@@ -84,12 +96,19 @@ export class ContentComponent implements OnInit {
     interface WorkResponse {
       works: {}[];
       theme: {};
+      sources: {}[];
     }
     var theme_id = document.querySelector('[data-theme-id]').getAttribute('theme-id');
     this.path = '/themes/' + theme_id + '/works.json';
     this.http.get<WorkResponse>(this.path)
     .subscribe(
-      data => { this.works = data.works, this.current_work = data.works[0], this.theme = data.theme }
+      data => {
+        this.works = data.works,
+        this.current_work = data.works[0],
+        this.theme = data.theme,
+        this.sources = data.sources
+
+      }
     )
   }
 
@@ -106,6 +125,7 @@ export class ContentComponent implements OnInit {
   }
 
   closeInfoBoxes = function() {
+    debugger;
     this.classToInfoBoxes('remove');
     this.kilder_opened = false;
     this.goer_opened = false;

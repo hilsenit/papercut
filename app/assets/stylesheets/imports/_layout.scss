@@ -7,7 +7,7 @@ nav {
   padding: 0 20px;
 }
 .navbar {
-  z-index: 999;
+  z-index: 959; // Under #closeInfoBox, but above info-column
 }
 .nav-half {
   margin-top: 6px;

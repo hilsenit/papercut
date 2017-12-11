@@ -11,6 +11,7 @@
       <h3><%= work.title %></h3>
       <p>Last edited: <%= time_ago_in_words(work.updated_at) %> ago</p>
       <div>
+        <%= link_to "Vis", theme_works_path(work.theme.id), class: "bg-button" %> 
         <%= link_to "Rediger", edit_theme_work_path(work.theme.id, work.id), class: "bg-button" %> 
         <%= link_to "Slet", theme_work_path(work.theme.id, work.id), method: :delete, class: "bg-button delete", data: {confirm: "Er du sikker på, at du vil slette '#{work.title}'. Dette kan IKKE gøres om!"} %>
       </div>

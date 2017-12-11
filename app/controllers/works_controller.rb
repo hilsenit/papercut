@@ -3,9 +3,10 @@ class WorksController < ApplicationController
   def index
     @theme = Theme.find(params[:theme_id])
     @works = @theme.works
+    @sources = @theme.sources
     respond_to do |format|
       format.html
-      format.json { render json: { works: @works, theme: @theme } }
+      format.json { render json: { works: @works, theme: @theme, sources: @sources } }
     end
   end
 
@@ -69,6 +70,6 @@ class WorksController < ApplicationController
                                  :cover_image,
                                  :created_by,
                                  :photo_by,
-                                 sources_attributes: [:id, :title, :link, :image, :description])
+                                 sources_attributes: [:id, :title, :link, :image, :description, :_destroy])
   end
 end
