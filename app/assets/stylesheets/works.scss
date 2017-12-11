@@ -118,24 +118,53 @@ $overview-column-width: percentage(200/$window-width);
   }
 }//overview-column
 
-.kilder, .goer {
+$kilder_right: 58px;
+$goer_right: 116px;
+
+.info-right-boxes {
   position: fixed;
-  width: 58px;
   top: 90px;
   font-size: 16px;
   font-family: "CircularStd-Book";
   height: calc(100% - 90px);
-  text-align: center;
+  h3 {
+    cursor: pointer;
+    padding: 0px 10px;
+  }
+}
+.info-box-opened {
+  left: 30%!important;
+}
+#closeInfoBoxes {
+  position: fixed;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
 }
 .goer {
-  right: 58px;
+  @include transition(left .2s linear);
+  @include calc(width, '70% + #{$goer_right}');
+  left: 100%;
+  margin-left: -$goer_right;
   background-color: white;
   color: black;
   z-index: 99;
+  &:hover {
+    left: 97%;
+  }
 }
 .kilder {
-  right: 0px;
+  @include transition(left .2s linear);
+  @include calc(width, '70% + #{$kilder_right}');
+  left: 100%;
+  margin-left: -$kilder_right;
   background-color: black;
   color: white;
   z-index: 9999;
+  &:hover {
+    left: 98%;
+  }
 }

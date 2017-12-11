@@ -57,25 +57,58 @@ import {Observable} from "rxjs";
         <h5 class="overview-info">{{ overview_work.created_at | date: "dd.mm.yy" }} </h5>
       </div><!-- overview-box -->
   </div><!-- overview-column -->
-  <div class="kilder"><h3>Kilder</h3></div>
-  <div class="goer"><h3>Gør</h3></div>
+  <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
+    <h3>Kilder</h3>
+    <div class="kilde_box">
+    </div>
+  </div>
+  <div class="info-right-boxes goer" id="goer" data-info="boxes" (click)="openInfoBox('goer')">
+    <h3>Gør</h3>
+    <div class="goer_box">
+    </div>
+  </div>
+  <div *ngIf="kilder_opened || goer_opened " id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
   `
 })
 export class ContentComponent implements OnInit {
   works: {}[] = [];
   current_work: {};
   theme: {};
+  kilder_opened: boolean = false;
+  goer_opened: boolean = false;
   path: string;
   constructor(private http: HttpClient) {}
   
-  setImageUrl = function(image_url, id) {
-    var image_div = document.getElementById(id);
-    image_div.style.backgroundImage = 'url(' + image_url + ')';
-    image_div.classList.add('overview-image-show');
+  openInfoBox = function(info_id, both = false) {
+    var box = document.getElementById(info_id);
+    if (both) { // Kilder clicked, slide out both windows
+      this.classToInfoBoxes('add');
+    } else if (info_id == 'goer' && this.goer_opened ){ // Goer is clicked while Kilder is opened
+      document.getElementById('kilder').classList.remove('info-box-opened');
+    } else {
+      box.classList.add('info-box-opened');
+    }
+    (info_id == "kilder") ? this.kilder_opened = true : this.goer_opened = true 
   }
-  changeCurrentWork = function(work_id) {
-    this.current_work = this.works.find(x => x.id == work_id);
+
+  closeInfoBoxes = function() {
+    this.classToInfoBoxes('remove');
+    this.kilder_opened = false;
+    this.goer_opened = false;
+
   }
+
+  classToInfoBoxes = function(remove_or_add) {
+    var boxes = Array.from(document.querySelectorAll('[data-info="boxes"]'));
+    boxes.forEach(function(box) {
+      if (remove_or_add == 'remove') {
+        box.classList.remove('info-box-opened');
+      } else {
+        box.classList.add('info-box-opened');
+      }
+    });
+  }
+
   ngOnInit(): void {
     interface WorkResponse {
       works: {}[];
@@ -85,13 +118,18 @@ export class ContentComponent implements OnInit {
     this.path = '/themes/' + theme_id + '/works.json';
     this.http.get<WorkResponse>(this.path)
     .subscribe(
-      data => { 
-        this.works = data.works,
-        this.current_work = data.works[0],
-          this.theme = data.theme,
-          console.log(this.works);
-      }
+      data => { this.works = data.works, this.current_work = data.works[0], this.theme = data.theme }
     )
+  }
+
+  setImageUrl = function(image_url, id) {
+    var image_div = document.getElementById(id);
+    image_div.style.backgroundImage = 'url(' + image_url + ')';
+    image_div.classList.add('overview-image-show');
+  }
+
+  changeCurrentWork = function(work_id) {
+    this.current_work = this.works.find(x => x.id == work_id);
   }
   
 }
