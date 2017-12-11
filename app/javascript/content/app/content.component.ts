@@ -47,7 +47,7 @@ import {Observable} from "rxjs";
   </div>
   <div class="overview-column">
     <h3 class="overview-header">Alt i tema</h3>
-      <div class="overview-box" *ngFor="let overview_work of works; let i = index">
+      <div class="overview-box" *ngFor="let overview_work of works; let i = index" (click)="changeCurrentWork(overview_work.id)">
         <img [src]="overview_work.cover_image.thumb.url" (load)="setImageUrl(overview_work.cover_image.thumb.url, i)" hidden>
         <div class="overview-image" [attr.id]="i">
           <div *ngIf="overview_work.id == current_work.id" id="currentCross"></div>
@@ -72,6 +72,9 @@ export class ContentComponent implements OnInit {
     var image_div = document.getElementById(id);
     image_div.style.backgroundImage = 'url(' + image_url + ')';
     image_div.classList.add('overview-image-show');
+  }
+  changeCurrentWork = function(work_id) {
+    this.current_work = this.works.find(x => x.id == work_id);
   }
   ngOnInit(): void {
     interface WorkResponse {
