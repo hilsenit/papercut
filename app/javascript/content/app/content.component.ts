@@ -45,6 +45,20 @@ import {Observable} from "rxjs";
       <p class="main-text" [innerHTML]="current_work.description"></p>
     </div><!-- .main-column -->
   </div>
+  <div class="overview-column">
+    <h3 class="overview-header">Alt i tema</h3>
+      <div class="overview-box" *ngFor="let overview_work of works; let i = index">
+        <img [src]="overview_work.cover_image.thumb.url" (load)="setImageUrl(overview_work.cover_image.thumb.url, i)" hidden>
+        <div class="overview-image" [attr.id]="i">
+          <div *ngIf="overview_work.id == current_work.id" id="currentCross"></div>
+        </div>
+        <h4 class="overview-title">{{ overview_work.title }}</h4>
+        <h5 class="overview-info">{{ overview_work.type_of_content }}</h5>
+        <h5 class="overview-info">{{ overview_work.created_at | date: "dd.mm.yy" }} </h5>
+      </div><!-- overview-box -->
+  </div><!-- overview-column -->
+  <div class="kilder"><h3>Kilder</h3></div>
+  <div class="goer"><h3>Gør</h3></div>
   `
 })
 export class ContentComponent implements OnInit {
@@ -54,6 +68,11 @@ export class ContentComponent implements OnInit {
   path: string;
   constructor(private http: HttpClient) {}
   
+  setImageUrl = function(image_url, id) {
+    var image_div = document.getElementById(id);
+    image_div.style.backgroundImage = 'url(' + image_url + ')';
+    image_div.classList.add('overview-image-show');
+  }
   ngOnInit(): void {
     interface WorkResponse {
       works: {}[];
@@ -66,7 +85,8 @@ export class ContentComponent implements OnInit {
       data => { 
         this.works = data.works,
         this.current_work = data.works[0],
-        this.theme = data.theme
+          this.theme = data.theme,
+          console.log(this.works);
       }
     )
   }

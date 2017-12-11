@@ -63,45 +63,60 @@ $overview-column-width: percentage(200/$window-width);
   }
 }
 
-  .overview-column {
-    position: fixed;
-    top: 0px;
-    left: $info-main-wrapper-width;
-    width: $overview-column-width;
-    min-width: 245px; //image
-    .overview-box {
-      cursor: pointer;
-      overflow: hidden;
-      padding-top: 10px;
-      margin: 0 auto;
-      width: 245px;
-    }
-    .overview-header {
-      margin-bottom: 60px;
-      font-family: "CircularStd-Medium";
-      font-size: 20px;
-    }
-    .overview-title {
-      font-family: "CircularStd-Medium";
-      font-size: 15px;
-      text-transform: uppercase;
-      margin-top: 11px; 
-      margin-bottom: 11px;
-    }
-    .overview-info {
-      color: $gray-overview;
-      font-size: 14px;
-      font-family: "CircularStd-Book";
-      width: 50%;
-      float: left;
-      margin-top: 0; 
-      margin-bottom: 0;
-    }
-    .overview-image {
-      height: 145px;
-      width: 245px;
-    }
-  }//overview-column
+.overview-column {
+  position: fixed;
+  top: 0px;
+  left: $info-main-wrapper-width;
+  width: $overview-column-width;
+  min-width: 245px; //image
+  .overview-box {
+    cursor: pointer;
+    overflow: hidden;
+    padding-top: 10px;
+    margin: 0 auto;
+    width: 245px;
+  }
+  .overview-header {
+    margin-bottom: 60px;
+    font-family: "CircularStd-Medium";
+    font-size: 20px;
+  }
+  .overview-title {
+    font-family: "CircularStd-Medium";
+    font-size: 15px;
+    text-transform: uppercase;
+    margin-top: 11px; 
+    margin-bottom: 11px;
+  }
+  .overview-info {
+    color: $gray-overview;
+    font-size: 14px;
+    font-family: "CircularStd-Book";
+    width: 50%;
+    float: left;
+    margin-top: 0; 
+    margin-bottom: 0;
+  }
+  .overview-image {
+    @include transition(opacity .4s ease-out);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0;
+    height: 145px;
+    width: 245px;
+  }
+  .overview-image-show {
+    opacity: 1;
+  }
+  #currentCross {
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' preserveAspectRatio='none' viewBox='0 0 100 100'><path d='M100 0 L0 100 ' stroke='black' stroke-width='1'/><path d='M0 0 L100 100 ' stroke='black' stroke-width='1'/></svg>");
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: 100% 100%, auto;
+    width: 100%;
+    height: 100%;
+  }
+}//overview-column
 
 .kilder, .goer {
   position: fixed;
