@@ -141,31 +141,38 @@ $boxes_top: 90px;
     cursor: pointer;
     padding: 0px 10px;
   }
-  .kilde-box {
+  .kilde-wrapper-relative {
+    position: relative;
     width: 100%;
-    min-height: 300px;
-    margin: 20px 3%;
-    .source-image {
-      padding: 50px;
-      width: 20%;
-      float: left;
-      .source-image-inner {
-        width: 160px;
-        height: 160px;
-        margin: 0 auto;
+    height: 100%;
+    .kilde-box {
+      display: block;
+      min-height: 300px;
+      margin: 20px 3%;
+      overflow: hidden;
+      width: 100%;
+      .source-image {
+        padding: 50px;
+        width: 20%;
+        float: left;
+        .source-image-inner {
+          width: 160px;
+          height: 160px;
+          margin: 0 auto;
+        }
       }
-    }
-    .source-content {
-      width: 69%;
-      padding: 10px 4%;
-      float: left;
-      color: $border-color;
-      .source-link {
-        color: $i-fucking-love-sience;
-        display: block;
-        text-align: center;
-        padding-top: 20px;
-        width: 100%;
+      .source-content {
+        width: 69%;
+        padding: 10px 4%;
+        float: left;
+        color: $border-color;
+        .source-link {
+          color: $i-fucking-love-sience;
+          display: block;
+          text-align: center;
+          padding-top: 20px;
+          width: 100%;
+        }
       }
     }
   }
@@ -173,7 +180,7 @@ $boxes_top: 90px;
 .info-box-opened {
   left: 40%!important;
 }
-#closeInfoBoxes {
+#closeInfoBoxes, .close-info-boxes-init {
   position: fixed;
   cursor: pointer;
   top: 0;

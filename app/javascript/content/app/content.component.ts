@@ -58,27 +58,30 @@ import {Observable} from "rxjs";
       </div><!-- overview-box -->
   </div><!-- overview-column -->
   <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
-    <h3>Kilder</h3>
-    <div class="kilde-box" *ngFor="let source of sources; let i_s = index">
-      <div class="source-image">
-        <div *ngIf="source.image" class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
-      </div>
-      <div class="source-content">
-        <h5 class="text-center">{{ i_s + 1 }}</h5>
-        <h4 class="text-center">{{ source.title }}</h4>
-        <p class="source-description">
-          {{source.description}}
-          <a class="source-link" [attr.href]="source.link" target="_blank">{{source.link}}</a>
-        </p>
-      </div>
-    </div><!-- kilde-box -->
+    <div class="kilde-wrapper-relative">
+      <h3>Kilder</h3>
+      <div class="kilde-box" *ngFor="let source of sources; let i_s = index" [attr.id]="'source' + source.id">
+        <div class="source-image">
+          <div *ngIf="source.image" class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
+        </div>
+        <div class="source-content">
+          <h5 class="text-center">{{ i_s + 1 }}</h5>
+          <h4 class="text-center">{{ source.title }}</h4>
+          <p class="source-description">
+            {{source.description}}
+            <a class="source-link" [attr.href]="source.link" target="_blank">{{source.link}}</a>
+          </p>
+        </div>
+      </div><!-- kilde-box -->
+    </div><!-- kilde-wrapper-relative -->
   </div>
   <div class="info-right-boxes goer" id="goer" data-info="boxes" (click)="openInfoBox('goer')">
     <h3>To do</h3>
     <div class="goer_box">
     </div>
   </div>
-  <div *ngIf="kilder_opened || goer_opened " id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
+  <div *ngIf="kilder_opened || goer_opened" id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
+  <div class="close-info-boxes-init hide-it" data-close-info-boxes="true" (click)="closeInfoBoxes()"></div>
   `
 })
 export class ContentComponent implements OnInit {
@@ -119,12 +122,16 @@ export class ContentComponent implements OnInit {
       var sources = Array.from(document.querySelectorAll('.main-text a'));
       sources.forEach(function(source) {
         source.addEventListener('click', function() {
-          var info_box = document.getElementById('kilder');
+          document.querySelector('[data-close-info-boxes="true"]').classList.remove('hide-it');
           var boxes = Array.from(document.querySelectorAll('[data-info="boxes"]'));
-          this.kilder_opened = true;
           boxes.forEach(function(box) {
             box.classList.add('info-box-opened');
           });
+          var clicked_source_text = document.getElementById('source' + source.getAttribute('title'));
+          var topPos = clicked_source_text.offsetTop;
+          console.log(topPos); // Why is this so hight? 
+          document.getElementById('kilder').scrollTop = topPos;
+          debugger;
         });
       });
       this.source_runned = true; // Should only run once - ngAfterViewChecked is trickered for each view
@@ -147,6 +154,9 @@ export class ContentComponent implements OnInit {
     this.classToInfoBoxes('remove');
     this.kilder_opened = false;
     this.goer_opened = false;
+    if (!document.querySelector('[data-close-info-boxes="true"]').classList.contains('hide-it')) {
+      document.querySelector('[data-close-info-boxes="true"]').classList.add('hide-it');
+    }
   }
 
   classToInfoBoxes = function(remove_or_add) {
