@@ -60,8 +60,8 @@ import {Observable} from "rxjs";
   <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
     <h3>Kilder</h3>
     <div class="kilde-box" *ngFor="let source of sources; let i_s = index">
-      <div *ngIf="source.image" class="source-image">
-        <div class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
+      <div class="source-image">
+        <div *ngIf="source.image" class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
       </div>
       <div class="source-content">
         <h5 class="text-center">{{ i_s + 1 }}</h5>
@@ -74,7 +74,7 @@ import {Observable} from "rxjs";
     </div><!-- kilde-box -->
   </div>
   <div class="info-right-boxes goer" id="goer" data-info="boxes" (click)="openInfoBox('goer')">
-    <h3>Gør</h3>
+    <h3>To do</h3>
     <div class="goer_box">
     </div>
   </div>
@@ -89,6 +89,7 @@ export class ContentComponent implements OnInit {
   kilder_opened: boolean = false;
   goer_opened: boolean = false;
   path: string;
+  source_runned: boolean = false;
   constructor(private http: HttpClient) {}
   
 
@@ -110,6 +111,21 @@ export class ContentComponent implements OnInit {
 
       }
     )
+  }
+
+  ngAfterViewChecked(): void {
+    if (!this.source_runned) {
+      var sources = Array.from(document.querySelectorAll('.main-text a'));
+      sources.forEach(function(source) {
+        source.addEventListener('click', function() {
+          console.log(source.getAttribute('title'));
+        });
+      });
+      this.source_runned = true;
+    }
+  }
+  findSourcesAndPlaceEvent = function(selector) {
+    console.log(document.querySelector(selector));
   }
 
   openInfoBox = function(info_id, both = false) {
