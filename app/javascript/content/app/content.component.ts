@@ -131,15 +131,14 @@ export class ContentComponent implements OnInit {
     var sources = Array.from(document.querySelectorAll('.main-text a'));
     sources.forEach(function(source) {
       source.addEventListener('click', function() {
-        console.log(source.getAttribute('title'));
         document.querySelector('[data-close-info-boxes="true"]').classList.remove('hide-it');
         var boxes = Array.from(document.querySelectorAll('[data-info="boxes"]'));
         boxes.forEach(function(box) {
           box.classList.add('info-box-opened');
         });
         var clicked_source_text = document.getElementById('source' + source.getAttribute('title'));
+        // Scroll to position
         var topPos = clicked_source_text.offsetTop;
-        console.log(topPos); // Why is this so hight?
         document.getElementById('kilder').scrollTop = topPos;
       });
     });
