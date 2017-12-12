@@ -96,7 +96,7 @@ export class ContentComponent implements OnInit {
   constructor(
     private http: HttpClient
   ) {}
-  
+
 
   ngOnInit(): void {
     interface WorkResponse {
@@ -119,23 +119,28 @@ export class ContentComponent implements OnInit {
 
   ngAfterViewChecked(): void {
     if (!this.source_runned) {
-      var sources = Array.from(document.querySelectorAll('.main-text a'));
-      sources.forEach(function(source) {
-        source.addEventListener('click', function() {
-          document.querySelector('[data-close-info-boxes="true"]').classList.remove('hide-it');
-          var boxes = Array.from(document.querySelectorAll('[data-info="boxes"]'));
-          boxes.forEach(function(box) {
-            box.classList.add('info-box-opened');
-          });
-          var clicked_source_text = document.getElementById('source' + source.getAttribute('title'));
-          var topPos = clicked_source_text.offsetTop;
-          console.log(topPos); // Why is this so hight? 
-          document.getElementById('kilder').scrollTop = topPos;
-          debugger;
-        });
-      });
-      this.source_runned = true; // Should only run once - ngAfterViewChecked is trickered for each view
+      this.addEventToTinyMCEText();
+      this.source_runned = true;
     }
+  }
+
+  addEventToTinyMCEText = function() {
+    var sources = Array.from(document.querySelectorAll('.main-text a'));
+    sources.forEach(function(source) {
+      source.addEventListener('click', function() {
+        console.log(source.getAttribute('title'));
+        document.querySelector('[data-close-info-boxes="true"]').classList.remove('hide-it');
+        var boxes = Array.from(document.querySelectorAll('[data-info="boxes"]'));
+        boxes.forEach(function(box) {
+          box.classList.add('info-box-opened');
+        });
+        var clicked_source_text = document.getElementById('source' + source.getAttribute('title'));
+        var topPos = clicked_source_text.offsetTop;
+        console.log(topPos); // Why is this so hight?
+        document.getElementById('kilder').scrollTop = topPos;
+      });
+    });
+    this.source_runned = true; // Should only run once - ngAfterViewChecked is trickered for each view
   }
 
   public openInfoBox(info_id, both = false): void {
@@ -147,7 +152,7 @@ export class ContentComponent implements OnInit {
     } else {
       box.classList.add('info-box-opened');
     }
-    (info_id == "kilder") ? this.kilder_opened = true : this.goer_opened = true 
+    (info_id == "kilder") ? this.kilder_opened = true : this.goer_opened = true
   }
 
   closeInfoBoxes = function() {
@@ -178,6 +183,7 @@ export class ContentComponent implements OnInit {
 
   changeCurrentWork = function(work_id) {
     this.current_work = this.works.find(x => x.id == work_id);
+     addEventToTinyMCEText();
   }
-  
+
 }
