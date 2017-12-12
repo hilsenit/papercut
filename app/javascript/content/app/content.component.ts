@@ -98,9 +98,6 @@ export class ContentComponent implements OnInit {
   ) {}
 
 
-  ngOnChanges(changes) {
-    console.log(changes);
-  }
   ngOnInit(): void {
     interface WorkResponse {
       works: {}[];
@@ -142,7 +139,6 @@ export class ContentComponent implements OnInit {
         document.getElementById('kilder').scrollTop = topPos;
       });
     });
-    this.source_runned = true; // Should only run once - ngAfterViewChecked is trickered for each view
   }
 
   public openInfoBox(info_id, both = false): void {
@@ -183,9 +179,9 @@ export class ContentComponent implements OnInit {
     image_div.classList.add('overview-image-show');
   }
 
-  changeCurrentWork = function(work_id) {
+  changeCurrentWork = function(work_id, tinyMCEevent) {
     this.current_work = this.works.find(x => x.id == work_id);
-    this.addEventToTinyMCEText();
+    this.source_runned = false;
   }
 
 }
