@@ -90,7 +90,9 @@ export class ContentComponent implements OnInit {
   goer_opened: boolean = false;
   path: string;
   source_runned: boolean = false;
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient
+  ) {}
   
 
   ngOnInit(): void {
@@ -108,7 +110,6 @@ export class ContentComponent implements OnInit {
         this.current_work = data.works[0],
         this.theme = data.theme,
         this.sources = data.sources
-
       }
     )
   }
@@ -118,17 +119,19 @@ export class ContentComponent implements OnInit {
       var sources = Array.from(document.querySelectorAll('.main-text a'));
       sources.forEach(function(source) {
         source.addEventListener('click', function() {
-          console.log(source.getAttribute('title'));
+          var info_box = document.getElementById('kilder');
+          var boxes = Array.from(document.querySelectorAll('[data-info="boxes"]'));
+          this.kilder_opened = true;
+          boxes.forEach(function(box) {
+            box.classList.add('info-box-opened');
+          });
         });
       });
-      this.source_runned = true;
+      this.source_runned = true; // Should only run once - ngAfterViewChecked is trickered for each view
     }
   }
-  findSourcesAndPlaceEvent = function(selector) {
-    console.log(document.querySelector(selector));
-  }
 
-  openInfoBox = function(info_id, both = false) {
+  public openInfoBox(info_id, both = false): void {
     var box = document.getElementById(info_id);
     if (both) { // Kilder clicked, slide out both windows
       this.classToInfoBoxes('add');
@@ -141,7 +144,6 @@ export class ContentComponent implements OnInit {
   }
 
   closeInfoBoxes = function() {
-    debugger;
     this.classToInfoBoxes('remove');
     this.kilder_opened = false;
     this.goer_opened = false;
