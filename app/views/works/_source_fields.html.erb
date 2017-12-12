@@ -1,6 +1,11 @@
 <div class="nested-fields">
+  <div class="form-field text-center">
+    <div class="small textcenter">Kildens ID (skal bruges i teksten)</div>
+    <%= f.object.id if f.object.id.present? %>
+  </div>
+  <hr>
   <div class="form-field">
-    <%= image_tag f.object.image.thumb.url if f.object.image.thumb.url.present? %>
+    <%= image_tag f.object.image.thumb.url if f.object.image.thumb.url.present? %><br>
     <%= f.label :image, "Tilføj billede" %>
     <%= f.file_field :image %>
   </div>
@@ -17,4 +22,5 @@
     <%= f.text_field :link %>
   </div>
   <%= link_to_remove_association "Fjern kilde", f, class: "bg-button alert sm" %>
+  
 </div>

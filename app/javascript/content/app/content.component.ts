@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs";
@@ -40,9 +41,21 @@ import {Observable} from "rxjs";
       </ul><!-- .info-list -->
     </div><!-- .info-column -->
     <div class="main-column">
+
       <img *ngIf="current_work.cover_image.url" [src]="current_work.cover_image.thumb.url" id="slideUpImage">
+
       <h2 class="text-center">{{ current_work.title }}</h2>
+
+      <iframe *ngIf="current_work.youtube_in_top && current_work.youtube_url"
+      width="100%" height="500px" [src]="getSafeYoutubeUrl(current_work.youtube_url)"
+      frameborder="0" allowfullscreen></iframe>
+
       <p class="main-text" [innerHTML]="current_work.description"></p>
+
+      <iframe *ngIf="current_work.youtube_in_bottom && current_work.youtube_url"
+      width="100%" height="500px" [src]="getSafeYoutubeUrl(current_work.youtube_url)"
+      frameborder="0" allowfullscreen></iframe>
+
     </div><!-- .main-column -->
   </div>
   <div class="overview-column">
@@ -94,9 +107,9 @@ export class ContentComponent implements OnInit {
   path: string;
   source_runned: boolean = false;
   constructor(
-    private http: HttpClient
+    private _http: HttpClient,
+    private _sanitizer: DomSanitizer 
   ) {}
-
 
   ngOnInit(): void {
     interface WorkResponse {
@@ -106,7 +119,7 @@ export class ContentComponent implements OnInit {
     }
     var theme_id = document.querySelector('[data-theme-id]').getAttribute('theme-id');
     this.path = '/themes/' + theme_id + '/works.json';
-    this.http.get<WorkResponse>(this.path)
+    this._http.get<WorkResponse>(this.path)
     .subscribe(
       data => {
         this.works = data.works,
@@ -122,6 +135,10 @@ export class ContentComponent implements OnInit {
       this.addEventToTinyMCEText();
       this.source_runned = true;
     }
+  }
+
+  getSafeYoutubeUrl = function(url) {
+    return this._sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   addEventToTinyMCEText = function() {
@@ -162,6 +179,7 @@ export class ContentComponent implements OnInit {
     }
   }
 
+
   classToInfoBoxes = function(remove_or_add) {
     var boxes = Array.from(document.querySelectorAll('[data-info="boxes"]'));
     boxes.forEach(function(box) {
@@ -181,7 +199,7 @@ export class ContentComponent implements OnInit {
 
   changeCurrentWork = function(work_id, tinyMCEevent) {
     this.current_work = this.works.find(x => x.id == work_id);
-    this.source_runned = false;
+    this.source_runned = false; // Now ngAfterViewChecked can run again, and place the event handlers in the TinyMCE text! 
   }
 
 }

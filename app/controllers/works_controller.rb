@@ -69,6 +69,9 @@ class WorksController < ApplicationController
                                  :type_of_content,
                                  :cover_image,
                                  :created_by,
+                                 :youtube_url,
+                                 :youtube_in_top,
+                                 :youtube_in_bottom,
                                  :photo_by,
                                  sources_attributes: [:id, :title, :link, :image, :description, :_destroy])
   end

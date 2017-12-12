@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171211153308) do
+ActiveRecord::Schema.define(version: 20171212174721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,9 @@ ActiveRecord::Schema.define(version: 20171211153308) do
     t.string "cover_image"
     t.string "created_by"
     t.string "photo_by"
+    t.string "youtube_url"
+    t.boolean "youtube_in_top", default: true
+    t.boolean "youtube_in_bottom"
     t.index ["theme_id"], name: "index_works_on_theme_id"
   end
 

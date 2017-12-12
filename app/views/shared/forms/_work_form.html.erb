@@ -13,7 +13,17 @@
     <%= f.label :category,"Hør" %>
     <%= f.radio_button :category, :hoer %>
   </div>
+  <div class="form-field">
+    <h3 class="text-center">Tilføj medie</h3>
+    <%= f.label :youtube_url, "Youtube embed URL (kun src)" %>
+    <%= f.text_field :youtube_url %>
+    <div class="half">Vis i toppen: <%= f.check_box :youtube_in_top %></div>
+    <div class="half">Vis i bunden: <%= f.check_box :youtube_in_bottom %></div>
+  </div>
 
+  <div class="form-field">
+
+  </div>
   <hr>
   <div class="form-field">
     <%= image_tag @work.cover_image.thumb.url, class: "bg_thumb_show" if @work.cover_image? %><br>

@@ -4,5 +4,13 @@ toolbar:
 plugins:
   - image
   - link
+  - code
 width: 700
 height: 800
+
+image_title: true
+automatic_uploads: true
+file_picker_types: 'image'
+image_title: true
+automatic_uploads: true
+file_picker_types: 'image'
