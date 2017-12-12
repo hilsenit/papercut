@@ -13,18 +13,30 @@
     <%= f.label :category,"Hør" %>
     <%= f.radio_button :category, :hoer %>
   </div>
-  <div class="form-field">
-    <h3 class="text-center">Tilføj medie</h3>
+
+    <h3>Tilføj medie</h3>
+  <div class="form-field half float-left">
+    <h4>Youtube video</h4>
     <%= f.label :youtube_url, "Youtube embed URL (kun src)" %>
     <%= f.text_field :youtube_url %>
-    <div class="half">Vis i toppen: <%= f.check_box :youtube_in_top %></div>
-    <div class="half">Vis i bunden: <%= f.check_box :youtube_in_bottom %></div>
+    <div>
+      <div class="half float-left">Vis i toppen: <%= f.check_box :youtube_in_top %></div>
+      <div class="half float-left">Vis i bunden: <%= f.check_box :youtube_in_bottom %></div>
+    </div>
   </div>
 
-  <div class="form-field">
-
+  <div class="form-field half float-left">
+    <h4>Soundcloud lydklip</h4>
+    <%= f.label :soundcloud_url, "Soundcloud embed URL (kun source)" %>
+    <%= f.text_field :soundcloud_url %>
+    <div>
+      <div class="half float-left">Vis i toppen: <%= f.check_box :soundcloud_in_top %></div>
+      <div class="half float-left">Vis i bunden: <%= f.check_box :soundcloud_in_bottom %></div>
+    </div>
+    <div class="small">Se mere: <a href="https://soundcloud.com/pages/embed" target="_blank">her</a></div>
   </div>
-  <hr>
+
+  <hr class="clearfix">
   <div class="form-field">
     <%= image_tag @work.cover_image.thumb.url, class: "bg_thumb_show" if @work.cover_image? %><br>
     <%= f.label :cover_image, "Vælg billeder:" %><br>

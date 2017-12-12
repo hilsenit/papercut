@@ -10,4 +10,6 @@ class Work < ApplicationRecord
   accepts_nested_attributes_for :sources, reject_if: :all_blank, allow_destroy: true
 
   validates_presence_of :title
+
+  default_scope { order(created_at: :asc) }
 end

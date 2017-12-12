@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212174721) do
+ActiveRecord::Schema.define(version: 20171212190049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,9 @@ ActiveRecord::Schema.define(version: 20171212174721) do
     t.string "youtube_url"
     t.boolean "youtube_in_top", default: true
     t.boolean "youtube_in_bottom"
+    t.string "soundcloud_url"
+    t.boolean "soundcloud_in_top", default: true
+    t.boolean "soundcloud_in_bottom"
     t.index ["theme_id"], name: "index_works_on_theme_id"
   end
 

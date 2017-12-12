@@ -72,6 +72,9 @@ class WorksController < ApplicationController
                                  :youtube_url,
                                  :youtube_in_top,
                                  :youtube_in_bottom,
+                                 :soundcloud_url,
+                                 :soundcloud_in_top,
+                                 :soundcloud_in_bottom,
                                  :photo_by,
                                  sources_attributes: [:id, :title, :link, :image, :description, :_destroy])
   end

@@ -47,14 +47,23 @@ import {Observable} from "rxjs";
       <h2 class="text-center">{{ current_work.title }}</h2>
 
       <iframe *ngIf="current_work.youtube_in_top && current_work.youtube_url"
-      width="100%" height="500px" [src]="getSafeYoutubeUrl(current_work.youtube_url)"
+      width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
       frameborder="0" allowfullscreen></iframe>
+
+      <iframe *ngIf="current_work.soundcloud_in_top && current_work.soundcloud_url" width="100%" height="166" scrolling="no" frameborder="no"
+      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)">
+      </iframe>
 
       <p class="main-text" [innerHTML]="current_work.description"></p>
 
       <iframe *ngIf="current_work.youtube_in_bottom && current_work.youtube_url"
-      width="100%" height="500px" [src]="getSafeYoutubeUrl(current_work.youtube_url)"
+      width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
       frameborder="0" allowfullscreen></iframe>
+
+      <iframe *ngIf="current_work.soundcloud_in_bottom && current_work.soundcloud_url"
+      width="100%" height="166" scrolling="no" frameborder="no"
+      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)">
+      </iframe>
 
     </div><!-- .main-column -->
   </div>
@@ -137,7 +146,7 @@ export class ContentComponent implements OnInit {
     }
   }
 
-  getSafeYoutubeUrl = function(url) {
+  getSafeYoutubeAndSouncloudUrl = function(url) {
     return this._sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
