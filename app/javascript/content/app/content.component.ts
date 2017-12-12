@@ -183,7 +183,7 @@ export class ContentComponent implements OnInit {
 
   changeCurrentWork = function(work_id) {
     this.current_work = this.works.find(x => x.id == work_id);
-     addEventToTinyMCEText();
+    addEventToTinyMCEText();
   }
 
 }
