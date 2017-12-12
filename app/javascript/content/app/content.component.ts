@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import {Observable} from "rxjs";
@@ -53,7 +53,7 @@ import {Observable} from "rxjs";
           <div *ngIf="overview_work.id == current_work.id" id="currentCross"></div>
         </div>
         <h4 class="overview-title">{{ overview_work.title }}</h4>
-        <h5 class="overview-info">{{ overview_work.type_of_content }}</h5>
+        <h5 *ngIf="overview_work.type_of_content" class="overview-info">{{ overview_work.type_of_content }}</h5>
         <h5 class="overview-info">{{ overview_work.created_at | date: "dd.mm.yy" }} </h5>
       </div><!-- overview-box -->
   </div><!-- overview-column -->
@@ -98,6 +98,9 @@ export class ContentComponent implements OnInit {
   ) {}
 
 
+  ngOnChanges(changes) {
+    console.log(changes);
+  }
   ngOnInit(): void {
     interface WorkResponse {
       works: {}[];
@@ -183,7 +186,7 @@ export class ContentComponent implements OnInit {
 
   changeCurrentWork = function(work_id) {
     this.current_work = this.works.find(x => x.id == work_id);
-    addEventToTinyMCEText();
+    this.addEventToTinyMCEText();
   }
 
 }
