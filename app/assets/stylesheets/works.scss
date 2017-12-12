@@ -129,13 +129,14 @@ $overview-column-width: percentage(450/$window-width);
 
 $kilder_right: 58px;
 $goer_right: 116px;
-
+$boxes_top: 90px;
 .info-right-boxes {
+  @include calc(height, '100% - #{$boxes_top}');
   position: fixed;
-  top: 90px;
+  top: $boxes_top;
   font-size: 16px;
   font-family: "CircularStd-Book";
-  height: calc(100% - 90px);
+  overflow-y: scroll;
   h3 {
     cursor: pointer;
     padding: 0px 10px;

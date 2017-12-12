@@ -55,7 +55,6 @@ animateLeft = function(obj, from, to){
            animateLeft(obj, from + 3, to);
        }, 25)
    }
-  console.log(from, to);
 }
 
 window.onload = function() {
