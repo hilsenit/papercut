@@ -21,8 +21,5 @@
 /public/packs-test
 /node_modules
 
-# Ignore application configuration FIGARO
-/config/application.yml
-
 # Ignore application configuration
 /config/application.yml
