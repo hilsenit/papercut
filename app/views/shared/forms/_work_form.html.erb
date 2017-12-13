@@ -44,7 +44,7 @@
         Billedet, som bliver vist, når man deler dette content på Facebook. Anbefalet størrelse 1200x630px - 
         <a href="https://developers.facebook.com/docs/sharing/best-practices#images" target="_blank">Læs mere</a>
       <p>
-      <%= image_tag @work.share_image.url, class: "bg_thumb_show" if @work.share_image? %><br>
+      <%= image_tag @work.share_image.thumb.url, class: "bg_thumb_show" if @work.share_image.present? %><br>
       <%= f.label :share_image, "Vælg billede:" %><br>
       <%= f.file_field :share_image %>
     </div>
