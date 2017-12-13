@@ -62,5 +62,6 @@ gem 'aws-sdk', '~> 2'
 gem 'mini_magick'
 # Text 
 gem 'tinymce-rails'
+gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 # Yeah
 gem 'cocoon'
