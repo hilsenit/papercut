@@ -21,14 +21,6 @@ class WorksController < ApplicationController
     end
   end
 
-  def render_facebook_share_info work, params_passed
-    @currentUrl = URL + "/themes/#{params_passed[:theme_id]}/works/#{params_passed[:work_id]}"
-    @currentImage = work.share_image.present? ? work.share_image.url : work.cover_image.url #Hvis share image ikke er der, så tag cover
-    @currentTitle = work.title #Work har altid en title!
-    description = work.share_description.present? ? work.share_description : "" # Hvis der ikke er nogen skal den bare være tom
-    @currentDescription = description
-    render 'shared_facebook_data', layout: false # Uden gammel head meta data
-  end
 
   def show_category
     @works = case params[:work_category]
@@ -51,7 +43,11 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er blevet oprettet")
+      if params[:commit] == "Gem kilder" # hvis man bare ønsker at gemme kilderne
+        redirect_to edit_theme_work_path(@work.theme.id, @work.id, anchor: 'sources')
+      else
+        redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er blevet oprettet")
+      end
     else
       flash.now[:notice] = return_messages("alert", @work.errors.full_messages)
       @theme = Theme.find(@work.theme.id)
@@ -62,7 +58,11 @@ class WorksController < ApplicationController
   def update
     @work = Work.find(params[:id])
     if @work.update_attributes(work_params)
-      redirect_to theme_works_path(@work.theme.id), notice: return_messages("notice", "'#{@work.title}' er opdateret")
+      if params[:commit] == "Gem kilder" # hvis man bare ønsker at gemme kilderne
+        redirect_to edit_theme_work_path(@work.theme.id, @work.id, anchor: 'sources')
+      else
+        redirect_to show_theme_works_path(@work.theme.id, @work.id), notice: return_messages("notice", "'#{@work.title}' er opdateret")
+      end
     else
       flash.now[:notice] = return_messages("alert", @work.errors.full_messages)
       redirect_to edit_theme_work_path(@work.theme.id, @work.id)
@@ -76,6 +76,15 @@ class WorksController < ApplicationController
     else
       redirect_to ba_show_works_path(@work.theme.id), notice: return_messages("alert", @work.errors.full_messages)
     end
+  end
+
+  def render_facebook_share_info work, params_passed
+    @currentUrl = URL + "/themes/#{params_passed[:theme_id]}/works/#{params_passed[:work_id]}"
+    @currentImage = work.share_image.present? ? work.share_image.url : work.cover_image.url #Hvis share image ikke er der, så tag cover
+    @currentTitle = work.title #Work har altid en title!
+    description = work.share_description.present? ? work.share_description : "" # Hvis der ikke er nogen skal den bare være tom
+    @currentDescription = description
+    render 'shared_facebook_data', layout: false # Uden gammel head meta data
   end
 
   private

@@ -16,8 +16,8 @@
 
     <h3>Tilføj medie</h3>
   <div class="form-field half float-left">
-    <h4>Youtube video</h4>
-    <%= f.label :youtube_url, "Youtube embed URL (kun src)" %>
+    <h4>Vimeo video</h4>
+    <%= f.label :youtube_url, "Indsæt vimeo url (kun src)" %>
     <%= f.text_field :youtube_url %>
     <div>
       <div class="half float-left">Vis i toppen: <%= f.check_box :youtube_in_top %></div>
@@ -90,12 +90,14 @@
 
   <hr>
     <h3>Kilder</h3>
-  <div class="form-field">
+  <div class="form-field" id="sources">
+    <p class="text-center">Kilder skal først gemmes, før deres ID bliver vist. Brug knappen "Gem kilder" nederst på siden.</p>
     <%= f.fields_for :sources do |source| %>
       <%= render 'source_fields', f: source %>
     <% end %>
     <%= link_to_add_association 'Tilføj kilde', f, :sources, class: "add-source" %>
   </div>
+  <%= f.submit "Gem kilder", class: "bg-button" %>
   <%= f.submit "Opdater", class: "bg-button" %>
 <% end %>
   <script type="text/javascript">

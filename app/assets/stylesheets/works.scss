@@ -9,6 +9,10 @@ $info-main-wrapper-width: percentage(850/$window-width);
 $overview-column-width: percentage(450/$window-width);
 
 
+iframe {
+  width: 100%;
+  padding: 10px;
+}
 .info-main-wrapper {
   @include flex;
   @include flex-wrap(wrap);
@@ -36,7 +40,8 @@ $overview-column-width: percentage(450/$window-width);
     position: fixed;
     top: 60px;
     width: $info-column-width;
-    padding-right: 30px;
+    padding-right: 22px;
+    padding-left: 4px;
     .info-list {
       padding-left: 0;
       padding-top: 60px;
@@ -65,6 +70,7 @@ $overview-column-width: percentage(450/$window-width);
 
 .overview-column {
   background-color: $work-overview-background;
+  display: block;
   height: 100%;
   left: $info-main-wrapper-width;
   min-width: 245px; //image
@@ -213,3 +219,5 @@ $boxes_top: 90px;
     left: 98%;
   }
 }
+
+

@@ -47,21 +47,21 @@ import {Observable} from "rxjs";
 
       <iframe *ngIf="current_work.youtube_in_top && current_work.youtube_url"
       width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
-      frameborder="0" allowfullscreen></iframe>
+      frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
       <iframe *ngIf="current_work.soundcloud_in_top && current_work.soundcloud_url" width="100%" height="166" scrolling="no" frameborder="no"
-      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)">
+      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)" webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
 
       <p class="main-text" [innerHTML]="current_work.description"></p>
 
       <iframe *ngIf="current_work.youtube_in_bottom && current_work.youtube_url"
       width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
-      frameborder="0" allowfullscreen></iframe>
+      frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
       <iframe *ngIf="current_work.soundcloud_in_bottom && current_work.soundcloud_url"
       width="100%" height="166" scrolling="no" frameborder="no"
-      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)">
+      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)" webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
 
     </div><!-- .main-column -->

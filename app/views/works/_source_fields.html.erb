@@ -5,6 +5,7 @@
   </div>
   <hr>
   <div class="form-field">
+    <div class="small textcenter">Bliver automatisk lavet til 160x160px, men upload dem gerne i denne størrelse.</div>
     <%= image_tag f.object.image.thumb.url if f.object.image.thumb.url.present? %><br>
     <%= f.label :image, "Tilføj billede" %>
     <%= f.file_field :image %>

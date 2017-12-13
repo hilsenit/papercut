@@ -7,7 +7,15 @@ nav {
   padding: 0 20px;
 }
 .navbar {
+  position: fixed!important; // Overskriver .container
   z-index: 959; // Under #closeInfoBox, but above info-column
+  max-width: 1252px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+.main-content-layout {
+  padding-top: 82px;
 }
 .nav-half {
   margin-top: 6px;
@@ -44,7 +52,7 @@ nav {
   height: 0;
   position: absolute; 
   max-width: 600px;
-  top: 25px;
+  top: 81px;
   right: 0px;
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;

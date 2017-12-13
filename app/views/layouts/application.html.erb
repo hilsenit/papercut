@@ -4,6 +4,7 @@
     <title>Papercut</title>
     <%= csrf_meta_tags %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -16,7 +17,7 @@
     <%= render partial: 'shared/flash_notice',
       locals: {messages: flash[:notice]} unless flash[:notice].nil? %>
     <%= render partial: 'shared/top_navbar' %>
-    <div class="container">
+    <div class="container main-content-layout">
       <%= render partial: 'shared/menu' %>
     </div>
     <%= render partial: 'search/search_page' %>

@@ -116,3 +116,14 @@ html {
 html {
   background-color: $primary-bg;
 }
+
+@media screen and (max-width: 800px) {
+  .info-main-wrapper .main-column {
+    width: 100%;
+    margin-left: 2%;
+  }
+  .overview-column {
+    display: none;
+    background-color: red;
+  }
+}
