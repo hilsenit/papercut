@@ -30,6 +30,9 @@ nav {
     font-size: 1.2rem;
     margin-top: 12.8px;
     margin-bottom: 12.8px;
+    @media screen and (max-width: 1350px) { // With odyssey-logo in _background_vectors
+      padding-left: 26px;
+    }
   }
   .right {
     float: right;

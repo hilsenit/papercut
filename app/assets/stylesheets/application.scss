@@ -117,10 +117,27 @@ html {
   background-color: $primary-bg;
 }
 
+
 @media screen and (max-width: 800px) {
   .info-main-wrapper .main-column {
     width: 100%;
-    margin-left: 2%;
+    margin: 0 2%;
+  }
+  .info-main-wrapper .info-column {
+    position: relative;
+    top: 0;
+    width: 100%;
+   .info-list {
+        padding-top: 0px;
+        .share-buttons {
+          display: inline-block;
+        }
+    }
+    .info-list > li {
+      padding: 10px;
+      margin-bottom: 0;
+      text-align: center;
+    }
   }
   .overview-column {
     display: none;
