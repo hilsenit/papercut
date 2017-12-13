@@ -2,6 +2,7 @@
 @import "imports/colors";
 @import "imports/fonts";
 
+
 .search-wrapper {
   @include calc(width, '100% - 60px');
   @include calc(height, '100% - 120px');
