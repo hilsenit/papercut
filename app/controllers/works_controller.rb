@@ -1,13 +1,33 @@
 class WorksController < ApplicationController
+  URL = "https://www.papercutodyssey.dk"
 
   def index
     @theme = Theme.find(params[:theme_id])
+    # Hvis det er et bestemt content, så tag det, ellers bare tag det første
     @works = @theme.works
+    @current_work =
+      params[:work_id] == "0" ? @works.first : Work.find(params[:work_id])
+
+    agent = request.headers["HTTP_USER_AGENT"].downcase
+    if agent.include?("facebook")
+      render_facebook_share_info @current_work, params
+      return
+    end
+
     @sources = @theme.sources
     respond_to do |format|
       format.html
-      format.json { render json: { works: @works, theme: @theme, sources: @sources } }
+      format.json { render json: { works: @works, theme: @theme, sources: @sources, current_work: @current_work } }
     end
+  end
+
+  def render_facebook_share_info work, params_passed
+    @currentUrl = URL + "/themes/#{params_passed[:theme_id]}/works/#{params_passed[:work_id]}"
+    @currentImage = work.share_image.present? ? work.share_image.url : work.cover_image.url #Hvis share image ikke er der, så tag cover
+    @currentTitle = work.title #Work har altid en title!
+    description = work.share_description.present? ? work.share_description : "" # Hvis der ikke er nogen skal den bare være tom
+    @currentDescription = description
+    render 'shared_facebook_data', layout: false # Uden gammel head meta data
   end
 
   def show_category
@@ -68,6 +88,8 @@ class WorksController < ApplicationController
                                  :category,
                                  :type_of_content,
                                  :cover_image,
+                                 :share_description,
+                                 :share_image,
                                  :created_by,
                                  :youtube_url,
                                  :youtube_in_top,

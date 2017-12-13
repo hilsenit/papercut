@@ -1,10 +1,13 @@
 @import "imports/colors";
 @import "imports/mixins";
 
+$backend-background: lighten($primary-bg, 10%);
+
 input:not([type="radio"]) {
   width: 100%;
   outline: none;
   height: 30px;
+
 }
 
 .bg-button {
@@ -48,11 +51,17 @@ input:not([type="radio"]) {
   width: 50%!important;
   padding: 0px 5%;
   margin: 20px 0;
-  background-color: lighten($primary-bg, 10%);
+  background-color: $backend-background;  
 }
 .add-source {
   display: block;
   clear: both;
+}
+.form-wrapper {
+  width: 100%;
+  background-color: $backend-background;
+  padding: 20px 0px;
+  overflow: hidden;
 }
 .form-field {
   margin-top: 2px;

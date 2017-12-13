@@ -11,6 +11,7 @@
     "@rails/webpacker": "^3.0.2",
     "coffeescript": "1.12.7",
     "core-js": "^2.5.1",
+    "fb": "^2.0.0",
     "jquery": "^3.2.1",
     "pry": "^0.7.2",
     "rxjs": "^5.5.2",

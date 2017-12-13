@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213082720) do
+ActiveRecord::Schema.define(version: 20171213092812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20171213082720) do
     t.string "soundcloud_url"
     t.boolean "soundcloud_in_top", default: true
     t.boolean "soundcloud_in_bottom"
+    t.string "share_image"
+    t.text "share_description"
     t.index ["theme_id"], name: "index_works_on_theme_id"
   end
 

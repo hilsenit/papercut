@@ -35,8 +35,7 @@ import {Observable} from "rxjs";
           Kommer snart
         </li>
         <li>Del:
-          <a href="#" class="share-buttons">FB</a>
-          <a href="#" class="share-buttons">IG</a>
+          <a [attr.href]="'https://www.facebook.com/sharer.php?u=https://www.papercutodyssey.dk/themes/' + theme.id + '/works/' + current_work.id" class="share-buttons facebook">FB</a>
         </li>
       </ul><!-- .info-list -->
     </div><!-- .info-column -->
@@ -123,20 +122,23 @@ export class ContentComponent implements OnInit {
   ngOnInit(): void {
     interface WorkResponse {
       works: {}[];
-      theme: {};
       sources: {}[];
+      theme: {};
+      current_work: {};
     }
-    var theme_id = document.querySelector('[data-theme-id]').getAttribute('theme-id');
-    this.path = '/themes/' + theme_id + '/works.json';
-    this._http.get<WorkResponse>(this.path)
-    .subscribe(
-      data => {
-        this.works = data.works,
-        this.current_work = data.works[0],
-        this.theme = data.theme,
-        this.sources = data.sources
-      }
-    )
+    var div_data = document.querySelector('[data-theme-id]');
+    var theme_id = div_data.getAttribute('theme-id');
+    var work_id = div_data.getAttribute('work-id');
+    this.path = '/themes/' + theme_id + '/works/' + work_id + '.json';
+      this._http.get<WorkResponse>(this.path)
+      .subscribe(
+        data => {
+          this.works = data.works,
+          this.theme = data.theme,
+          this.sources = data.sources,
+          this.current_work = data.current_work
+        }
+      )
   }
 
   ngAfterViewChecked(): void {

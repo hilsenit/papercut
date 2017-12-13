@@ -1,9 +1,8 @@
 images_upload_handler: 'assets/tinymce/image/plugin.js'
 toolbar:
   - styleselect | bold italic | undo redo
-  - image | link
+  - uploadimage | link
 plugins:
-  - image
   - uploadimage
   - link
   - code
