@@ -151,7 +151,7 @@ export class ContentComponent implements OnInit {
   }
 
   addEventToTinyMCEText = function() {
-    var sources = Array.from(document.querySelectorAll('.main-text a'));
+    var sources = Array.from(document.querySelectorAll('.main-text a[href="#source"]'));
     sources.forEach(function(source) {
       source.addEventListener('click', function() {
         document.querySelector('[data-close-info-boxes="true"]').classList.remove('hide-it');
