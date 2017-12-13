@@ -30,15 +30,15 @@ toggleHeight = function(menu_wrapper_selector) {
 
 
 // Open or hide search window
-openOrHide = function() {
-  var search_page = document.querySelector('[data-search="page"]');
-  var button = document.getElementById("searchButton");
-  if (search_page.classList.contains('hide-it')) {
-    search_page.classList.remove('hide-it');
-    document.querySelector('[data-search="input"]').focus();
+openOrHide = function(page_id, btn_id) {
+  var page = document.getElementById(page_id);
+  var button = document.getElementById(btn_id);
+  if (page.classList.contains('hide-it')) {
+    page.classList.remove('hide-it');
+    if (btn_id == "searchButton") {document.querySelector('[data-search="input"]').focus();} // Kun for search
     button.classList.add('active');
   } else {
-    search_page.classList.add('hide-it');
+    page.classList.add('hide-it');
     button.classList.remove('active');
   }
 };
@@ -62,9 +62,9 @@ window.onload = function() {
     toggleHeight('[data-slide="open"]');
   });
   // Search page show/hide
-  document.querySelectorAll('[data-search="openOrHide"]').forEach(function(item) {
+  document.querySelectorAll('[data-openpage]').forEach(function(item) {
     item.addEventListener('click', function() {
-      openOrHide();
+      openOrHide(item.dataset.openpage, item.dataset.btn);
     });
   });
 

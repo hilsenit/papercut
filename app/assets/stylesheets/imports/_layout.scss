@@ -48,17 +48,15 @@ nav {
   height: 350px!important;
 }
 .menu-wrapper {
-  @include transition(height 0s linear);
   @include flex;
-  z-index: 999999;
+  @include flex-wrap(wrap);
+  z-index: 99999; // Under .search-wrapper
   overflow: hidden;
   height: 0;
-  position: absolute; 
+  position: fixed; 
   max-width: 600px;
   top: 81px;
   right: 0px;
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
   .menu-box {
     @include flex;
     width: 130px;
@@ -79,6 +77,7 @@ nav {
     color: $dark-blue;
   }
   .so-me-menu {
+
     width: 100%;
     .cirkel {
       @include border-radius(100%);
@@ -100,3 +99,15 @@ nav {
   }
 }
 
+@media screen and (max-width: 850px) {
+  .menu-wrapper-open {
+    height: auto!important;
+  }
+  .menu-wrapper {
+    @include justify-content(center);
+  }
+  .so-me-menu {
+    @include flex;
+    @include justify-content(center);
+  }
+}

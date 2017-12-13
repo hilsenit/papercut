@@ -66,7 +66,7 @@ import {Observable} from "rxjs";
 
     </div><!-- .main-column -->
   </div>
-  <div class="overview-column">
+  <div class="overview-column overview-hide" id="overviewPage">
     <h3 class="overview-header">Alt i tema</h3>
       <div class="overview-box" *ngFor="let overview_work of works; let i = index" (click)="changeCurrentWork(overview_work.id)">
         <img [src]="overview_work.cover_image.thumb.url" (load)="setImageUrl(overview_work.cover_image.thumb.url, i)" hidden>

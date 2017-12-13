@@ -119,6 +119,14 @@ html {
 
 
 @media screen and (max-width: 800px) {
+  .not-on-mobile {
+    display: none!important;
+  }
+
+  .menu-wrapper .menu-wrapper-open {
+    @include justify-content(center);
+  }
+
   .info-main-wrapper .main-column {
     width: 100%;
     margin: 0 2%;
@@ -139,8 +147,19 @@ html {
       text-align: center;
     }
   }
-  .overview-column {
+  .overview-hide {
     display: none;
+  }
+  .overview-column {
     background-color: red;
+  }
+}
+
+.only-on-mobile {
+  display: none;
+}
+@media screen and (min-width: 800px) { 
+  .only-on-mobile {
+    display: block!important;
   }
 }

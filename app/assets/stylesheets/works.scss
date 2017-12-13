@@ -182,12 +182,13 @@ $boxes_top: 90px;
       }
     }
   }
+  $mobile_btn_height: 60px;
   @media screen and (max-width: 850px) { // .info-right-boxes
+    @include calc(height, '80% + #{$mobile_btn_height}');
     top: 100%;
-    margin-top: -60px;
+    margin-top: -$mobile_btn_height;
     margin-left: 0!important;
     width: 50%!important;
-    height: 80%;
     text-align: center;
   }
 }
@@ -221,7 +222,7 @@ $boxes_top: 90px;
   left: 40%!important;
   @media screen and (max-width: 850px) {
     left: 0!important;
-    width: 100%;
+    width: 100%!important;
     top: 20%!important;
   }
 }
