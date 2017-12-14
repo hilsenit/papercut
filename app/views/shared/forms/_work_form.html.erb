@@ -62,24 +62,28 @@
     <%= f.file_field :cover_image %>
   </div>
 
-  <div class="form-field">
-    <h3> <%= f.label :type_of_content, "Type:" %> </h3>
-    <%= f.text_field :type_of_content %>
+  <div class="form-field half float-left">
+    <div class="form-field">
+      <h3> <%= f.label :type_of_content, "Type:" %> </h3>
+      <%= f.text_field :type_of_content %>
+    </div>
+    
+    <div class="form-field">
+      <h3> <%= f.label :title, "Titel", class: "bg-label" %><span class="small"> * Skal udfyldes!</span></h3>
+      <%= f.text_field :title %>
+    </div>
   </div>
 
-  <div class="form-field">
-    <h3> <%= f.label :title, "Titel", class: "bg-label" %> </h3>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="form-field">
-    <h3> <%= f.label :created_by, "Lavet af:", class: "bg-label" %> </h3>
-    <%= f.text_field :created_by %>
-  </div>
-
-  <div class="form-field">
-    <h3> <%= f.label :photo_by, "Fotograferet af:", class: "bg-label" %> </h3>
-    <%= f.text_field :photo_by %>
+  <div class="form-field half float-left">
+    <div class="form-field">
+      <h3> <%= f.label :created_by, "Lavet af:", class: "bg-label" %> </h3>
+      <%= f.text_field :created_by %>
+    </div>
+    
+    <div class="form-field">
+      <h3> <%= f.label :photo_by, "Fotograferet af:", class: "bg-label" %> </h3>
+      <%= f.text_field :photo_by %>
+    </div>
   </div>
 
   <div class="form-field">

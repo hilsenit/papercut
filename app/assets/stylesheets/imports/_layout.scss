@@ -42,7 +42,7 @@ nav {
   }
 }
 .right-half {
-    padding-left: 45px;
+    padding-left: 140px;
 }
 #menuBtn {
   cursor: pointer;
@@ -61,7 +61,7 @@ nav {
   position: fixed; 
   max-width: 600px;
   top: 81px;
-  right: 0px;
+  left: 58%;
   .menu-box {
     @include flex;
     @include justify-content(center);

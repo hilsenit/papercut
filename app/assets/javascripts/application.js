@@ -15,30 +15,25 @@
 //= require rails-ujs
 //= require_tree .
 
-// Toggle on menu
-toggleHeight = function(menu_wrapper_selector) {
-  var menu_wrapper = document.querySelector(menu_wrapper_selector);
-  var menu_button = document.querySelector('[data-toggle="menu"]');
-  if ( menu_wrapper.classList.contains('menu-wrapper-open') ) {
-    menu_wrapper.classList.remove('menu-wrapper-open');
-    menu_button.classList.remove('active');
-  } else {
-    menu_wrapper.classList.add('menu-wrapper-open');
-    menu_button.classList.add('active');
-  }
-};
-
 
 // Open or hide search window
 openOrHide = function(page_id, btn_id) {
   var page = document.getElementById(page_id);
   var button = document.getElementById(btn_id);
-  if (page.classList.contains('hide-it')) {
+  if (page.classList.contains('hide-it')) { // OPENING IT
     page.classList.remove('hide-it');
+    if (btn_id == "menuBtnMobile") {
+      button.classList.add('close-icon');
+      document.getElementById('closeArea').classList.remove('hide-it');
+    }
     if (btn_id == "searchButton") {document.querySelector('[data-search="input"]').focus();} // Kun for search
     button.classList.add('active');
-  } else {
+  } else { // CLOSING IT
     page.classList.add('hide-it');
+    if (btn_id == "menuBtnMobile") {
+      button.classList.remove('close-icon');
+      document.getElementById('closeArea').classList.add('hide-it');
+    }
     button.classList.remove('active');
   }
 };

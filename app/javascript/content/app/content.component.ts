@@ -82,7 +82,7 @@ import {Observable} from "rxjs";
       </div><!-- overview-box -->
   </div><!-- overview-column -->
   <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
-      <h3>Kilder</h3>
+      <h3>Data</h3>
     <div class="kilde-wrapper-relative">
       <div class="kilde-box" *ngFor="let source of sources; let i_s = index" [attr.id]="'source' + source.id">
         <div class="source-image">
@@ -162,10 +162,12 @@ export class ContentComponent implements OnInit {
   openDiv = function(div_id, class_toggle, btn_id) {
     var div_to_open = document.getElementById(div_id);
     var btn = document.getElementById(btn_id);
-    if(div_to_open.classList.contains(class_toggle)) { // If it's not open
+    if(div_to_open.classList.contains(class_toggle)) { // Open
+      if (btn_id  == 'overviewBtnMobile') { btn.classList.add('close-icon'); }
       div_to_open.classList.remove(class_toggle);
       btn.classList.add('active');
-    } else {
+    } else { //closing
+      if (btn_id  == 'overviewBtnMobile') { btn.classList.remove('close-icon'); }
       div_to_open.classList.add(class_toggle);
       btn.classList.remove('active');
     }

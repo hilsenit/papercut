@@ -71,7 +71,7 @@ textarea, input, button { outline: none; }
   background-color: green;
 }
 .hide-it {
-  display: none;
+  display: none!important;
 }
 .border-right {
   border-right: 1px solid $border-color;
@@ -128,33 +128,44 @@ html {
   position: fixed;
   width: 50px;
   height: 50px;
-  z-index: 9999999; // Above menu
 }
 
 .overview-btn-mobile {
   background-image: url(image-path('list-icon'));
   right: 0px;
-  &.active {
-    outline: 13px solid $work-overview-background;
-  }
+  z-index: 9999; //Under .nav-close-area
 }
 .menu-btn-mobile {
   background-image: url(image-path('menu-icon'));
   left: 0;
-  &.active {
-    // outline: 13px solid $work-overview-background;
-  }
+  z-index: 9999; //Under .nav-close-area
 }
 
-
-
 .only-on-mobile {
+  display: none!important;
+}
+.nav-close-area {
   display: none;
 }
 $nav_height_on_mobile: 75px;
+
 @media screen and (max-width: 850px) {
-  .only-on-mobile {
+  .nav-close-area {
     display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: $nav_height_on_mobile;
+    width: 100%;
+    z-index: 16500; // Above not active btn
+    overflow: hidden;
+  }
+  .close-icon { // Above nav-close-area
+    background-image: url(image-path('close-icon'));
+    z-index: 99999!important;
+  }
+  .only-on-mobile {
+    display: flex!important;
   }
   .not-on-mobile {
     display: none!important;
@@ -164,6 +175,10 @@ $nav_height_on_mobile: 75px;
     top: $nav_height_on_mobile;
   }
 
+  .menu-wrapper {
+    left: auto!important;
+    max-width: 100%!important;
+  }
   .menu-wrapper .menu-wrapper-open {
     @include justify-content(center);
   }
@@ -176,8 +191,11 @@ $nav_height_on_mobile: 75px;
     position: relative;
     top: 0;
     width: 100%;
+    padding-right: 0;
+    padding-left: 0;
    .info-list {
-        padding-top: 0px;
+     text-align: center;
+      padding-top: 0px;
         .share-buttons {
           display: inline-block;
         }
@@ -185,7 +203,11 @@ $nav_height_on_mobile: 75px;
     .info-list > li {
       padding: 10px;
       margin-bottom: 0;
-      text-align: center;
+      text-align: left;
+      display: inline-block;
+      .share-buttons {
+        display: block;
+      }
     }
   }
   .overview-hide {
@@ -233,14 +255,27 @@ $nav_height_on_mobile: 75px;
         text-align: center;
         margin: 0px auto;
         .project-name {
+          z-index: 99999; // Above close-area
           padding-left: 0!important;
           margin-top: 6px!important;
+          a {
+            z-index: 99999; // Above .close-area
+            position: relative;
+          }
         }
         .odyssey-logo {
+          z-index: 99999; // Above .close-area
           position: relative;
           display: inline-block;
         }
     }
+  }
+  .menu-wrapper {
+    z-index: 999;
+    height: auto;
+    background-color: $dark-blue;
+    padding-bottom: 60%;
+    top: 76px;
   }
 }
 
@@ -250,3 +285,16 @@ $nav_height_on_mobile: 75px;
     height: 100px;
   }
 }
+
+@media screen and (max-width: 1350px) {
+  .odyssey-logo {
+      left: 0;
+  }
+  .right-half {
+    padding-left: 6%;
+  }
+  .menu-wrapper {
+    left: 56%;
+  }
+}
+
