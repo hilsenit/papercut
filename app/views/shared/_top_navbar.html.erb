@@ -1,12 +1,13 @@
 <nav class="navbar">
-  <div class="nav-half">
-    <span class="odyssey-logo"></span>
+  <div class="nav-half project-name-wrapper">
+    <span data-toggle="menu" id="menuBtnMobile" data-btn="menuBtnMobile" data-openpage="menuWrapper" class="only-on-mobile btn-mobile menu-btn-mobile"></span>
     <h1 class="nav-link project-name">
-      <%= link_to "Papercut satelit projekt", root_path() %>
+    <span class="odyssey-logo"></span>
+      <%= link_to "ODYSSEY", root_path() %>
     </h1>
   </div>
-  <div class="nav-half right-half">
-    <a href="#" data-toggle="menu" class="nav-link">Menu</a>
+  <div class="nav-half right-half not-on-mobile">
+    <a href="#" data-toggle="menu" class="nav-link not-on-mobile">Menu</a>
     <a href="#" id="searchButton" data-openpage="searchPage" data-btn="searchButton" class="nav-link right not-on-mobile">Søg</a>
   </div><!-- nav-half -->
 </nav>

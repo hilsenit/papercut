@@ -52,18 +52,17 @@ nav {
   @include flex-wrap(wrap);
   z-index: 99999; // Under .search-wrapper
   overflow: hidden;
-  height: 0;
   position: fixed; 
   max-width: 600px;
   top: 81px;
   right: 0px;
   .menu-box {
     @include flex;
+    @include justify-content(center);
+    @include align-items(center);
     width: 130px;
     height: 120px;
     margin: 9px;
-    align-items: center;
-    justify-content: center;
     &:hover {
       text-decoration: underline;
     }

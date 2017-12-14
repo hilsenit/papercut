@@ -3,7 +3,7 @@
 @import "imports/fonts";
 
 
-.search-wrapper {
+.search-wrapper { // Media quires under application.scss
   @include calc(width, '100% - 60px');
   @include calc(height, '100% - 120px');
   position: fixed;

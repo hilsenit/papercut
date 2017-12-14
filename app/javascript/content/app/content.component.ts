@@ -7,6 +7,7 @@ import {Observable} from "rxjs";
 @Component({
   selector: 'content',
   template: `
+  <span class="only-on-mobile btn-mobile overview-btn-mobile nav-link" id="overviewBtnMobile" (click)="openDiv('overviewPage', 'not-on-mobile', 'overviewBtnMobile' )"></span>
   <div class="info-main-wrapper">
     <div class="info-column">
       <ul class="info-list">
@@ -66,16 +67,18 @@ import {Observable} from "rxjs";
 
     </div><!-- .main-column -->
   </div>
-  <div class="overview-column overview-hide" id="overviewPage">
+  <div class="overview-column not-on-mobile" id="overviewPage">
     <h3 class="overview-header">Alt i tema</h3>
       <div class="overview-box" *ngFor="let overview_work of works; let i = index" (click)="changeCurrentWork(overview_work.id)">
         <img [src]="overview_work.cover_image.thumb.url" (load)="setImageUrl(overview_work.cover_image.thumb.url, i)" hidden>
         <div class="overview-image" [attr.id]="i">
           <div *ngIf="overview_work.id == current_work.id" id="currentCross"></div>
         </div>
-        <h4 class="overview-title">{{ overview_work.title }}</h4>
-        <h5 *ngIf="overview_work.type_of_content" class="overview-info">{{ overview_work.type_of_content }}</h5>
-        <h5 class="overview-info">{{ overview_work.created_at | date: "dd.mm.yy" }} </h5>
+        <div class="overview-info-wrapper">
+          <h4 class="overview-title">{{ overview_work.title }}</h4>
+          <h5 *ngIf="overview_work.type_of_content" class="overview-info">{{ overview_work.type_of_content }}</h5>
+          <h5 class="overview-info">{{ overview_work.created_at | date: "dd.mm.yy" }} </h5>
+        </div>
       </div><!-- overview-box -->
   </div><!-- overview-column -->
   <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
@@ -139,6 +142,18 @@ export class ContentComponent implements OnInit {
           this.current_work = data.current_work
         }
       )
+  }
+
+  openDiv = function(div_id, class_toggle, btn_id) {
+    var div_to_open = document.getElementById(div_id);
+    var btn = document.getElementById(btn_id);
+    if(div_to_open.classList.contains(class_toggle)) { // If it's not open
+      div_to_open.classList.remove(class_toggle);
+      btn.classList.add('active');
+    } else {
+      div_to_open.classList.add(class_toggle);
+      btn.classList.remove('active');
+    }
   }
 
   ngAfterViewChecked(): void {

@@ -33,6 +33,8 @@ toggleHeight = function(menu_wrapper_selector) {
 openOrHide = function(page_id, btn_id) {
   var page = document.getElementById(page_id);
   var button = document.getElementById(btn_id);
+  debugger;
+
   if (page.classList.contains('hide-it')) {
     page.classList.remove('hide-it');
     if (btn_id == "searchButton") {document.querySelector('[data-search="input"]').focus();} // Kun for search
@@ -58,10 +60,11 @@ animateLeft = function(obj, from, to){
 }
 
 window.onload = function() {
-  document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
-    toggleHeight('[data-slide="open"]');
-  });
-  // Search page show/hide
+  // document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
+  //   toggleHeight('[data-slide="open"]');
+  // });
+  //
+  // Page show/hide
   document.querySelectorAll('[data-openpage]').forEach(function(item) {
     item.addEventListener('click', function() {
       openOrHide(item.dataset.openpage, item.dataset.btn);

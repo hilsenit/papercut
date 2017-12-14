@@ -118,9 +118,51 @@ html {
 }
 
 
-@media screen and (max-width: 800px) {
+.btn-mobile {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: contain;
+  cursor: pointer;
+  margin: 12.8px;
+  top: 0px;
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  z-index: 9999999; // Above menu
+}
+
+.overview-btn-mobile {
+  background-image: url(image-path('list-icon'));
+  right: 0px;
+}
+.menu-btn-mobile {
+  background-image: url(image-path('menu-icon'));
+  left: 0;
+  
+}
+.overview-btn-mobile.active {
+  outline: 13px solid $work-overview-background;
+}
+.menu-btn-mobile.active {
+  // outline: 13px solid $work-overview-background;
+}
+
+
+
+.only-on-mobile {
+  display: none;
+}
+$nav_height_on_mobile: 75px;
+@media screen and (max-width: 850px) {
+  .only-on-mobile {
+    display: block;
+  }
   .not-on-mobile {
     display: none!important;
+  }
+
+  .search-wrapper {
+    top: $nav_height_on_mobile;
   }
 
   .menu-wrapper .menu-wrapper-open {
@@ -151,15 +193,55 @@ html {
     display: none;
   }
   .overview-column {
-    background-color: red;
+      left: 0;
+      width: 100%;
+      padding-bottom: 80px;
+      h3 {
+        padding-top: 60px;
+        padding-left: 0!important;
+        text-align: center;
+      }
+      .overview-box {
+        width: 90%;
+        min-height: 140px;
+        .overview-image {
+          background-position: 50% 50%;
+          float: left;
+          width: 40%;
+          margin: 10px 5%;
+          max-width: 245px;
+          height: 20vw;
+          padding: 0 20px;
+          min-height: 100px;
+        }
+        .overview-info-wrapper {
+          width: 42%;
+          float: left;
+          margin: 0 4%;
+          .overview-info {
+            clear: both;
+          }
+        }
+      }
+
+  }
+  .navbar {
+    height: $nav_height_on_mobile;
+    background-color: $primary-bg;
+    .project-name-wrapper {
+        padding-top: 0!important;
+        width: auto;
+        text-align: center;
+        margin: 0px auto;
+        .project-name {
+          padding-left: 0!important;
+          margin-top: 6px!important;
+        }
+        .odyssey-logo {
+          position: relative;
+          display: inline-block;
+        }
+    }
   }
 }
 
-.only-on-mobile {
-  display: none;
-}
-@media screen and (min-width: 800px) { 
-  .only-on-mobile {
-    display: block!important;
-  }
-}
