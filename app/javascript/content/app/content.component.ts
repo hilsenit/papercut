@@ -159,6 +159,14 @@ export class ContentComponent implements OnInit {
       )
   }
 
+
+  ngAfterViewChecked(): void {
+    if (!this.source_runned) {
+      this.addEventToTinyMCEText();
+      this.source_runned = true;
+    }
+  }
+
   openDiv = function(div_id, class_toggle, btn_id) {
     var div_to_open = document.getElementById(div_id);
     var btn = document.getElementById(btn_id);
@@ -170,13 +178,6 @@ export class ContentComponent implements OnInit {
       if (btn_id  == 'overviewBtnMobile') { btn.classList.remove('close-icon'); }
       div_to_open.classList.add(class_toggle);
       btn.classList.remove('active');
-    }
-  }
-
-  ngAfterViewChecked(): void {
-    if (!this.source_runned) {
-      this.addEventToTinyMCEText();
-      this.source_runned = true;
     }
   }
 
@@ -201,7 +202,7 @@ export class ContentComponent implements OnInit {
     });
   }
 
-  public openInfoBox(info_id, both = false): void {
+  openInfoBox = function(info_id, both = false) {
     var box = document.getElementById(info_id);
     if (both) { // Kilder clicked, slide out both windows
       this.classToInfoBoxes('add');
