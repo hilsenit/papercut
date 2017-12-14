@@ -134,17 +134,16 @@ html {
 .overview-btn-mobile {
   background-image: url(image-path('list-icon'));
   right: 0px;
+  &.active {
+    outline: 13px solid $work-overview-background;
+  }
 }
 .menu-btn-mobile {
   background-image: url(image-path('menu-icon'));
   left: 0;
-  
-}
-.overview-btn-mobile.active {
-  outline: 13px solid $work-overview-background;
-}
-.menu-btn-mobile.active {
-  // outline: 13px solid $work-overview-background;
+  &.active {
+    // outline: 13px solid $work-overview-background;
+  }
 }
 
 

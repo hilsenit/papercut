@@ -44,6 +44,12 @@ nav {
 .right-half {
     padding-left: 45px;
 }
+#menuBtn {
+  cursor: pointer;
+  &.active {
+    text-decoration: underline;
+  }
+}
 .menu-wrapper-open {
   height: 350px!important;
 }
