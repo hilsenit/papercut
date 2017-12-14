@@ -1,0 +1,23 @@
+<div class="nested-fields">
+  <hr>
+  <div class="form-field">
+    <div class="small textcenter">Bliver automatisk lavet til 160x160px, men upload dem gerne i denne størrelse.</div>
+    <%= image_tag f.object.image.thumb.url if f.object.image.thumb.url.present? %><br>
+    <%= f.label :image, "Tilføj billede" %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="form-field">
+    <%= f.label :title, "Titel" %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="form-field">
+    <%= f.label :description, "Beskrivelse" %><br>
+    <%= f.text_area :description, class: "source-desc" %>
+  </div>
+  <div class="form-field">
+    <%= f.label :link, "Link" %><br>
+    <%= f.text_field :link %>
+  </div>
+  <%= link_to_remove_association "Fjern To Do", f, class: "bg-button alert sm" %>
+  
+</div>

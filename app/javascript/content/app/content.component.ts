@@ -82,8 +82,8 @@ import {Observable} from "rxjs";
       </div><!-- overview-box -->
   </div><!-- overview-column -->
   <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
-    <div class="kilde-wrapper-relative">
       <h3>Kilder</h3>
+    <div class="kilde-wrapper-relative">
       <div class="kilde-box" *ngFor="let source of sources; let i_s = index" [attr.id]="'source' + source.id">
         <div class="source-image">
           <div *ngIf="source.image" class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
@@ -93,16 +93,28 @@ import {Observable} from "rxjs";
           <h4 class="text-center">{{ source.title }}</h4>
           <p class="source-description">
             {{source.description}}
-            <a class="source-link" [attr.href]="source.link" target="_blank">{{source.link}}</a>
+            <a *ngIf="source.link" class="source-link" [attr.href]="source.link" target="_blank">{{source.link}}</a>
           </p>
         </div>
       </div><!-- kilde-box -->
     </div><!-- kilde-wrapper-relative -->
   </div>
   <div class="info-right-boxes goer" id="goer" data-info="boxes" (click)="openInfoBox('goer')">
-    <h3>To do</h3>
-    <div class="goer_box">
-    </div>
+      <h3>To do</h3>
+    <div class="kilde-wrapper-relative">
+      <div class="kilde-box" *ngFor="let to_do of to_dos">
+        <div class="source-image">
+          <div *ngIf="to_do.image" class="source-image-inner" [style.background-image]="'url(' + to_do.image.thumb.url + ')'"></div>
+        </div>
+        <div class="source-content">
+          <h4 class="text-center">{{ to_do.title }}</h4>
+          <p class="source-description">
+            {{to_do.description}}
+            <a *ngIf="to_do.link" class="source-link" [attr.href]="to_do.link" target="_blank">{{to_do.link}}</a>
+          </p>
+        </div>
+      </div><!-- kilde-box | TODO-->
+    </div><!-- kilde-wrapper-relative | TODO -->
   </div>
   <div *ngIf="kilder_opened || goer_opened" id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
   <div class="close-info-boxes-init hide-it" data-close-info-boxes="true" (click)="closeInfoBoxes()"></div>
@@ -111,6 +123,7 @@ import {Observable} from "rxjs";
 export class ContentComponent implements OnInit {
   works: {}[] = [];
   sources: {}[] = [];
+  to_dos: {}[] = [];
   current_work: {};
   theme: {};
   kilder_opened: boolean = false;
@@ -126,6 +139,7 @@ export class ContentComponent implements OnInit {
     interface WorkResponse {
       works: {}[];
       sources: {}[];
+      to_dos: {}[];
       theme: {};
       current_work: {};
     }
@@ -139,7 +153,8 @@ export class ContentComponent implements OnInit {
           this.works = data.works,
           this.theme = data.theme,
           this.sources = data.sources,
-          this.current_work = data.current_work
+          this.current_work = data.current_work,
+          this.to_dos = data.to_dos
         }
       )
   }

@@ -15,9 +15,11 @@ class WorksController < ApplicationController
     end
 
     @sources = @theme.sources
+    @to_dos = @theme.to_dos
+
     respond_to do |format|
       format.html
-      format.json { render json: { works: @works, theme: @theme, sources: @sources, current_work: @current_work } }
+      format.json { render json: { works: @works, theme: @theme, sources: @sources, current_work: @current_work, to_dos: @to_dos } }
     end
   end
 
@@ -107,6 +109,7 @@ class WorksController < ApplicationController
                                  :soundcloud_in_top,
                                  :soundcloud_in_bottom,
                                  :photo_by,
+                                 to_dos_attributes: [:id, :title, :link, :image, :description, :destroy],
                                  sources_attributes: [:id, :title, :link, :image, :description, :_destroy])
   end
 end

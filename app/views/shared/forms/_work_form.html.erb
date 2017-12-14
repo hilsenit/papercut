@@ -90,13 +90,24 @@
 
   <hr>
     <h3>Kilder</h3>
-  <div class="form-field" id="sources">
     <p class="text-center">Kilder skal først gemmes, før deres ID bliver vist. Brug knappen "Gem kilder" nederst på siden.</p>
+  <div class="form-field" id="sources">
     <%= f.fields_for :sources do |source| %>
       <%= render 'source_fields', f: source %>
     <% end %>
+    <hr class="clearfix">
     <%= link_to_add_association 'Tilføj kilde', f, :sources, class: "add-source" %>
   </div>
+  <hr>
+  <h3>To Do's</h3>
+    <p class="text-center">Opret To Do's, som bliver vist samlet under et tema.</p>
+  <div class="form-field" id="toDos">
+    <%= f.fields_for :to_dos do |to_do| %>
+      <%= render 'to_do_fields', f: to_do %>
+    <% end %>
+    <%= link_to_add_association 'Tilføj To do', f, :to_dos, class: "add-to-do" %>
+  </div>
+  <hr>
   <%= f.submit "Gem kilder", class: "bg-button" %>
   <%= f.submit "Opdater", class: "bg-button" %>
 <% end %>
