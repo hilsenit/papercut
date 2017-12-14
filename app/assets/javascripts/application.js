@@ -33,8 +33,6 @@ toggleHeight = function(menu_wrapper_selector) {
 openOrHide = function(page_id, btn_id) {
   var page = document.getElementById(page_id);
   var button = document.getElementById(btn_id);
-  debugger;
-
   if (page.classList.contains('hide-it')) {
     page.classList.remove('hide-it');
     if (btn_id == "searchButton") {document.querySelector('[data-search="input"]').focus();} // Kun for search

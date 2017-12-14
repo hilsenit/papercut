@@ -200,6 +200,9 @@ $boxes_top: 90px;
   background-color: white;
   color: black;
   z-index: 9995;
+  &:hover {
+    left: 99%;
+  }
   @media screen and (max-width: 850px) {
     left: 0!important;
   }
@@ -212,6 +215,9 @@ $boxes_top: 90px;
   background-color: black;
   color: white;
   z-index: 9999;
+  &:hover {
+    left: 99%;
+  }
   @media screen and (max-width: 850px) {
     left: 50%!important;
   }
