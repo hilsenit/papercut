@@ -150,6 +150,9 @@ html {
 $nav_height_on_mobile: 75px;
 
 @media screen and (max-width: 850px) {
+  .close-overview-column {
+    display: none;
+  }
   .nav-close-area {
     display: block;
     position: fixed;

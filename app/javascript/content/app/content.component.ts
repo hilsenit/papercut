@@ -69,7 +69,7 @@ import {Observable} from "rxjs";
   </div>
   <div class="overview-column not-on-mobile" id="overviewPage">
     <h3 class="overview-header">Alt i tema</h3>
-      <div class="overview-box" *ngFor="let overview_work of works; let i = index" (click)="changeCurrentWork(overview_work.id)">
+      <div class="overview-box" *ngFor="let overview_work of works; let i = index" (click)="changeCurrentWork(overview_work.id, true)">
         <img [src]="overview_work.cover_image.thumb.url" (load)="setImageUrl(overview_work.cover_image.thumb.url, i)" hidden>
         <div class="overview-image" [attr.id]="i">
           <div *ngIf="overview_work.id == current_work.id" id="currentCross"></div>
@@ -240,8 +240,14 @@ export class ContentComponent implements OnInit {
     image_div.classList.add('overview-image-show');
   }
 
-  changeCurrentWork = function(work_id, tinyMCEevent) {
+  changeCurrentWork = function(work_id, overview_column) { // If it's clicked in the overview_column
     this.current_work = this.works.find(x => x.id == work_id);
+    var btn = document.getElementById("overviewBtnMobile");
+    var view_column = document.getElementById('overviewPage');
+    if (overview_column == true) { //
+      view_column.classList.add('not-on-mobile');
+      btn.classList.remove('close-icon');
+    }
     this.source_runned = false; // Now ngAfterViewChecked can run again, and place the event handlers in the TinyMCE text! 
   }
 

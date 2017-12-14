@@ -23,6 +23,9 @@
       page-break-inside: avoid;
       position: relative;
       width: 100%;
+      & > p {
+          text-align: justify;
+      }
       h2 {
         font-family: "CircularStd-Medium";
         text-transform: uppercase;
