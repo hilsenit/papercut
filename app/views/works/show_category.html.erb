@@ -1,14 +1,15 @@
+<h1 class="text-center"><%= @headline %></h1>
 <% if @works.any? %>
     <div class="category">
     <% @works.each do |work| %>
-      <%= link_to theme_works_path(work.theme.id), class: "overview-box" do %>
-        <div class="overview-image" style="background-image: url(<%= work.cover_image.thumb.url %>);"></div>
-        <h4 class="overview-title"><%= work.title %></h4>
-        <h5 class="overview-info"><%= work.type_of_content %></h5>
-        <h5 class="overview-info"><%= work.created_at.strftime("%d.%m.%y") %></h5>
+      <%= link_to show_theme_works_path(work.theme.id, work.id), class: "cat-overview-box" do %>
+        <div class="cat-overview-image" style="background-image: url(<%= work.cover_image.thumb.url %>);"></div>
+        <h4 class="cat-overview-title"><%= work.title %></h4>
+        <h5 class="cat-overview-info"><%= work.type_of_content %></h5>
+        <h5 class="cat-overview-info"><%= work.created_at.strftime("%d.%m.%y") %></h5>
       <% end %>
     <% end %>
     </div>
 <% else %>
-  <h2 class="text-center">No content under this yet!</h2>
+  <h2 class="text-center">Intet her endnu. Kommer snart!</h2>
 <% end %>

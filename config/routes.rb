@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :works, except: [:show, :index]
   end
   get '/themes/:theme_id/works/:work_id' => 'works#index', as: :show_theme_works # new index
+  get '/themes/:theme_id/works/:work_id' => 'works#show_this_category', as: :show_this_category
   get 'tema/:work_category' => 'works#show_category', as: :works_category
 
   get 'om' =>  'pages#om'

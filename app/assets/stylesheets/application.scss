@@ -283,6 +283,16 @@ $nav_height_on_mobile: 75px;
   .main-text { // The buttons To-do and Kilder is above the text on mobile screen
     padding-bottom: 100px!important;
   }
+  .kilde-box {
+    @include flex-wrap(wrap);
+    .source-image {
+      padding: 1%!important;
+      width: 100%;
+    }
+    .source-content {
+      width: 100%!important;
+    }
+  }
 }
 
 

@@ -25,11 +25,17 @@ class WorksController < ApplicationController
 
 
   def show_category
-    @works = case params[:work_category]
-      when "laes"; Work.laes
-      when "hoer"; Work.hoer
-      when "se"; Work.se
-    end
+     case params[:work_category]
+      when "laes"
+        @works = Work.laes
+        @headline = " Læs"
+      when "hoer"
+        @works = Work.hoer
+        @headline = " Hør"
+      else
+        @works = Work.se
+        @headline = " Se"
+      end
   end
 
   def new

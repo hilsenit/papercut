@@ -1,5 +1,5 @@
 <style type="text/css">@media screen and (min-width: 850px) { #searchButton { color: white!important } }</style><!-- for the "Søg" color -->
-<span data-theme-id="true" theme-id="<%= @theme.id %>" work-id="<%= @current_work.id if @current_work.present? %>" hidden></span>
+<span data-theme-id="true" theme-id="<%= @theme.present? ? @theme.id : 0 %>" work-id="<%= @current_work.id if @current_work.present? %>" hidden></span>
 <content>Loading...</content>
 <%= javascript_pack_tag 'content' %>
 
