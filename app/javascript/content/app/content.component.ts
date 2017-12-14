@@ -159,7 +159,6 @@ export class ContentComponent implements OnInit {
       )
   }
 
-
   ngAfterViewChecked(): void {
     if (!this.source_runned) {
       this.addEventToTinyMCEText();
