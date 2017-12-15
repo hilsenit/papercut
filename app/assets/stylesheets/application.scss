@@ -13,7 +13,19 @@
 
 p {
   font-family: "CircularStd-Book";
+  font-weight: 100;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 100;
+  font-family: "CircularStd-Book";
+}
+
+h1 {
+  text-align: center;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
 .float-left {
   float: left;
 }
@@ -26,6 +38,12 @@ p {
 .tinymce {
   margin: 0 auto;
   width: 840px;
+}
+.mce-window.mce-in {
+  width: 400px!important;
+}
+.mce-combobox input {
+  width: 250px!important;
 }
 
 .mce-container {
@@ -89,12 +107,6 @@ textarea, input, button { outline: none; }
 }
 
 
-h1 {
-  text-align: center;
-  font-family: "CircularStd-Medium";
-  font-size: 20px;
-  text-transform: uppercase;
-}
 body {
   z-index: 1; // For the search window
 }
@@ -189,6 +201,9 @@ $nav_height_on_mobile: 75px;
   .info-main-wrapper .main-column {
     width: 100%;
     margin: 0 2%;
+    p {
+      padding: 2px 4%!important;
+    }
   }
   .info-main-wrapper .info-column {
     position: relative;
