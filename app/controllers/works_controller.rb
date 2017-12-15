@@ -40,12 +40,14 @@ class WorksController < ApplicationController
 
   def new
     @theme = Theme.find(params[:theme_id])
-    @work = Work.new
+    @work = Work.new(credits: [""])
+    @credits = ["", "", "", "", "", ""]
   end
 
   def edit
     @theme = Theme.find(params[:theme_id])
     @work = Work.find(params[:id])
+    @credits = @work.credits.empty? ? ["", "", "", "", "", ""] : @work.credits # Wierd hack!
   end
 
   def create
@@ -99,22 +101,23 @@ class WorksController < ApplicationController
 
   def work_params
     params.require(:work).permit(:title,
-                                 :theme_id,
-                                 :description,
-                                 :short_description,
                                  :category,
-                                 :type_of_content,
                                  :cover_image,
+                                 :created_by,
+                                 :description,
                                  :share_description,
                                  :share_image,
-                                 :created_by,
-                                 :youtube_url,
-                                 :youtube_in_top,
-                                 :youtube_in_bottom,
+                                 :short_description,
                                  :soundcloud_url,
                                  :soundcloud_in_top,
                                  :soundcloud_in_bottom,
+                                 :theme_id,
+                                 :type_of_content,
+                                 :youtube_url,
+                                 :youtube_in_top,
+                                 :youtube_in_bottom,
                                  :photo_by,
+                                 credits: [],
                                  to_dos_attributes: [:id, :title, :link, :image, :description, :destroy],
                                  sources_attributes: [:id, :title, :link, :image, :description, :_destroy])
   end

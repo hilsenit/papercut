@@ -23,18 +23,12 @@ import {Observable} from "rxjs";
           Type<br>
           {{ current_work.type_of_content }}
         </li>
-        <li *ngIf="current_work.created_by">
-          Tekst af<br>
-          {{ current_work.created_by }}
-        </li>
-        <li *ngIf="current_work.photo_by">
-          Foto af<br>
-          {{ current_work.photo_by }}
-        </li>
-        <li>
-          Tags<br>
-          Kommer snart
-        </li>
+        <div *ngFor="let credit of current_work.credits">
+          <li *ngIf="credit">
+            {{ credit.split(':')[0] + ':' }}<br>
+            {{ credit.split(':')[1] }}
+          </li>
+        </div>
         <li>Del:
           <a [attr.href]="'https://www.facebook.com/sharer.php?u=https://www.papercutodyssey.dk/themes/' + theme.id + '/works/' + current_work.id" target="_blank" class="share-buttons facebook">FB</a>
         </li>

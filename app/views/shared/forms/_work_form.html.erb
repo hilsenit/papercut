@@ -56,35 +56,37 @@
   </div>
   <hr class="clearfix">
   <div class="form-field form-wrapper">
-    <h3>Main photo</h3>
-    <%= image_tag @work.cover_image.thumb.url, class: "bg_thumb_show" if @work.cover_image? %><br>
-    <%= f.label :cover_image, "Vælg billede:" %><br>
-    <%= f.file_field :cover_image %>
+
+    <div class="form-field half float-left">
+      <h3>Main photo</h3>
+      <%= image_tag @work.cover_image.thumb.url, class: "bg_thumb_show" if @work.cover_image? %><br>
+      <%= f.label :cover_image, "Vælg billede:" %><br>
+      <%= f.file_field :cover_image %>
+    </div>
+
+    <div class="form-field half float-left">
+      <h3>Credits</h3>
+      <span class="small">
+        Husk at starte med noget og et ':', så koden kan genkende "Lavet af:" f.eks. og derefter 'breake' til næste linje
+      </span>
+      <% @credits.each do |c| %>
+          <%= f.text_field :credits, value: c, multiple: true %> 
+        <% end %>
+    </div>
   </div>
 
-  <div class="form-field half float-left">
-    <div class="form-field">
+  <div class=" form-field form-wrapper">
+    <div class="form-field half float-left">
       <h3> <%= f.label :type_of_content, "Type:" %> </h3>
       <%= f.text_field :type_of_content %>
     </div>
-    
-    <div class="form-field">
+    <div class="form-field half float-left">
       <h3> <%= f.label :title, "Titel", class: "bg-label" %><span class="small"> * Skal udfyldes!</span></h3>
       <%= f.text_field :title %>
     </div>
   </div>
 
-  <div class="form-field half float-left">
-    <div class="form-field">
-      <h3> <%= f.label :created_by, "Lavet af:", class: "bg-label" %> </h3>
-      <%= f.text_field :created_by %>
-    </div>
-    
-    <div class="form-field">
-      <h3> <%= f.label :photo_by, "Fotograferet af:", class: "bg-label" %> </h3>
-      <%= f.text_field :photo_by %>
-    </div>
-  </div>
+  <hr class="clearfix">
 
   <div class="form-field">
     <h3> <%= f.label :desciption, "Tekst", class: "bg-label" %> </h3>
