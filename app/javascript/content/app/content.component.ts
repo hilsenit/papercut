@@ -8,7 +8,7 @@ import {Observable} from "rxjs";
   selector: 'content',
   template: `
   <span class="only-on-mobile btn-mobile overview-btn-mobile nav-link" id="overviewBtnMobile" (click)="openDiv('overviewPage', 'not-on-mobile', 'overviewBtnMobile' )"></span>
-  <div class="info-main-wrapper">
+  <div class="info-main-wrapper hide-it" id="infoMainWrapper">
     <div class="info-column">
       <ul class="info-list">
         <li data-theme-title="true">
@@ -160,6 +160,7 @@ export class ContentComponent implements OnInit {
       this.addEventToTinyMCEText();
       this.source_runned = true;
       if (this.only_first_time) { // This scrolls down to the selected work, on the first load (IT's WORKING) OMG!
+        document.getElementById('infoMainWrapper').classList.remove('hide-it'); // Was loading pretty poor - bad hack, but it's working.
         var current_work_id = document.querySelector('[data-theme-id]').getAttribute('work-id');
         var topPos = document.getElementById('work' + current_work_id).offsetTop;
         if (topPos > 500) { // Not if it's the first couple og works! - could be nice with screensize
