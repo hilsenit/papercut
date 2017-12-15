@@ -2,9 +2,9 @@
     <div class="newsline-wrapper" data-newsline="moving">
       <% news.each do |news| %>
         <%= link_to show_theme_works_path(news.work.theme.id, news.work.id) do %>
-          <span> <%= news.date.strftime("%d.%m.%y")%></span>
-          <span> <%= news.type_of_thing %>   </span>
-          <span> <%= news.title %> </span>
+          <span> <%= news.date.strftime("%d.%m.%y") if news.date.present? %></span>
+          <span> <%= news.type_of_thing  if news.type_of_thing.present? %>   </span>
+          <span> <%= news.title if news.title.present? %> </span>
         <% end %>
       <% end %>
     </div>

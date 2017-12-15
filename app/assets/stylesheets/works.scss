@@ -148,6 +148,8 @@ $info_max_width: 850px;
   h3 {
     cursor: pointer;
     padding: 0px 10px;
+    position: fixed;
+    margin-top: 5px;
   }
   .kilde-wrapper-relative {
     width: 92%;
@@ -157,7 +159,6 @@ $info_max_width: 850px;
     height: 100%;
     .kilde-box {
       @include flex;
-      min-height: 300px;
       overflow: hidden;
       .source-image {
         padding: 5%;
@@ -176,7 +177,7 @@ $info_max_width: 850px;
         float: left;
         color: $border-color;
         .source-link {
-          color: $i-fucking-love-sience;
+          color: $dark-blue;
           display: block;
           text-align: center;
           padding-top: 20px;
