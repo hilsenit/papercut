@@ -1,4 +1,4 @@
-<div class="menu-wrapper hide-it" id="menuWrapper" data-slide="open">
+<div class="menu-wrapper hide-it <%= 'for-js-show-menu-on-root' if current_page?('/') %>" id="menuWrapper" data-slide="open">
   <%= link_to "Tema", themes_path(), class: "menu-box white-orange" %>
   <%= link_to "Læs", works_category_path("laes"), class: "menu-box white-orange" %>
   <%= link_to "Se", works_category_path("se"), class: "menu-box white-orange" %>

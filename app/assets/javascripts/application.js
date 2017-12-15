@@ -53,11 +53,15 @@ animateLeft = function(obj, from, to){
 }
 
 window.onload = function() {
-  // document.querySelector('[data-toggle="menu"]').addEventListener('click', function() {
-  //   toggleHeight('[data-slide="open"]');
-  // });
-  //
-  // Page show/hide
+  // Menuen skal vises på desktop, men ikke på mobil
+  if (screen.width > 850) {
+    var menuWrapper = document.getElementById('menuWrapper');
+    debugger;
+    if (menuWrapper.classList.contains('for-js-show-menu-on-root')) {
+      menuWrapper.classList.remove('hide-it');
+      document.getElementById('menuBtn').classList.add('active');
+    }
+  } 
   document.querySelectorAll('[data-openpage]').forEach(function(item) {
     item.addEventListener('click', function() {
       openOrHide(item.dataset.openpage, item.dataset.btn);
