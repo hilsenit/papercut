@@ -6,19 +6,24 @@ class PagesController < ApplicationController
 
   def edit
     @pages = Page.find(params[:id])
-    if @pages.save(pages_params)
-
-    else
-
-    end
   end
 
   def create
-
+    @pages = Page.new(pages_params)
+    if @pages.save
+      redirect_to backend_path()
+    else
+      render :new
+    end
   end
 
   def update
-
+    @pages = Page.find(params[:id])
+    if @pages.update_attributes(pages_params)
+      redirect_to backend_path()
+    else
+      render :edit
+    end
   end
 
   def frontpage
@@ -27,11 +32,15 @@ class PagesController < ApplicationController
   end
 
   def om
-
+    @om_title = Pages.last.om_title
+    @om_text = Pages.last.om_text
   end
 
   def bidrag
-
+    @bidrag_l_title = Pages.last.bidrag_l_title
+    @bidrag_left = Page.last.bidrag_left
+    @bidrag_r_title = Pages.last.bidrag_r_title
+    @bidrag_right = Page.last.bidrag_right
   end
 
   private
@@ -42,7 +51,7 @@ class PagesController < ApplicationController
   end
 
   def pages_params
-    params.require(:pages).permit(:om_text, :om_title, :bidrag_left, :bidrag_l_title, :bidrag_right, :bidrag_r_title)
+    params.require(:page).permit(:om_text, :om_title, :bidrag_left, :bidrag_l_title, :bidrag_right, :bidrag_r_title)
   end
 
 end

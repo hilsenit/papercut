@@ -3,18 +3,27 @@
 
 <%= form_for @pages do |f| %>
   <div class="form-field">
+    <h3 class="text-center">Om side </h3>
+    <h4>Overskrift</h4>
     <%= f.text_field :om_title %><br>
+    <h4>Tekst</h4>
     <%= f.text_area :om_text, class: "tiny-mce" %>
   </div>
 
   <div class="form-field">
-    <%= f.text_field :om_title %><br>
-    <%= f.text_area :om_text, class: "tiny-mce" %>
+    <h3 class="text-center">Bidrag venstre</h3>
+    <h4>Overskrift</h4>
+    <%= f.text_field :bidrag_l_title %><br>
+    <h4>Tekst</h4>
+    <%= f.text_area :bidrag_left, class: "tiny-mce" %>
   </div>
 
   <div class="form-field">
-    <%= f.text_field :om_title %><br>
-    <%= f.text_area :om_text, class: "tiny-mce" %>
+    <h3 class="text-center">Bidrag venstre</h3>
+    <h4>Overskrift</h4>
+    <%= f.text_field :bidrag_r_title %><br>
+    <h4>Tekst</h4>
+    <%= f.text_area :bidrag_right, class: "tiny-mce" %>
   </div>
   <hr> 
   <%= f.submit "Gem sider", class: "bg-button" %>

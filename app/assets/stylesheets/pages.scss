@@ -10,8 +10,14 @@
   top: 0;
   background-color: $almost_black;
 }
+.tiny-mce {
+  height: 600px!important;
+}
 .om {
   h1 {
     color: $the-orange;
   }
+}
+.mce-tinymce {
+  width: 700px!important;
 }
