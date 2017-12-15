@@ -44,7 +44,7 @@ import {Observable} from "rxjs";
 
       <img *ngIf="current_work.cover_image.url" [src]="current_work.cover_image.thumb.url" id="slideUpImage">
 
-      <h2 class="text-center">{{ current_work.title }}</h2>
+      <h2 class="text-center current-work-title">{{ current_work.title }}</h2>
 
       <iframe *ngIf="current_work.youtube_in_top && current_work.youtube_url"
       width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
