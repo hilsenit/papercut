@@ -4,6 +4,9 @@
 .category {
   text-align: center;
   .cat-overview-box {
+    min-width: 250px;
+    vertical-align: top;
+
     display: inline-block;
     width: 18%;
     margin: 1%;
