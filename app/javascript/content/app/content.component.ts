@@ -30,7 +30,7 @@ import {Observable} from "rxjs";
           </li>
         </div>
         <li>Del:
-          <a [attr.href]="'https://www.facebook.com/sharer.php?u=http://www.papercutodyssey.dk/themes/' + theme.id + '/works/' + current_work.id" target="_blank" class="share-buttons facebook">FB</a>
+          <a [attr.href]="'https://www.facebook.com/sharer.php?u=https://www.papercutodyssey.dk/themes/' + theme.id + '/works/' + current_work.id" target="_blank" class="share-buttons facebook">FB</a>
         </li>
       </ul><!-- .info-list -->
     </div><!-- .info-column -->
