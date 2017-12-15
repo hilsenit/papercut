@@ -5,6 +5,32 @@
 .background-on-om {
   z-index: 1;
 }
+.bidrag-left-bg {
+  z-index: 9;
+  background-color: $almost_black; 
+  position: fixed;
+  height: 100%;
+  width: 50%;
+  left: 0; 
+  top: 0;
+}
+.bidrag-left {
+  h1 {
+    color: $dark-blue;
+  }
+  .bidrag-text {
+    color: $border-color;
+  }
+}
+.bidrag-left, .bidrag-right {
+  position: relative;
+  z-index: 999;
+  float: left;
+  width: 50%;
+  .bidrag-text {
+    padding: 20px 5%;
+  }
+}
 .other-bg {
   background-image: url(image-path('firework-lighter'));
   position: fixed;
@@ -46,6 +72,18 @@
   }
 }
 @media screen and (max-width: 850px) {
+  .bidrag-left-bg {
+    display: none;
+  }
+  .bidrag-left {
+    background-color: $almost-black;
+  }
+  .bidrag-left, .bidrag-right {
+    z-index: 9;
+  }
+  .bidrag-right {
+    width: 100%;
+  }
   .three-columns-wrapper {
     padding-bottom: 100px;
   }

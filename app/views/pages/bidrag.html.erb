@@ -4,11 +4,24 @@
   }
 </style>
 
-<div class="half">
-  <h1>Bidrag</h1>
-
-</div>
 <% if @bidrag_left && @bidrag_right %>
+  <div class="bidrag-left-bg"></div>
+<div class="half bidrag-left">
+  <h1 class="text-center blue-color">
+    <%= @bidrag_l_title if @bidrag_l_title.present? %>
+  </h1>
+  <div class="bidrag-text">
+    <%= @bidrag_left.html_safe %>
+  </div>
+</div>
 
+<div class="bidrag-right">
+  <h1 class="text-center">
+    <%= @bidrag_r_title if @bidrag_r_title.present? %>
+  </h1>
+  <div class="bidrag-text">
+    <%= @bidrag_right.html_safe %>
+  </div>
+</div>
 
 <% end %>
