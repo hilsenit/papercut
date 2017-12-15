@@ -1,23 +1,65 @@
+@imports 'imports/mixins';
 @import 'imports/colors';
 @imports 'imports/fonts';
 
 .background-on-om {
-  z-index: 99;
+  z-index: 1;
+}
+.other-bg {
+  background-image: url(image-path('firework-lighter'));
   position: fixed;
   height: 100%;
   width: 50%;
   left: 50%;
   top: 0;
+  padding-top: 100px;
   background-color: $almost_black;
+  z-index: 9;
+  h1 {
+    color: white;
+  }
 }
 .tiny-mce {
   height: 600px!important;
 }
 .om {
+  .om-text {
+    padding-right: 60px;
+    padding-left: 10px;
+  }
   h1 {
     color: $the-orange;
   }
 }
 .mce-tinymce {
   width: 700px!important;
+}
+
+.three-columns-wrapper {
+  .one-column {
+    padding: 4%;
+    padding-left: 9%;
+    color: $border-color;
+  }
+  .full-width {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 850px) {
+  .three-columns-wrapper {
+    padding-bottom: 100px;
+  }
+  .other-bg {
+    position: relative;
+    width: 100%;
+    left: 0;
+    overflow: hidden;
+    min-height: 400px;
+  }
+  .om-text { 
+    width: 100%;
+  }
+  .half {
+    width: 100%!important;
+  }
 }

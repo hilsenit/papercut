@@ -2,7 +2,9 @@ class BackendController < ApplicationController
 
   def index
     @themes = Theme.all
-    @pages = Page.last if Page.exists?(Page.last.id)
+    unless Page.last.nil?
+      @pages = Page.last if Page.exists?(Page.last.id)
+    end
   end
 
   def show_theme_content

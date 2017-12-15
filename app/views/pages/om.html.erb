@@ -7,106 +7,44 @@
   }
 </style>
 
-<div class="background-on-om">
+<% if @om_title || @om_text %>
+<div class="half om float-left">
+  <h1><%= @om_title %></h1>
+  <div class="om-text">
+    <%= @om_text.html_safe %>
+  </div>
 </div>
-<div class="half om">
-  <h1>Om</h1>
-  <p>
-    Om 
+<div class="half om other-bg float-left">
+  <div class="three-columns-wrapper">
+    <div class="one-column half float-left">
 
-    Velkommen til Papercut Odyssey. 
+      Papercut Issues<br>
+      CVR nr. 37413623<br>
 
-    Vi er team Papercut. Det vil sige: Vi er Kirstine, som er redaktør på Papercut Issues. Vi er Mia, som er medredaktør. Vi er Emilie, som har været projektleder gennem denne tre måneder lange undersøgelse. Og så er vi rigtig mange andre, der er optaget af information, følelser og videnskab.
+      Peter Fabers Gade 18, 4. th<br>
+      2200 København N <br>
+      Denmark					<br>
 
-    Papercut Issues startede for to et halvt år siden som et magasinunivers mellem unge. Vi har brændt for at skabe en platform, der udforsker stereotyper, normer og tabuer i samfundet. Dette har vi gjort gennem visuelle og kreative temaudgivelser, arrangementer, udstillinger, installationer og en bog. Men nu har vi skabt et nyt projekt. 
+      hello@papercutissues.dk</div>
+    <div class="one-column half float-left">
 
-    Vi har brugt tre måneder i slagmarken mellem saftige clickbait artikler, snæversynede ekkokamre, fake news og allestedsnærværende deadlines. Vi har talt med ca. 52 andre unge i troen på, at vi skulle lave et nyt nyhedsmedie. Men det har ledt os til en erkendelse af, at der ikke mangler flere nyheder eller nyhedsmedier til unge. Eller det vil sige: Vi har brug for at forstå nyheder på en ny måde.
-
-    I dag skal der et rigtig godt argument til for at skabe et nyt medie. Der er et hav af medier. Et hav af platforme, information, inspiration, fortællinger, holdninger og nyheder. Så hvordan balancerer du paradokset om, at der er alt for meget, men stadig mangler noget? 
-
-    Vi mener, at der mangler overblik, fordybelse, fakta, nuancer, forskning og videnskab. Men der mangler også empati, forståelse, farver, humor, myter, sagnomspundne fortællinger og følelser. Der mangler leg med medier og fokus på, at nuancerede perspektiver godt kan formidles spiseligt og kreativt. Vores bud er Odyssey. Et medie mellem videnskab og kunst. Et medie, der fortæller om aktuel forskning med følelser. 
-
-    Odysseen er det værk, du måske svagt husker, hvis du har haft oldtidskundskab i gymnasiet. Ordet i sig selv betyder en lang rejse, og det er netop dét billede, vi gerne vil føre videre. Med Papercut Odyssey inviterer vi på en fælles rejse ud i videnskabens verden. En rejse mellem myte og oplysning. Og det er vores opgave som medie at gøre den rejse spændende.
-
-    Du er lige nu inde på vores prototype. Det vil sige den mindste udgave af, hvordan vi håber på, at Papercut Odyssey skal tage sig ud i fremtiden. Det er ikke et færdigt produkt, men snarere et forsøg på at dele vores idéer med dig, så du kan dele dine med os. Vi ønsker din feedback - hvad er inspirerende, hvad er irriterende, hvad er spændende, og hvad er bare ligegyldigt?
-
-    Tak fordi du har været herinde. Hvis du er interesseret i at deltage i projektet på den ene eller anden måde, så kontakt os. Hvis du vil følge med, så er æren vores. 
-
-    På vegne af hele holdet, tak. 
-    Kirstine Leth Schütze
-
-    Støttet af Slots- og Kulturstyrelsen
-         
-
-
-
-
-
-    Kontakt
-
-    Papercut Issues
-    CVR nr. 37413623
-
-    Peter Fabers Gade 18, 4. th
-    2200 København N 
-    Denmark					
-
-    hello@papercutissues.dk
-
-
-    Kreditering
-
-    Team Papercut 
-
-    Miss Universe 
-    Kirstine Leth Schütze
-    (+45) 29475250 kirstine@papercutissues.dk
-
-    Mistress of the Galaxy 
-    Mia Carl 
-    (+45) 52116759 mia@papercutissues.dk
-
-    Projekt Odyssey
-
-    Queen of the world 
-    Emilie Holm Sandholdt
-    (+45) 52116750 emilie@papercutissues.dk													
-    Grafisk designer
-    Kristel Clément
-
-    Forretningsudvikler
-    Jeppe Rosengren Stockmar
-
-    Virksomhedspraktikant 
-    Sofie Staal 
-
-    Redaktør
-    Caroline Tranberg 
-
-    Korrektur 
-    Christina Thers Hoffmann
-
-    Podcast
-    Anna Hansen
-
-    Film og klip
-    Aske Just
-
-    Illustratorer
-    Sarah Eun 
-    Kathrin Towle
-
-    Maler
-    Mads Hilbert
-
-    Foto
-    Vidar Logi Kristinsson
-
-    Tak til Aslak Gottlieb, Olav Hesseldahl, Adam Bencard, Medicinsk Museion, Kaospiloterne, alle støttende venner og familie, og den gamle kerneredaktion på Papercut Issues.
-
-    En ekstra stor tak skal lyde til alle vores seje fokusgruppedeltagere, dagbogsskrivere, testpersoner og vox pop informanter. Uden jer og jeres overskud var vi aldrig blevet klogere. 
-
-    Tak til Nana, Christian, Otilia, Gustav, Kristel, Caroline, Emil, Sidsel, Anine, Cecilie, Ruth, Emil, Thomas, Peter, Anders, Dagmar, Rebekka, Pauline, Julie, Cecilia, Emma, Sandra, Bettina, Johanne, Katrine, Elever fra Rysensteen, studerende på Odense gågade.
-
-  </p>    
+      Team Papercut <br>
+      Miss Universe <br>
+      (+45) 29475250 kirstine@papercutissues.dk<br><br>
+      Mistress of the Galaxy <br>
+      Mia Carl <br>
+      Projekt Odyssey<br><br>
+      Queen of the world <br>
+      Emilie Holm Sandholdt<br><br>
+      Grafisk designer<br>
+      Kristel Clément
+    </div>
+    <div class="one-column full-width">
+    </div>
+  </div>
 </div>
+<% else %>
+  <div class="half">
+    <h3 class="text-center">Ikke noget om-content endnu! </h3>
+  </div>
+<% end %>

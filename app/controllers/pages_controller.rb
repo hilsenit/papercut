@@ -32,15 +32,19 @@ class PagesController < ApplicationController
   end
 
   def om
-    @om_title = Pages.last.om_title
-    @om_text = Pages.last.om_text
+    if !Page.last.nil? && Page.exists?(Page.last.id)
+      @om_title = Page.last.om_title
+      @om_text = Page.last.om_text
+    end
   end
 
   def bidrag
-    @bidrag_l_title = Pages.last.bidrag_l_title
-    @bidrag_left = Page.last.bidrag_left
-    @bidrag_r_title = Pages.last.bidrag_r_title
-    @bidrag_right = Page.last.bidrag_right
+    if !Page.last.nil? && Page.exists?(Page.last.id)
+      @bidrag_l_title = Page.last.bidrag_l_title
+      @bidrag_left = Page.last.bidrag_left
+      @bidrag_r_title = Page.last.bidrag_r_title
+      @bidrag_right = Page.last.bidrag_right
+    end
   end
 
   private
