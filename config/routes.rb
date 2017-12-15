@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   get '/themes/:theme_id/works/:work_id' => 'works#show_this_category', as: :show_this_category
   get 'tema/:work_category' => 'works#show_category', as: :works_category
 
+  resources :pages
+
   get 'om' =>  'pages#om'
   get 'bidrag' => 'pages#bidrag'
 

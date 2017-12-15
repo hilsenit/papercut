@@ -1,2 +1,17 @@
 @import 'imports/colors';
 @imports 'imports/fonts';
+
+.background-on-om {
+  z-index: 99;
+  position: fixed;
+  height: 100%;
+  width: 50%;
+  left: 50%;
+  top: 0;
+  background-color: $almost_black;
+}
+.om {
+  h1 {
+    color: $the-orange;
+  }
+}

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  om_text: MyText
+  bidrag_left: MyText
+  bidrag_right: MyText
+
+two:
+  om_text: MyText
+  bidrag_left: MyText
+  bidrag_right: MyText
