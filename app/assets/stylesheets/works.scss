@@ -88,12 +88,21 @@ iframe {
     padding-left: 60px;
     width: 310px;
     z-index: 999;
+    &:first-of-type {
+      margin-top: 90px;
+      padding-top: 0px;
+    }
   }
   .overview-header {
-    margin-bottom: 35px;
+    background-color: $work-overview-background;
+    padding-bottom: 35px;
     font-family: "CircularStd-Medium";
     font-size: 20px;
     padding-left: 60px;
+    position: fixed;
+    width: 100%;
+    margin-top: 0;
+    padding-top: 20px;
   }
   .overview-title {
     font-family: "CircularStd-Medium";
