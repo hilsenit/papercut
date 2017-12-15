@@ -167,10 +167,12 @@ $nav_height_on_mobile: 75px;
   .overview-btn-mobile {
     z-index: 997;
   }
-  #closeInfoBoxes {
+  .close-data-todo-window {
     background-image: url(image-path('close-icon'));
-    background-position: left top;
-    background-color: rgba(54,53,53,0.6);
+    background-position: 13px 13px;
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    background-color: rgba(54,53,53,0.7);
   }
   $mobile_btn_height: 50px;
     

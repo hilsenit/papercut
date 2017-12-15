@@ -80,7 +80,7 @@ import {Observable} from "rxjs";
     <div class="kilde-wrapper-relative">
       <div class="kilde-box" *ngFor="let source of sources; let i_s = index" [attr.id]="'source' + source.id">
         <div class="source-image">
-          <div *ngIf="source.image" class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
+          <div *ngIf="source.image.thumb.url" class="source-image-inner" [style.background-image]="'url(' + source.image.thumb.url + ')'"></div>
         </div>
         <div class="source-content">
           <h5 class="text-center">{{ i_s + 1 }}</h5>
@@ -98,7 +98,7 @@ import {Observable} from "rxjs";
     <div class="kilde-wrapper-relative">
       <div class="kilde-box" *ngFor="let to_do of to_dos">
         <div class="source-image">
-          <div *ngIf="to_do.image" class="source-image-inner" [style.background-image]="'url(' + to_do.image.thumb.url + ')'"></div>
+          <div *ngIf="to_do.image.thumb.url" class="source-image-inner" [style.background-image]="'url(' + to_do.image.thumb.url + ')'"></div>
         </div>
         <div class="source-content">
           <h4 class="text-center">{{ to_do.title }}</h4>
@@ -110,8 +110,8 @@ import {Observable} from "rxjs";
       </div><!-- kilde-box | TODO-->
     </div><!-- kilde-wrapper-relative | TODO -->
   </div>
-  <div *ngIf="kilder_opened || goer_opened" class="cross-on-mobill" id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
-  <div class="close-info-boxes-init hide-it" data-close-info-boxes="true" (click)="closeInfoBoxes()"></div>
+  <div *ngIf="kilder_opened || goer_opened" class="close-data-todo-window" id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
+  <div class="close-info-boxes-init hide-it close-data-todo-window" data-close-info-boxes="true" (click)="closeInfoBoxes()"></div>
   `
 })
 export class ContentComponent implements OnInit {
