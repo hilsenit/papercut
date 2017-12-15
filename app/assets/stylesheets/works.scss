@@ -23,8 +23,9 @@ iframe {
     overflow-y: visible;
     margin-left: $info-column-width;
     h2 {
+      width: 70%;
       text-transform: uppercase;
-      margin-top: 30px;
+      margin: 30px auto 0px auto;
       font-size: 20px;
     }
     #slideUpImage {
@@ -57,16 +58,16 @@ iframe {
       }
       .share-buttons {
         @include border-radius(100%);
-        width: 30px;
-        height: 30px;
-        margin-top: 4px;
+        background-color: $the-orange;
+        color: $primary-bg;
         display: block;
-        color: white;
+        height: 30px;
         font-family: "CircularStd-Medium";
         font-size: 12px;
         line-height: 30px;
         text-align: center;
-        background-color: $the-orange;
+        margin-top: 4px;
+        width: 30px;
       }
     }
   }
@@ -218,8 +219,9 @@ $info_max_width: 850px;
   @include calc(width, '60% + #{$goer_right}');
   left: 100%;
   margin-left: -$goer_right;
-  background-color: white;
-  color: black;
+  background-color: $almost_white;
+  background-color: rgba($almost_white, 0.96);
+  color: $almost_black;
   z-index: 9995;
   &:hover {
     left: 99%;
@@ -233,8 +235,9 @@ $info_max_width: 850px;
   @include calc(width, '60% + #{$kilder_right}');
   left: 100%;
   margin-left: -$kilder_right;
-  background-color: black;
-  color: white;
+  background-color: $almost_black;
+  background-color: rgba($almost_black, 0.96);
+  color: $almost_white;
   z-index: 9999;
   &:hover {
     left: 99%;
