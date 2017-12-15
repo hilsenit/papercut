@@ -41,7 +41,8 @@ iframe {
       text-align: left;
       img {
         width: auto;
-        min-width: 100%;
+        max-width: 100%;
+        height: auto;
         display: block;
         margin: 0 auto;
       }
