@@ -211,15 +211,6 @@ $info_max_width: 850px;
       }
     }
   }
-  $mobile_btn_height: 60px;
-  @media screen and (max-width: 850px) { // .info-right-boxes
-    @include calc(height, '80% + #{$mobile_btn_height}');
-    top: 100%;
-    margin-top: -$mobile_btn_height;
-    margin-left: 0!important;
-    width: 50%!important;
-    text-align: center;
-  }
 }
 .goer {
   @include transition(all .2s linear);

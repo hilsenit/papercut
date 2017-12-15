@@ -110,7 +110,7 @@ import {Observable} from "rxjs";
       </div><!-- kilde-box | TODO-->
     </div><!-- kilde-wrapper-relative | TODO -->
   </div>
-  <div *ngIf="kilder_opened || goer_opened" id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
+  <div *ngIf="kilder_opened || goer_opened" class="cross-on-mobill" id="closeInfoBoxes" (click)="closeInfoBoxes()"></div>
   <div class="close-info-boxes-init hide-it" data-close-info-boxes="true" (click)="closeInfoBoxes()"></div>
   `
 })

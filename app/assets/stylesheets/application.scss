@@ -162,6 +162,37 @@ html {
 $nav_height_on_mobile: 75px;
 
 @media screen and (max-width: 850px) {
+
+
+  .overview-btn-mobile {
+    z-index: 997;
+  }
+  #closeInfoBoxes {
+    background-image: url(image-path('close-icon'));
+    background-position: left top;
+    background-color: rgba(54,53,53,0.6);
+  }
+  $mobile_btn_height: 50px;
+    
+  .info-right-boxes {
+    height: 89%;
+    top: 100%;
+    margin-top: -$mobile_btn_height;
+    margin-left: 0!important;
+    width: 100%!important;
+    text-align: center;
+    h3 { 
+      width: 50%;
+      position: relative;
+      padding: 10px 10px;
+    }
+  }
+  .info-box-opened {
+    h3 {
+      width: 100%;
+    }
+  }
+
   .close-overview-column {
     display: none;
   }
@@ -307,12 +338,6 @@ $nav_height_on_mobile: 75px;
     }
     .source-content {
       width: 100%!important;
-    }
-  }
-  .info-right-boxes {
-    h3 { 
-      position: relative;
-      padding: 10px 10px;
     }
   }
 }
