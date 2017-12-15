@@ -206,9 +206,9 @@ $nav_height_on_mobile: 75px;
     z-index: 16500; // Above not active btn
     overflow: hidden;
   }
-  .close-icon { // Above nav-close-area
+  .close-icon {
     background-image: url(image-path('close-icon'));
-    z-index: 99999!important;
+    z-index: 999 !important;
   }
   .only-on-mobile {
     display: flex!important;
