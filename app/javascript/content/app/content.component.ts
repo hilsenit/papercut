@@ -110,7 +110,7 @@ import {Observable} from "rxjs";
           <h4 class="text-center">{{ to_do.title }}</h4>
           <p class="source-description">
             {{to_do.description}}
-            <a *ngIf="to_do.link" class="source-link" [attr.href]="to_do.link" target="_blank">{{to_do.link}}</a>
+            <a *ngIf="to_do.link" class="source-link to-do-link" [attr.href]="to_do.link" target="_blank">{{to_do.link}}</a>
           </p>
         </div>
       </div><!-- kilde-box | TODO-->
