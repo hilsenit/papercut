@@ -177,6 +177,8 @@ $nav_height_on_mobile: 75px;
   $mobile_btn_height: 50px;
     
   .info-right-boxes {
+    backface-visibility: hidden; // from https://stackoverflow.com/questions/25224969/fixed-positioned-header-jumps-in-google-chrome
+    -webkit-transform: translateZ(0); // Me to! 
     height: 89%;
     top: 100%;
     margin-top: -$mobile_btn_height;

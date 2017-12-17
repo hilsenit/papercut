@@ -184,9 +184,7 @@ $info_max_width: 850px;
       .source-image {
         padding: 5%;
         padding-right: 2%;
-        .source-image-inner {
-          background-size: cover;
-          background-repeat: no-repeat;
+        img {
           width: 160px;
           height: 160px;
           margin: 0 auto;
