@@ -80,7 +80,7 @@ import {Observable} from "rxjs";
     <div class="kilde-wrapper-relative">
       <div class="kilde-box" *ngFor="let source of sources; let i_s = index" [attr.id]="'source' + source.id">
         <div class="source-image">
-          <img *ngIf="source.image" class="source-image" [src]="source.image.thumb.url"/>
+          <img *ngIf="source.image.url" class="source-image" [src]="source.image.thumb.url"/>
         </div>
         <div class="source-content">
           <h5 class="text-center">{{ i_s + 1 }}</h5>
@@ -98,7 +98,7 @@ import {Observable} from "rxjs";
     <div class="kilde-wrapper-relative">
       <div class="kilde-box" *ngFor="let to_do of to_dos">
         <div class="source-image">
-          <img *ngIf="to_do.image" class="source-image" [src]="to_do.image.thumb.url"/>
+          <img *ngIf="to_do.image.url" class="source-image" [src]="to_do.image.thumb.url"/>
         </div>
         <div class="source-content">
           <h4 class="text-center">{{ to_do.title }}</h4>

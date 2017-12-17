@@ -338,7 +338,10 @@ $nav_height_on_mobile: 75px;
     @include flex-wrap(wrap);
     .source-image {
       padding: 1%!important;
-      width: 100%;
+      width: 100%!important;
+      img {
+        width: auto!important;
+      }
     }
     .source-content {
       width: 100%!important;
