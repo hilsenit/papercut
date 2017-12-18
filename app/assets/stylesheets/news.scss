@@ -9,6 +9,7 @@
   position: fixed;
   width: 100%;
   .newsline-wrapper {
+    left: 9999px; // JUST OUT OF THE IMAGE, BEFORE THE JAVASCRIPT SLIDES IT
     position: relative;
     display: inline-block;
     width: auto;
