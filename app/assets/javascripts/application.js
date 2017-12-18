@@ -40,14 +40,14 @@ openOrHide = function(page_id, btn_id) {
 
 // Newsline
 animateLeft = function(obj, from, to){
-   if(from >= to){
-     animateLeft(obj, (Math.abs(obj.clientWidth) * -1), to);
+  if(from < to){
+     animateLeft(obj, screen.width, to);
    }
    else {
        var box = obj;
        box.style.left = from + "px";
        setTimeout(function(){
-           animateLeft(obj, from + 3, to);
+           animateLeft(obj, from - 3, to);
        }, 25)
    }
 }
@@ -70,8 +70,8 @@ window.onload = function() {
 // Newsline
   newsline_obj = document.querySelector('[data-newsline="moving"]');
   if (newsline_obj) {
-    width = newsline_obj.clientWidth;
-    animateLeft(newsline_obj, -Math.abs(width), screen.width + width);
+    obj_width = newsline_obj.clientWidth;
+    animateLeft(newsline_obj, screen.width, 0 - obj_width);
   }
   
 

@@ -48,7 +48,8 @@ import {Observable} from "rxjs";
       [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)" webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
 
-      <p class="main-text" [innerHTML]="current_work.description"></p>
+      <p class="main-text" [innerHTML]="current_work.description">
+      </p>
 
       <iframe *ngIf="current_work.youtube_in_bottom && current_work.youtube_url"
       width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
