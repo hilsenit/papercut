@@ -163,7 +163,14 @@ $nav_height_on_mobile: 75px;
 
 @media screen and (max-width: 850px) {
 
-
+  .themes-wrapper .themes .theme img {
+    display: block;
+    position: relative;
+    margin-top: 50px;
+    top: auto;
+    left: auto; 
+    margin: 0 auto;
+  }
   .overview-btn-mobile {
     z-index: 997;
   }
