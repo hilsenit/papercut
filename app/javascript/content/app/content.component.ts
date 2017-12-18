@@ -17,7 +17,7 @@ import {Observable} from "rxjs";
         </li>
         <li>
           Dato<br>
-          {{ current_work.created_at | date: 'dd.mm.yy'}}
+          {{ current_work.created_at | date: 'dd.MM.yy'}}
         </li>
         <li *ngIf="current_work.type_of_content">
           Type<br>
@@ -72,7 +72,7 @@ import {Observable} from "rxjs";
         <div class="overview-info-wrapper">
           <h4 class="overview-title">{{ overview_work.title }}</h4>
           <h5 *ngIf="overview_work.type_of_content" class="overview-info">{{ overview_work.type_of_content }}</h5>
-          <h5 class="overview-info">{{ overview_work.created_at | date: "dd.mm.yy" }} </h5>
+          <h5 class="overview-info">{{ overview_work.created_at | date: "dd.MM.yy" }} </h5>
         </div>
       </div><!-- overview-box -->
   </div><!-- overview-column -->
