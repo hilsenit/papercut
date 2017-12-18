@@ -6,6 +6,14 @@
   display: flex;
 }
 
+@mixin order($val) {
+  -webkit-box-ordinal-group: $val;  
+     -moz-box-ordinal-group: $val;     
+  	     -ms-flex-order: $val;     
+  	      -webkit-order: $val;  
+  		      order: $val;
+}
+
 @mixin align-items($align) {
   -webkit-align-items: $align;
      -moz-align-items: $align;
