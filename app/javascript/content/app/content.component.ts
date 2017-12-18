@@ -34,7 +34,7 @@ import {Observable} from "rxjs";
         </li>
       </ul><!-- .info-list -->
     </div><!-- .info-column -->
-    <div class="main-column">
+    <div class="main-column" id="mainColumn">
 
       <img *ngIf="current_work.cover_image.url" [src]="current_work.cover_image.thumb.url" id="slideUpImage">
 
@@ -246,9 +246,11 @@ export class ContentComponent implements OnInit {
   }
 
   changeCurrentWork = function(work_id, overview_column) { // If it's clicked in the overview_column
-    this.current_work = this.works.find(x => x.id == work_id);
+    this.current_work = this.works.find(x => x.id === work_id);
     var btn = document.getElementById("overviewBtnMobile");
     var view_column = document.getElementById('overviewPage');
+    window.scrollTo(0, 0); // Scroll window to top
+    debugger;
     if (overview_column == true) { //
       view_column.classList.add('not-on-mobile');
       btn.classList.remove('close-icon');
