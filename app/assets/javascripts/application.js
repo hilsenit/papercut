@@ -80,8 +80,8 @@ window.onload = function() {
     images.forEach(function(image) {
       div_id = image.dataset.div;
       var box = document.getElementById('box' + div_id);
-      if (box.clientHeight < image.height + 100) {
-        box.style.height = (image.height + 140) + 'px';
+      if ((screen.width > 850) && (box.clientHeight < image.height + 100)) {
+        box.style.minHeight = (image.height + 140) + 'px';
       }
         box.classList.add("theme-show");
     });

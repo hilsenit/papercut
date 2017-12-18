@@ -160,9 +160,12 @@ html {
   display: none;
 }
 $nav_height_on_mobile: 75px;
-
+// MEEEEDIA QUIIIIIREEEESSSS 
 @media screen and (max-width: 850px) {
 
+  section.themes {
+      padding-bottom: 100px;
+  }
   .themes-wrapper .themes .theme img {
     display: block;
     position: relative;
