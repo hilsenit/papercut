@@ -2,6 +2,9 @@ Rails.application.configure do
   # MY ADDED
   config.read_encrypted_secrets = true
 
+  # DEVISE
+  config.action_mailer.default_url_options = { host: 'https://papercutodyssey.dk/'}
+
   # Settings specified here will take precedence over those in config/application.rb.
   # Code is not reloaded between requests.
   config.cache_classes = true

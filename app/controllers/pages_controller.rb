@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!, except: [:frontpage, :om, :bidrag, :load_newsline]
 
   def new
     @pages = Page.new()

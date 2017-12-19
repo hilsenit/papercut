@@ -37,6 +37,22 @@ h1 {
 .clearfix {
   clear: both;
 }
+.logged-in {
+  background-color: black;
+  color: white;
+  a {
+    color: white;
+    text-decoration: underline;
+  }
+}
+#logOutBtn {
+  position: fixed;
+  right: 10px;
+  bottom: 40px;
+  width: 50px;
+  background: red;
+  font-size: 1.2em;
+}
 .tinymce {
   margin: 0 auto;
   width: 840px;
@@ -51,6 +67,7 @@ h1 {
 .mce-container {
   margin: 0 auto!important;
 }
+
 .no-margin-x {
   margin-left: 0!important;
   margin-right: 0!important;
@@ -61,6 +78,10 @@ h1 {
   margin-bottom: 0!important;
 }
 
+.devise-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
 .made-by {
   padding-left: 50px;
   color: $the-orange;

@@ -65,3 +65,4 @@ gem 'tinymce-rails'
 gem 'tinymce-rails-imageupload', github: 'PerfectlyNormal/tinymce-rails-imageupload'
 # Yeah
 gem 'cocoon'
+gem 'devise'

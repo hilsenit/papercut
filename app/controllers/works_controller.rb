@@ -1,4 +1,5 @@
 class WorksController < ApplicationController
+  before_action :authenticate_user!, except: [:show_category, :index, :render_facebook_share_info]
   URL = "https://www.papercutodyssey.dk"
 
   def index

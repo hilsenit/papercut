@@ -1,4 +1,6 @@
 class NewsController < ApplicationController
+  before_action :authenticate_user!, except: :index
+
   def new
     @news = News.new
     @works = Work.all
@@ -43,6 +45,7 @@ class NewsController < ApplicationController
       redirect_to news_index_path(), notice: return_messages("alert", "Din nyhed kunne desværre ikke fjernes. Kontakt hilsen.it på kontakt@hilsen.it")
     end
   end
+
   private
 
   def news_params

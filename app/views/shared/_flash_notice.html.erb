@@ -1,5 +1,9 @@
-<% messages.each do |obj| %>
-  <% obj.each do |key, value| %>
-    <div class="<%= key %> text-center"><%= value %></div>
-  <% end%>
+<% if messages.is_a? Array %>
+  <% messages.each do |obj| %>
+    <% obj.each do |key, value| %>
+      <div class="<%= key %> text-center"><%= value %></div>
+    <% end%>
+  <% end %>
+<% else %>
+  <div class="notice text-center"><%= messages %></div>
 <% end %>

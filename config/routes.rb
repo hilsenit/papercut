@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+
   get 'backend' => 'backend#index', as: :backend
   get 'backend/:theme_id' => 'backend#show_theme_content', as: :ba_show_works
 
@@ -19,5 +21,5 @@ Rails.application.routes.draw do
   # For TextImage in TinyMCE to Carrierwave
   post '/tinymce_assets' => 'tinymce_assets#create'
 
-  root 'pages#frontpage'
+  root to: 'pages#frontpage'
 end

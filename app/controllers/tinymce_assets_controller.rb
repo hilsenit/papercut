@@ -1,4 +1,5 @@
 class TinymceAssetsController < ApplicationController
+  before_action :authenticate_user!
   def create
       # Take upload from params[:file] and store it somehow...
       # Optionally also accept params[:hint] and consume if needed

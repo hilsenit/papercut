@@ -11,6 +11,12 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <div class="logged-in text-center">
+        <div class="small">Du er logget ind. Husk at logge ud.</div>
+        <%= link_to "Log ud", destroy_user_session_path(), method: :delete if user_signed_in? %>
+      </div>
+    <% end %>
     <span class="firework"></span>
     <span class="star"></span>
     <%= render partial: 'shared/flash_notice',

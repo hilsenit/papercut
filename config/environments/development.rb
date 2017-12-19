@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Added by me
   config.read_encrypted_secrets = true
+  # DEVISE
+  config.action_mailer.default_url_options = { host: 'localhost', port: 5000 }
 
   # Settings specified here will take precedence over those in config/application.rb.
 

@@ -1,5 +1,5 @@
 class ThemesController < ApplicationController
-
+  before_action :authenticate_user!, except: [:show, :index]
   def index
     @themes = Theme.all
   end

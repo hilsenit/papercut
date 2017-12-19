@@ -1,5 +1,5 @@
 class TextImagesController < ApplicationController
-
+  before_action :authenticate_user!
   def new
     @image = TextImage.build.params(image_params)
   end
