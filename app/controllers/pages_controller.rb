@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, except: [:frontpage, :om, :bidrag, :load_newsline]
+  before_action :authenticate_user!, except: [:frontpage, :om, :bidrag, :load_newsline, :cookies]
 
   def new
     @pages = Page.new()
@@ -46,6 +46,10 @@ class PagesController < ApplicationController
       @bidrag_r_title = Page.last.bidrag_r_title
       @bidrag_right = Page.last.bidrag_right
     end
+  end
+
+  def cookies
+
   end
 
   private

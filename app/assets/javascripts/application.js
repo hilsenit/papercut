@@ -53,6 +53,13 @@ animateLeft = function(obj, from, to){
 }
 
 window.onload = function() {
+  // Cookie-message forsvinder efter at have trykket Accepter
+  var cookiesMessage = document.getElementById('cookieMessage');
+  if (typeof cookieMessage !== 'undefined') {
+    document.getElementById('acceptCookies').addEventListener('click', function() {
+      cookiesMessage.classList.add('hide-it');
+    });
+  }
   // Menuen skal vises på desktop, men ikke på mobil
   if (screen.width > 850) {
     var menuWrapper = document.getElementById('menuWrapper');

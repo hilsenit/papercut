@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
     backend_path()
   end
 
+  def accept_cookies
+    cookies[:accepted_cookies] = { value: true, expires: 30.days.from_now }
+    byebug
+  end
+
   private
 
   def return_messages type, *messages
