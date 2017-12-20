@@ -6,8 +6,7 @@ class ApplicationController < ActionController::Base
   end
 
   def accept_cookies
-    cookies[:accepted_cookies] = { value: true, expires: 30.days.from_now }
-    byebug
+    cookies[:allow_cookies] = { value: true, expires: 60.days.from_now }
   end
 
   private

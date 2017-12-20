@@ -56,6 +56,7 @@ window.onload = function() {
   // Cookie-message forsvinder efter at have trykket Accepter
   var cookiesMessage = document.getElementById('cookieMessage');
   if (typeof cookieMessage !== 'undefined') {
+    document.body.style.paddingBottom = cookieMessage.clientHeight + 'px'; // So all pages addabt to the cookie message
     document.getElementById('acceptCookies').addEventListener('click', function() {
       cookiesMessage.classList.add('hide-it');
     });
