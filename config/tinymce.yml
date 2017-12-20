@@ -8,6 +8,5 @@ plugins:
   - code
 width: 700
 height: 800
-relative_urls : false
 remove_script_host : true
 document_base_url : "http://www.papercutodyssey.dk/"
