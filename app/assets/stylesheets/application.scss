@@ -260,14 +260,13 @@ $nav_height_on_mobile: 75px;
     background-repeat: no-repeat;
     background-color: rgba(54,53,53,0.7);
   }
-  $mobile_btn_height: 50px;
     
   .info-right-boxes {
+    @include calc('height', '100% - 75px'); 
     backface-visibility: hidden; // from https://stackoverflow.com/questions/25224969/fixed-positioned-header-jumps-in-google-chrome
     -webkit-transform: translateZ(0); // Me to! 
-    height: 89%;
+    margin-top: -50px;
     top: 100%;
-    margin-top: -$mobile_btn_height;
     margin-left: 0!important;
     width: 100%!important;
     text-align: center;
@@ -278,6 +277,10 @@ $nav_height_on_mobile: 75px;
     }
   }
   .info-box-opened {
+    top: 125px!important;
+    left: 0!important;
+    width: 100%!important;
+
     h3 {
       width: 100%;
     }

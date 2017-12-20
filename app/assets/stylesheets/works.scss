@@ -245,11 +245,6 @@ $info_max_width: 850px;
 }
 .info-box-opened {
   left: 40%!important;
-  @media screen and (max-width: 850px) {
-    left: 0!important;
-    width: 100%!important;
-    top: 20%!important;
-  }
 }
 #closeInfoBoxes, .close-info-boxes-init {
   position: fixed;
