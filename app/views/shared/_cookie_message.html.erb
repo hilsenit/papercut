@@ -1,9 +1,9 @@
-<div id="cookieMessage" class="cookie-message <%= 'cookie-with-newsline' if current_page?('/') %>">
+<div id="cookieMessage" class="cookie-message hide-it <%= 'cookie-with-newsline' if current_page?('/') %>">
   <p class="text-center">
     Vi er ikke mere anderledes, end at vi selvfølgelig også gerne vil vide, hvad du laver, når du besøger vores site.<br>
     Derfor anvender websitet cookies til at huske dine indstillinger og lave statistik.<br>
     Vi bruger det tilgengæld ikke til at målrette annoncer eller dele med tredjeparter. 
   </p>
-  <%= link_to "Accepter", accept_cookies_path(), remote: true, method: :post, id: "acceptCookies" %>
+  <span class="look-like-link" id="acceptCookies">Accepter</span>
   <%= link_to "Læs mere her", cookies_path() %>
 </div>

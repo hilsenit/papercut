@@ -5,9 +5,6 @@ class ApplicationController < ActionController::Base
     backend_path()
   end
 
-  def accept_cookies
-    cookies[:allow_cookies] = { value: true, expires: 60.days.from_now }
-  end
 
   private
 

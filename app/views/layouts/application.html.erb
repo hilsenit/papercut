@@ -14,27 +14,33 @@
   <body>
     <span class="firework"></span>
     <span class="star"></span>
-    <%# <% if cookies.nil? || (cookies[:allow_cookies].nil? && !user_signed_in?) %1> %>
-    <% if false %>
-      <%= render partial: 'shared/cookie_message' %>
-    <% end %>
+
+    <%= render partial: 'shared/cookie_message' %> <!-- Handled in application.js -->
+
     <%= render partial: 'shared/flash_notice',
       locals: {messages: flash[:notice]} unless flash[:notice].nil? %>
+
     <%= render partial: 'shared/top_navbar' %>
+
     <div class="container main-content-layout">
       <%= render partial: 'shared/menu' %>
     </div>
+
     <%= render partial: 'search/search_page' %>
+
     <div class="container-content">
       <%= yield %>
     </div>
+
     <% if user_signed_in? %>
       <div class="logged-in text-center">
         <div class="small">Du er logget ind. Husk at logge ud.</div>
         <%= link_to "Log ud", destroy_user_session_path(), method: :delete if user_signed_in? %> | <%= link_to "Backend", backend_path() %>
       </div>
     <% end %>
+
     <%= render partial: 'shared/newsline', locals: {news: params[:news_line] } unless params[:news_line].nil? %>
+
   </body>
 </html>
 

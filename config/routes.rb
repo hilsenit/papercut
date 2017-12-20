@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   get 'om' =>  'pages#om'
   get 'bidrag' => 'pages#bidrag'
   get 'cookies' => 'pages#cookies'
-  post 'accept_cookies' => 'application#accept_cookies', as: :accept_cookies
 
   # For TextImage in TinyMCE to Carrierwave
   post '/tinymce_assets' => 'tinymce_assets#create'

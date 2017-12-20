@@ -43,7 +43,6 @@ h1 {
   left: 0;
   padding: 0 20px;
   margin-top: 0px;
-
   width: 100%;
   bottom: 0px;
   background-color: black;
@@ -53,6 +52,18 @@ h1 {
   z-index: 999999;
   p {
     margin: 6px 0;
+  }
+  .look-like-link {
+    cursor: pointer;
+    font-family: "CircularStd-Book";
+    display: inline-block;
+    padding: 4px;
+    color: $dark-blue;
+    border: 1px solid $dark-blue;
+    margin-bottom: 6px;
+    &:hover {
+      background-color: $dark-blue;
+    }
   }
   a {
     display: inline-block;
@@ -68,6 +79,7 @@ h1 {
 .cookie-with-newsline {
   bottom: 29px!important;
 }
+
 
 .logged-in {
   position: fixed;

@@ -53,14 +53,18 @@ animateLeft = function(obj, from, to){
 }
 
 window.onload = function() {
-  // Cookie-message forsvinder efter at have trykket Accepter
+
   var cookiesMessage = document.getElementById('cookieMessage');
-  if (typeof cookieMessage !== 'undefined') {
-    document.body.style.paddingBottom = cookieMessage.clientHeight + 'px'; // So all pages addabt to the cookie message
+  if (document.cookie.indexOf('allow_cookies_now') < 0) { // Hvis cookien ikke er der - vis besked
+    cookiesMessage.classList.remove('hide-it');
     document.getElementById('acceptCookies').addEventListener('click', function() {
       cookiesMessage.classList.add('hide-it');
+      var expiryDate = new Date(); expiryDate.setMonth(expiryDate.getMonth() + 2);
+      document.cookie = 'allow_cookies_now=true; expires=' + expiryDate.toGMTString();
+      return false;
     });
-  }
+  } 
+
   // Menuen skal vises på desktop, men ikke på mobil
   if (screen.width > 850) {
     var menuWrapper = document.getElementById('menuWrapper');

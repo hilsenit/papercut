@@ -49,7 +49,6 @@ class PagesController < ApplicationController
   end
 
   def cookies
-
   end
 
   private
