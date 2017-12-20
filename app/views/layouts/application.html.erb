@@ -14,7 +14,7 @@
   <body>
     <span class="firework"></span>
     <span class="star"></span>
-    <%= render partial: 'shared/cookie_message' if cookies.nil? || (!cookies[:accepted_cookies] && !user_signed_in?) %>
+    <%= render partial: 'shared/cookie_message' if (cookies.nil? && !user_signed_in?) || (!cookies[:accepted_cookies].nil? && !user_signed_in?) %>
     <%= render partial: 'shared/flash_notice',
       locals: {messages: flash[:notice]} unless flash[:notice].nil? %>
     <%= render partial: 'shared/top_navbar' %>
