@@ -13,82 +13,82 @@ import {Observable} from "rxjs";
       <ul class="info-list">
         <li data-theme-title="true">
           Tema <br>
-          {{ theme.title }}
+          {{ theme?.title }}
         </li>
         <li>
           Dato<br>
-          {{ current_work.created_at | date: 'dd.MM.yy'}}
+          {{ current_work?.created_at | date: 'dd.MM.yy'}}
         </li>
-        <li *ngIf="current_work.type_of_content">
+        <li *ngIf="current_work?.type_of_content">
           Type<br>
-          {{ current_work.type_of_content }}
+          {{ current_work?.type_of_content }}
         </li>
-        <div *ngFor="let credit of current_work.credits">
+        <div *ngFor="let credit of current_work?.credits">
           <li *ngIf="credit">
             {{ credit.split(':')[0] + ':' }}<br>
             {{ credit.split(':')[1] }}
           </li>
         </div>
         <li>Del:
-          <a [attr.href]="'https://www.facebook.com/sharer.php?u=https://www.papercutodyssey.dk/themes/' + theme.id + '/works/' + current_work.id" target="_blank" class="share-buttons facebook">FB</a>
+          <a [attr.href]="'https://www.facebook.com/sharer.php?u=https://www.papercutodyssey.dk/themes/' + theme?.id + '/works/' + current_work?.id" target="_blank" class="share-buttons facebook">FB</a>
         </li>
       </ul><!-- .info-list -->
     </div><!-- .info-column -->
     <div class="main-column" id="mainColumn">
 
-      <img *ngIf="current_work.cover_image.url" [src]="current_work.cover_image.thumb.url" id="slideUpImage">
+      <img *ngIf="current_work?.cover_image.url" [src]="current_work.cover_image.thumb.url" id="slideUpImage">
 
-      <h2 class="text-center current-work-title">{{ current_work.title }}</h2>
+      <h2 class="text-center current-work-title">{{ current_work?.title }}</h2>
 
-      <iframe *ngIf="current_work.youtube_in_top && current_work.youtube_url"
-      width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
+      <iframe *ngIf="current_work?.youtube_in_top && current_work?.youtube_url"
+      width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work?.youtube_url)"
       frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-      <iframe *ngIf="current_work.soundcloud_in_top && current_work.soundcloud_url" width="100%" height="166" scrolling="no" frameborder="no"
-      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      <iframe *ngIf="current_work?.soundcloud_in_top && current_work?.soundcloud_url" width="100%" height="166" scrolling="no" frameborder="no"
+      [src]="getSafeYoutubeAndSouncloudUrl(current_work?.soundcloud_url)" webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
 
-      <p class="main-text" [innerHTML]="current_work.description">
+      <p class="main-text" [innerHTML]="current_work?.description">
       </p>
 
-      <iframe *ngIf="current_work.youtube_in_bottom && current_work.youtube_url"
-      width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work.youtube_url)"
+      <iframe *ngIf="current_work?.youtube_in_bottom && current_work?.youtube_url"
+      width="100%" height="500px" [src]="getSafeYoutubeAndSouncloudUrl(current_work?.youtube_url)"
       frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
-      <iframe *ngIf="current_work.soundcloud_in_bottom && current_work.soundcloud_url"
+      <iframe *ngIf="current_work?.soundcloud_in_bottom && current_work?.soundcloud_url"
       width="100%" height="166" scrolling="no" frameborder="no"
-      [src]="getSafeYoutubeAndSouncloudUrl(current_work.soundcloud_url)" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      [src]="getSafeYoutubeAndSouncloudUrl(current_work?.soundcloud_url)" webkitallowfullscreen mozallowfullscreen allowfullscreen>
       </iframe>
 
     </div><!-- .main-column -->
   </div>
   <div class="overview-column not-on-mobile" id="overviewPage">
     <h3 class="overview-header">Alt i tema</h3>
-      <div class="overview-box" *ngFor="let overview_work of works; let i = index" [attr.id]="'work' + overview_work.id" (click)="changeCurrentWork(overview_work.id, true)">
-        <img [src]="overview_work.cover_image.thumb.url" (load)="setImageUrl(overview_work.cover_image.thumb.url, i)" hidden>
+      <div class="overview-box" *ngFor="let overview_work of works; let i = index" [attr.id]="'work' + overview_work?.id" (click)="changeCurrentWork(overview_work?.id, true)">
+        <img [src]="overview_work?.cover_image.thumb.url" (load)="setImageUrl(overview_work?.cover_image.thumb.url, i)" hidden>
         <div class="overview-image" [attr.id]="i">
-          <div *ngIf="overview_work.id == current_work.id" id="currentCross"></div>
+          <div *ngIf="overview_work?.id == current_work?.id" id="currentCross"></div>
         </div>
         <div class="overview-info-wrapper">
-          <h4 class="overview-title">{{ overview_work.title }}</h4>
-          <h5 *ngIf="overview_work.type_of_content" class="overview-info">{{ overview_work.type_of_content }}</h5>
-          <h5 class="overview-info">{{ overview_work.created_at | date: "dd.MM.yy" }} </h5>
+          <h4 class="overview-title">{{ overview_work?.title }}</h4>
+          <h5 *ngIf="overview_work?.type_of_content" class="overview-info">{{ overview_work?.type_of_content }}</h5>
+          <h5 class="overview-info">{{ overview_work?.created_at | date: "dd.MM.yy" }} </h5>
         </div>
       </div><!-- overview-box -->
   </div><!-- overview-column -->
   <div class="info-right-boxes kilder" data-info="boxes" id="kilder" (click)="openInfoBox('kilder', true)">
       <h3>Data</h3>
     <div class="kilde-wrapper-relative">
-      <div class="kilde-box" *ngFor="let source of sources; let i_s = index" [attr.id]="'source' + source.id">
+      <div class="kilde-box" *ngFor="let source of sources; let i_s = index" [attr.id]="'source' + source?.id">
         <div class="source-image">
-          <img *ngIf="source.image.url" class="source-image" [src]="source.image.thumb.url"/>
+          <img *ngIf="source?.image.url" class="source-image" [src]="source?.image.thumb.url"/>
         </div>
         <div class="source-content">
           <h5 class="text-center">{{ i_s + 1 }}</h5>
-          <h4 class="text-center">{{ source.title }}</h4>
+          <h4 class="text-center">{{ source?.title }}</h4>
           <p class="source-description">
-            {{source.description}}
-            <a *ngIf="source.link" class="source-link" [attr.href]="source.link" target="_blank">{{source.link}}</a>
+            {{source?.description}}
+            <a *ngIf="source?.link" class="source-link" [attr.href]="source.link" target="_blank">{{source.link}}</a>
           </p>
         </div>
       </div><!-- kilde-box -->
@@ -99,13 +99,13 @@ import {Observable} from "rxjs";
     <div class="kilde-wrapper-relative">
       <div class="kilde-box" *ngFor="let to_do of to_dos">
         <div class="source-image">
-          <img *ngIf="to_do.image.url" class="source-image" [src]="to_do.image.thumb.url"/>
+          <img *ngIf="to_do?.image.url" class="source-image" [src]="to_do.image.thumb.url"/>
         </div>
         <div class="source-content">
-          <h4 class="text-center">{{ to_do.title }}</h4>
+          <h4 class="text-center">{{ to_do?.title }}</h4>
           <p class="source-description">
-            {{to_do.description}}
-            <a *ngIf="to_do.link" class="source-link to-do-link" [attr.href]="to_do.link" target="_blank">{{to_do.link}}</a>
+            {{to_do?.description}}
+            <a *ngIf="to_do?.link" class="source-link to-do-link" [attr.href]="to_do.link" target="_blank">{{to_do.link}}</a>
           </p>
         </div>
       </div><!-- kilde-box | TODO-->
