@@ -362,9 +362,11 @@ $nav_height_on_mobile: 75px;
     display: none;
   }
   .overview-column {
-      left: 0;
-      width: 100%;
-      padding-bottom: 80px;
+    top: 75px;
+    z-index: 999999; // Above data and toodo
+    left: 0;
+    width: 100%;
+    padding-bottom: 80px;
       h3 {
         padding-top: 60px;
         padding-left: 0!important;

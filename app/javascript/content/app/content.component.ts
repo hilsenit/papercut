@@ -251,7 +251,6 @@ export class ContentComponent implements OnInit {
     var btn = document.getElementById("overviewBtnMobile");
     var view_column = document.getElementById('overviewPage');
     window.scrollTo(0, 0); // Scroll window to top
-    debugger;
     if (overview_column == true) { //
       view_column.classList.add('not-on-mobile');
       btn.classList.remove('close-icon');
